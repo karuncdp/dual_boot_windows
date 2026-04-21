@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Disk Partition Size Calculator for Dual Boot</title>
+  <meta
+    name="description"
+    content="Calculate safe partition sizes for dual booting Linux and Windows 11 with beginner-friendly recommendations."
+  />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .calc-shell {
+      width: min(1100px, 92vw);
+      margin: 0 auto 3rem;
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      gap: 1rem;
+    }
+
+    .calc-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      box-shadow: var(--shadow);
+      padding: 1.1rem;
+    }
+
+    .calc-title {
+      margin: 0 0 0.4rem;
+      font-size: 1.15rem;
+      color: var(--text);
+    }
+
+    .calc-sub {
+      margin: 0 0 1rem;
+      color: var(--text);
+      font-size: 0.95rem;
+    }
+
+    .field-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.8rem;
+    }
+
+    .field {
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+    }
+
+    .field label {
+      color: var(--text);
+      font-size: 0.9rem;
+      font-weight: 700;
+    }
+
+    .field-note {
+      color: var(--text-muted);
+      font-size: 0.8rem;
+      margin-top: 0.2rem;
+    }
+
+    .field input,
+    .field select {
+      width: 100%;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--text);
+      border-radius: 10px;
+      padding: 0.6rem 0.7rem;
+      font-size: 0.95rem;
+      outline: none;
+    }
+
+    .field input:focus,
+    .field select:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent), transparent 80%);
+    }
+
+    .checkbox-row {
+      display: flex;
+      align-items: center;
+      gap: 0.55rem;
+      margin-top: 0.45rem;
+      color: var(--text);
+      font-size: 0.92rem;
+    }
+
+    .actions {
+      margin-top: 1rem;
+      display: flex;
+      gap: 0.7rem;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      border: 0;
+      border-radius: 10px;
+      padding: 0.62rem 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      font-size: 0.92rem;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #fff;
+      border: 1px solid color-mix(in srgb, var(--accent), #000 12%);
+    }
+
+    .btn-secondary {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      color: var(--text);
+    }
+
+    .msg {
+      margin-top: 0.9rem;
+      border-radius: 10px;
+      padding: 0.7rem 0.8rem;
+      font-size: 0.9rem;
+      display: none;
+    }
+
+    .msg.error {
+      display: block;
+      background: color-mix(in srgb, #ef4444, transparent 88%);
+      color: #b91c1c;
+      border: 1px solid color-mix(in srgb, #ef4444, transparent 76%);
+    }
+
+    .msg.ok {
+      display: block;
+      background: color-mix(in srgb, #10b981, transparent 88%);
+      color: #047857;
+      border: 1px solid color-mix(in srgb, #10b981, transparent 76%);
+    }
+
+    .result-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.75rem;
+      margin-top: 0.8rem;
+    }
+
+    .result-item {
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 0.7rem;
+      background: var(--surface);
+    }
+
+    .result-item p {
+      margin: 0;
+    }
+
+    .result-label {
+      color: var(--text-muted);
+      font-size: 0.8rem;
+      margin-bottom: 0.2rem;
+    }
+
+    .result-value {
+      color: var(--text);
+      font-weight: 800;
+      font-size: 1.15rem;
+    }
+
+    .bar-wrap {
+      margin-top: 1rem;
+      border-radius: 999px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      height: 16px;
+      display: flex;
+    }
+
+    .seg {
+      height: 100%;
+      transition: width 260ms ease;
+      min-width: 0;
+    }
+
+    .legend {
+      margin-top: 0.8rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.65rem;
+      color: var(--text);
+      font-size: 0.86rem;
+    }
+
+    .legend-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
+    .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      display: inline-block;
+    }
+
+    .tips {
+      margin-top: 1rem;
+      color: var(--text);
+      font-size: 0.9rem;
+      line-height: 1.55;
+    }
+
+    .tips h3 {
+      margin: 0 0 0.55rem;
+      color: var(--text);
+      font-size: 0.98rem;
+    }
+
+    .tips ul {
+      margin: 0;
+      padding-left: 1rem;
+    }
+
+    @media (max-width: 920px) {
+      .calc-shell {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .field-grid,
+      .result-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero__title {
+        font-size: clamp(1.6rem, 7.3vw, 2.2rem);
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar" role="navigation" aria-label="Main navigation">
+    <div class="navbar__inner">
+      <button class="navbar__toggle" type="button" aria-label="Open navigation menu" aria-expanded="false">
+        <span class="navbar__toggle-lines" aria-hidden="true"><span></span></span>
+      </button>
+
+      <a href="index.html" class="navbar__logo" aria-label="Dual Boot &amp; Linux home">
+        <img class="site-logo" src="/home/karun/Documents/DUALBOOT/dualboot-logo.svg" alt="" aria-hidden="true" />
+      </a>
+
+      <div class="navbar__nav">
+        <a href="index.html">Home</a>
+        <a href="disk_partition_size_calculator_for_dual_boot.html">Calculator</a>
+        <a href="linux_command_for_beginner.html">Commands</a>
+        <a href="about.html" class="navbar__mobile-only">About</a>
+        <a href="contact.html" class="navbar__mobile-only">Contact</a>
+        <a href="terms.html" class="navbar__mobile-only">Terms</a>
+      </div>
+
+      <div class="navbar__controls">
+        <button
+          id="darkToggle"
+          class="toggle-dark"
+          aria-label="Toggle dark mode"
+          title="Toggle dark mode"
+        >
+          <span class="toggle-dark__label" aria-hidden="true">🌙</span>
+        </button>
+      </div>
+
+      <div class="navbar__overlay" aria-hidden="true"></div>
+    </div>
+  </nav>
+
+  <section class="hero" aria-labelledby="calc-hero-title">
+    <p class="hero__tag fade-up">Dual Boot Planning Tool</p>
+    <h1 class="hero__title fade-up fade-up-1" id="calc-hero-title">
+      Disk Partition Size Calculator
+    </h1>
+    <p class="hero__sub fade-up fade-up-2">
+      Estimate safe partition sizes for Windows and Linux before installation.
+    </p>
+  </section>
+
+  <main>
+    <section class="calc-shell" aria-label="Dual boot partition calculator">
+      <article class="calc-card fade-up fade-up-1">
+        <h2 class="calc-title">Input your disk details</h2>
+        <p class="calc-sub">All values are in GB. Use real values from Disk Management for best accuracy.</p>
+
+        <div class="field-grid">
+          <div class="field">
+            <label for="totalDisk">Total disk size</label>
+            <input id="totalDisk" type="number" min="64" step="1" value="512" />
+          </div>
+
+          <div class="field">
+            <label for="windowsUsed">Current Windows used space</label>
+            <input id="windowsUsed" type="number" min="10" step="1" value="140" />
+          </div>
+
+          <div class="field">
+            <label for="windowsKeep">Space to keep for Windows</label>
+            <input id="windowsKeep" type="number" min="10" step="1" value="100" />
+            <p class="field-note" id="windowsTotalHint">Windows total: 240 GB (140 + 100)</p>
+          </div>
+
+          <div class="field">
+            <label for="ram">System RAM size</label>
+            <input id="ram" type="number" min="2" step="1" value="16" />
+          </div>
+
+          <div class="field">
+            <label for="usage">Linux usage profile</label>
+            <select id="usage">
+              <option value="light">Light (browsing, coding basics)</option>
+              <option value="normal" selected>Normal (daily apps + updates)</option>
+              <option value="heavy">Heavy (dev tools, VMs, media files)</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="actions">
+          <button id="btnCalc" class="btn btn-primary" type="button">Calculate</button>
+          <button id="btnReset" class="btn btn-secondary" type="button">Reset</button>
+        </div>
+
+        <p id="calcMsg" class="msg" aria-live="polite"></p>
+      </article>
+
+      <article class="calc-card fade-up fade-up-2">
+        <h2 class="calc-title">Recommended partition plan</h2>
+        <p class="calc-sub">This gives you a practical starting point. You can fine-tune during installation.</p>
+
+        <div class="result-grid">
+          <div class="result-item">
+            <p class="result-label">Windows (keep)</p>
+            <p class="result-value" id="rWindows">-</p>
+          </div>
+          <div class="result-item">
+            <p class="result-label">Linux root (/)</p>
+            <p class="result-value" id="rRoot">-</p>
+          </div>
+          <div class="result-item">
+            <p class="result-label">Linux swap</p>
+            <p class="result-value" id="rSwap">-</p>
+          </div>
+          <div class="result-item">
+            <p class="result-label">Linux home (/home)</p>
+            <p class="result-value" id="rHome">-</p>
+          </div>
+          <div class="result-item">
+            <p class="result-label">Unallocated/free</p>
+            <p class="result-value" id="rFree">-</p>
+          </div>
+        </div>
+
+        <div class="bar-wrap" aria-label="Partition usage bar">
+          <div id="segWindows" class="seg" style="background:#3b82f6;width:0%"></div>
+          <div id="segRoot" class="seg" style="background:#22c55e;width:0%"></div>
+          <div id="segSwap" class="seg" style="background:#f59e0b;width:0%"></div>
+          <div id="segHome" class="seg" style="background:#8b5cf6;width:0%"></div>
+          <div id="segFree" class="seg" style="background:#a8a29e;width:100%"></div>
+        </div>
+
+        <div class="legend" aria-label="Partition legend">
+          <span class="legend-item"><span class="dot" style="background:#3b82f6"></span>Windows</span>
+          <span class="legend-item"><span class="dot" style="background:#22c55e"></span>Root</span>
+          <span class="legend-item"><span class="dot" style="background:#f59e0b"></span>Swap</span>
+          <span class="legend-item"><span class="dot" style="background:#8b5cf6"></span>Home</span>
+          <span class="legend-item"><span class="dot" style="background:#a8a29e"></span>Free</span>
+        </div>
+
+        <div class="tips">
+          <h3>Beginner safety tips</h3>
+          <ul>
+            <li>Keep at least 20 to 30 GB free on Windows for updates and recovery.</li>
+            <li>Back up important files before resizing partitions.</li>
+            <li>If dual boot is your first time, start with automatic installer options where possible.</li>
+          </ul>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <footer role="contentinfo">
+    <div class="footer__inner">
+      <div class="footer__top">
+        <div class="footer__brand">
+          <p class="footer__brand-name">
+            <img class="site-logo" src="/home/karun/Documents/DUALBOOT/dualboot-logo.svg" alt="" aria-hidden="true" />
+          </p>
+          <p class="footer__tagline">Your beginner-friendly hub for dual booting Linux and Windows 11.</p>
+        </div>
+
+        <nav class="footer__links-col" aria-label="Footer navigation">
+          <h4>Navigate</h4>
+          <a href="index.html" target="_blank">Home</a>
+          <a href="about.html" target="_blank">About</a>
+          <a href="contact.html" target="_blank">Contact</a>
+          <a href="terms.html" target="_blank">Terms</a>
+        </nav>
+      </div>
+
+      <div class="footer__bottom">
+        <p class="footer__copy">© 2025 Dual Boot &amp; Linux. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      var totalDiskEl = document.getElementById('totalDisk');
+      var windowsUsedEl = document.getElementById('windowsUsed');
+      var windowsKeepEl = document.getElementById('windowsKeep');
+      var ramEl = document.getElementById('ram');
+      var usageEl = document.getElementById('usage');
+      var msgEl = document.getElementById('calcMsg');
+
+      var rWindows = document.getElementById('rWindows');
+      var rRoot = document.getElementById('rRoot');
+      var rSwap = document.getElementById('rSwap');
+      var rHome = document.getElementById('rHome');
+      var rFree = document.getElementById('rFree');
+
+      var segWindows = document.getElementById('segWindows');
+      var segRoot = document.getElementById('segRoot');
+      var segSwap = document.getElementById('segSwap');
+      var segHome = document.getElementById('segHome');
+      var segFree = document.getElementById('segFree');
+
+      function toNum(el) {
+        return Number(el.value || 0);
+      }
+
+      function setMsg(text, kind) {
+        msgEl.className = 'msg ' + kind;
+        msgEl.textContent = text;
+      }
+
+      function clearMsg() {
+        msgEl.className = 'msg';
+        msgEl.textContent = '';
+      }
+
+      function toPercent(part, total) {
+        if (total <= 0) return 0;
+        return Math.max(0, (part / total) * 100);
+      }
+
+      function fmt(value) {
+        return value.toFixed(1) + ' GB';
+      }
+
+      function resetOutput() {
+        rWindows.textContent = '-';
+        rRoot.textContent = '-';
+        rSwap.textContent = '-';
+        rHome.textContent = '-';
+        rFree.textContent = '-';
+
+        segWindows.style.width = '0%';
+        segRoot.style.width = '0%';
+        segSwap.style.width = '0%';
+        segHome.style.width = '0%';
+        segFree.style.width = '100%';
+      }
+
+      function calculate() {
+        clearMsg();
+
+        var totalDisk = toNum(totalDiskEl);
+        var windowsUsed = toNum(windowsUsedEl);
+        var windowsKeep = toNum(windowsKeepEl);
+        var windowsTotal = windowsUsed + windowsKeep;
+        var ram = toNum(ramEl);
+
+        updateWindowsTotalHint(windowsUsed, windowsKeep);
+
+        if (totalDisk <= 0 || windowsUsed < 0 || windowsKeep <= 0 || ram <= 0) {
+          setMsg('Please enter valid positive numbers.', 'error');
+          resetOutput();
+          return;
+        }
+
+        if (windowsTotal >= totalDisk) {
+          setMsg('Current Windows used space + space to keep must be less than total disk size.', 'error');
+          resetOutput();
+          return;
+        }
+
+        var linuxAvailable = totalDisk - windowsTotal;
+        if (linuxAvailable < 20) {
+          setMsg('Not enough space left for Linux. Try freeing more space from Windows.', 'error');
+          resetOutput();
+          return;
+        }
+
+        var rootTarget = 35;
+        if (usageEl.value === 'light') rootTarget = 25;
+        if (usageEl.value === 'heavy') rootTarget = 55;
+
+        var swap = Math.min(Math.max(ram * 0.5, 2), 16);
+        var root = Math.min(rootTarget, Math.max(20, linuxAvailable * 0.5));
+        var home = linuxAvailable - root - swap;
+
+        if (home < 8) {
+          var deficit = 8 - home;
+          root = Math.max(20, root - deficit);
+          home = linuxAvailable - root - swap;
+        }
+
+        if (home < 0) {
+          swap = Math.max(2, linuxAvailable - root - 8);
+          home = linuxAvailable - root - swap;
+        }
+
+        if (home < 0 || root < 20 || swap < 2) {
+          setMsg('Disk is too small for this profile. Reduce Windows keep size or choose lighter Linux usage.', 'error');
+          resetOutput();
+          return;
+        }
+
+        var free = totalDisk - (windowsTotal + root + swap + home);
+        free = Math.max(0, free);
+
+        rWindows.textContent = fmt(windowsTotal);
+        rRoot.textContent = fmt(root);
+        rSwap.textContent = fmt(swap);
+        rHome.textContent = fmt(home);
+        rFree.textContent = fmt(free);
+
+        segWindows.style.width = toPercent(windowsTotal, totalDisk).toFixed(2) + '%';
+        segRoot.style.width = toPercent(root, totalDisk).toFixed(2) + '%';
+        segSwap.style.width = toPercent(swap, totalDisk).toFixed(2) + '%';
+        segHome.style.width = toPercent(home, totalDisk).toFixed(2) + '%';
+        segFree.style.width = toPercent(free, totalDisk).toFixed(2) + '%';
+
+        setMsg('Calculation updated. Review values before partitioning.', 'ok');
+      }
+
+      function updateWindowsTotalHint(windowsUsed, windowsKeep) {
+        var hintEl = document.getElementById('windowsTotalHint');
+        if (!hintEl) return;
+
+        if (windowsUsed <= 0 && windowsKeep <= 0) {
+          hintEl.textContent = 'Windows total: used + keep';
+          return;
+        }
+
+        hintEl.textContent = 'Windows total: ' + (windowsUsed + windowsKeep) + ' GB (' + windowsUsed + ' + ' + windowsKeep + ')';
+      }
+
+      document.getElementById('btnCalc').addEventListener('click', calculate);
+      document.getElementById('btnReset').addEventListener('click', function () {
+        totalDiskEl.value = '';
+        windowsUsedEl.value = '';
+        windowsKeepEl.value = '';
+        ramEl.value = '';
+        usageEl.value = '';
+        clearMsg();
+        resetOutput();
+        updateWindowsTotalHint(0, 0);
+      });
+
+      windowsUsedEl.addEventListener('input', function () {
+        updateWindowsTotalHint(toNum(windowsUsedEl), toNum(windowsKeepEl));
+      });
+
+      windowsKeepEl.addEventListener('input', function () {
+        updateWindowsTotalHint(toNum(windowsUsedEl), toNum(windowsKeepEl));
+      });
+
+      resetOutput();
+      updateWindowsTotalHint(toNum(windowsUsedEl), toNum(windowsKeepEl));
+      calculate();
+    })();
+  </script>
+  <script src="script.js"></script>
+</body>
+</html>

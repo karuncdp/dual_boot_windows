@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dual Boot &amp; Linux — Beginner-Friendly Guide</title>
+  <meta name="description" content="Your beginner-friendly hub for dual booting Linux and Windows 11. Step-by-step guides, tips, and everything you need to get started." />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ── NAVBAR ──────────────────────────────────────────────── -->
+  <nav class="navbar" role="navigation" aria-label="Main navigation">
+    <div class="navbar__inner">
+
+      <button class="navbar__toggle" type="button" aria-label="Open navigation menu" aria-expanded="false">
+        <span class="navbar__toggle-lines" aria-hidden="true"><span></span></span>
+      </button>
+
+      <a href="index.html" class="navbar__logo" aria-label="Dual Boot &amp; Linux home">
+        <img class="site-logo" src="/home/karun/Documents/DUALBOOT/dualboot-logo.svg" alt="" aria-hidden="true" />
+      </a>
+
+      <div class="navbar__nav">
+        <a href="index.html"  >Home</a>
+        <a href="disk_partition_size_calculator_for_dual_boot.html" >Calculator</a>
+        <a href="linux_command_for_beginner.html"   >Commands</a>
+        <a href="about.html" class="navbar__mobile-only">About</a>
+        <a href="contact.html" class="navbar__mobile-only">Contact</a>
+        <a href="terms.html" class="navbar__mobile-only">Terms</a>
+      </div>
+
+      <div class="navbar__controls">
+        <button
+          id="darkToggle"
+          class="toggle-dark"
+          aria-label="Toggle dark mode"
+          title="Toggle dark mode">
+          <span class="toggle-dark__label" aria-hidden="true">🌙</span>
+        </button>
+      </div>
+
+      <div class="navbar__overlay" aria-hidden="true"></div>
+
+    </div>
+  </nav>
+
+  <!-- ── HERO ───────────────────────────────────────────────── -->
+  <section class="hero" aria-labelledby="hero-title">
+    <p class="hero__tag fade-up">Beginner-Friendly Guide</p>
+    <h1 class="hero__title fade-up fade-up-1" id="hero-title">
+      Dual Boot Linux &amp; Windows 11
+    </h1>
+    <p class="hero__sub fade-up fade-up-2">
+      Everything you need to run two operating systems on one machine — safely.
+    </p>
+    <a href="How-to-Dual-Boot-Linux-and-Windows-11-A-Beginner's-Step-by-Step-Guide.html" target="_blank" class="hero__cta fade-up fade-up-3">
+      Read the Guide
+    </a>
+  </section>
+
+  <!-- ── LINUX ENVIRONMENT VISUALIZATION ──────────────────────── -->
+  <section class="linux-env" aria-label="Linux environment overview">
+    <div class="linux-env__container fade-up" style="display: flex; justify-content: center;">
+      
+      <!-- Terminal Window -->
+      <div class="linux-terminal" style="width: 100%; max-width: 760px; margin: 0 auto;">
+        <div class="terminal__header">
+          <span class="terminal__title">user@linux:~$</span>
+          <div class="terminal__controls">
+            <span class="terminal__btn terminal__btn--min"></span>
+            <span class="terminal__btn terminal__btn--max"></span>
+            <span class="terminal__btn terminal__btn--close"></span>
+          </div>
+        </div>
+        <div class="terminal__content">
+          <div class="terminal__line">
+            <span class="terminal__prompt">$</span>
+            <span class="terminal__text">ls -la /home</span>
+          </div>
+          <div class="terminal__output">
+            <p>drwxr-xr-x  12 root  root  4096 Jan 15 10:24 .</p>
+            <p>drwxr-xr-x  13 root  root  4096 Jan 10 08:45 ..</p>
+            <p>drwx------   5 user  user  4096 Jan 15 14:32 user</p>
+          </div>
+          <div class="terminal__line">
+            <span class="terminal__prompt">$</span>
+            <span class="terminal__text">uname -a</span>
+          </div>
+          <div class="terminal__output">
+            <p>Linux kernel 6.1.0 #1 SMP x86_64 GNU/Linux</p>
+          </div>
+          <div class="terminal__line">
+            <span class="terminal__prompt">$</span>
+            <span aria-hidden="true" class="terminal__cursor">▌</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── BLOG LIST ──────────────────────────────────────────── -->
+  <section class="section" aria-labelledby="blog-section-title">
+    <div class="section__header">
+      <h2 class="section__title" id="blog-section-title">Latest Guides</h2>
+      <span class="section__count">2 articles</span>
+    </div>
+
+    <article class="blog-card">
+      <span class="blog-card__num" aria-hidden="true">01</span>
+      <a class="blog-card__media" href="How-to-Dual-Boot-Linux-and-Windows-11-A-Beginner's-Step-by-Step-Guide.html" target="_blank" aria-label="Open dual boot article">
+        <img src="/home/karun/Documents/DUALBOOT/How_to_Dual_Boot_Linux_and_Windows_11_step_by_step_guide_for_beginner.jpg" alt="Dual boot Linux and Windows 11 guide cover image" loading="lazy" />
+      </a>
+      <div class="blog-card__body">
+        <span class="blog-card__tag">Linux · Beginner</span>
+        <h3 class="blog-card__title">
+          How to Dual Boot Linux and Windows 11: A Beginner's Step-by-Step Guide
+        </h3>
+        <p class="blog-card__desc">
+          Learn how to dual boot Linux and Windows 11 safely. A beginner-friendly
+          step-by-step guide to partition your drive, create a bootable USB, and install Linux
+          alongside Windows without losing any data.
+        </p>
+        <a href="How-to-Dual-Boot-Linux-and-Windows-11-A-Beginner's-Step-by-Step-Guide.html" target="_blank" class="blog-card__link" aria-label="Read the dual boot guide">
+          Read Guide
+        </a>
+      </div>
+    </article>
+
+    <article class="blog-card">
+      <span class="blog-card__num" aria-hidden="true">02</span>
+      <a class="blog-card__media" href="linux_command_for_beginner.html" target="_blank" aria-label="Open Linux commands article">
+        <img src="/home/karun/Documents/DUALBOOT/linux_commands_for_beginner.png" alt="Linux terminal commands beginner guide cover image" loading="lazy" />
+      </a>
+      <div class="blog-card__body">
+        <span class="blog-card__tag">Linux Commands · Beginner</span>
+        <h3 class="blog-card__title">
+          Beginner-Friendly Linux Commands You Should Learn First
+        </h3>
+        <p class="blog-card__desc">
+          Start with practical Linux terminal commands for everyday use. Learn how to navigate
+          folders, manage files, view system information, and work faster with simple,
+          beginner-friendly command-line basics.
+        </p>
+        <a href="linux_command_for_beginner.html" target="_blank" class="blog-card__link" aria-label="Read beginner Linux commands guide">
+          Read Guide
+        </a>
+      </div>
+    </article>
+  </section>
+
+  <!-- ── FOOTER ─────────────────────────────────────────────── -->
+  <footer role="contentinfo">
+    <div class="footer__inner">
+      <div class="footer__top">
+
+        <div class="footer__brand">
+          <p class="footer__brand-name">
+            <img class="site-logo" src="/home/karun/Documents/DUALBOOT/dualboot-logo.svg" alt="" aria-hidden="true" />
+          </p>
+          <p class="footer__tagline">
+            Your beginner-friendly hub for dual booting Linux and Windows 11.
+          </p>
+        </div>
+
+        <nav class="footer__links-col" aria-label="Footer navigation">
+          <h4>Navigate</h4>
+          <a href="index.html"    target="_blank">Home</a>
+          <a href="about.html"    target="_blank">About</a>
+          <a href="contact.html"  target="_blank">Contact</a>
+          <a href="terms.html"    target="_blank">Terms</a>
+        </nav>
+
+      </div>
+
+      <div class="footer__bottom">
+        <p class="footer__copy">
+          © 2025 Dual Boot &amp; Linux. All rights reserved.
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

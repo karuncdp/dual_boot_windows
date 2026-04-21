@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>How to Dual Boot Linux and Windows 11 — Dual Boot &amp; Linux</title>
+  <meta name="description" content="Learn how to dual boot Linux and Windows 11 safely. A beginner-friendly step-by-step guide to partition your drive, create a bootable USB, and install Linux." />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ── NAVBAR ──────────────────────────────────────────────── -->
+  <nav class="navbar" role="navigation" aria-label="Main navigation">
+    <div class="navbar__inner">
+
+      <button class="navbar__toggle" type="button" aria-label="Open navigation menu" aria-expanded="false">
+        <span class="navbar__toggle-lines" aria-hidden="true"><span></span></span>
+      </button>
+
+      <a href="index.html" class="navbar__logo" aria-label="Dual Boot &amp; Linux home">
+        <img class="site-logo" src="dualboot-logo.svg" alt="" aria-hidden="true" />
+      </a>
+
+      <div class="navbar__nav">
+        <a href="index.html"  >Home</a>
+        <a href="disk_partition_size_calculator_for_dual_boot.html" >Calculator</a>
+        <a href="linux_command_for_beginner.html"   >Commands</a>
+        <a href="index.html" class="navbar__mobile-only">Home</a>
+        <a href="linux_command_for_beginner.html" class="navbar__mobile-only">Commands</a>
+        <a href="disk_partition_size_calculator_for_dual_boot.html" class="navbar__mobile-only">Calculator</a>
+        <a href="terms.html" class="navbar__mobile-only">Terms</a>
+        <a href="contact.html" class="navbar__mobile-only">Contact</a>
+        <a href="about.html" class="navbar__mobile-only">About</a>
+      </div>
+
+      <div class="navbar__controls">
+        <button
+          id="darkToggle"
+          class="toggle-dark"
+          aria-label="Toggle dark mode"
+          title="Toggle dark mode">
+          <span class="toggle-dark__label" aria-hidden="true">🌙</span>
+        </button>
+      </div>
+
+      <div class="navbar__overlay" aria-hidden="true"></div>
+
+    </div>
+  </nav>
+
+  <!-- ── ARTICLE ─────────────────────────────────────────────── -->
+  <main class="article-wrapper" id="main-content">
+
+    <header class="article-meta fade-up">
+      <span class="article-meta__tag">Linux · Beginner · 2025 Guide</span>
+      <h1 class="article-meta__title">
+        How to Dual Boot Linux and Windows 11:<br>A Beginner's Step-by-Step Guide
+      </h1>
+      <p class="article-meta__desc">
+        Learn how to dual boot Linux and Windows 11 safely. A beginner-friendly
+        step-by-step guide to partition your drive, create a bootable USB, and install Linux.
+      </p>
+      <div class="article-meta__divider" aria-hidden="true"></div>
+    </header>
+
+    <div class="article-body fade-up fade-up-1">
+
+      <!-- Introduction -->
+      <h2>Introduction</h2>
+      <img src="/home/karun/Documents/DUALBOOT/blog_files/How_to_Dual_Boot_Linux_and_Windows_11_step_by_step_guide_for_beginner.jpg" alt="How to Dual Boot Linux and Windows 11" width="500" height="300" class="lightbox-trigger" data-lightbox-target="intro-lightbox" role="button" tabindex="0" aria-label="Open introduction image in full screen">
+
+      <p>Do you love Windows 11 but want to try Linux for coding, privacy, or speed?</p>
+      <p>You don't have to pick one.</p>
+      <p>
+        Dual booting lets you install two operating systems on the same computer.
+        When you turn on your PC, a simple menu asks: <strong>Windows or Linux?</strong>
+      </p>
+      <p>
+        Many beginners worry this is dangerous. But if you follow these steps carefully, it is safe.
+        You just need one hour, a USB drive, and a backup of your files.
+      </p>
+      <p>By the end of this guide, you will switch between Windows 11 and Linux with one restart.</p>
+
+      <!-- What is dual booting -->
+      <h2>What Does Dual Booting Mean?</h2>
+      <p>
+        Dual booting means sharing your hard drive between two operating systems.
+        Each system lives in its own separate space called a <strong>partition</strong>.
+      </p>
+      <p>
+        When you power on your computer, a bootloader (a small menu) asks which system to start.
+      </p>
+      <img src="/home/karun/Documents/DUALBOOT/blog_files/difference_between_dual_boot_and_virtual_machine.png" alt="Difference between dual boot and virtual machine" width="500" height="300">
+      <h3>Dual Boot vs. Virtual Machine</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Feature</th>
+            <th>Dual Boot</th>
+            <th>Virtual Machine</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Speed</td>
+            <td>Full speed</td>
+            <td>Slower</td>
+          </tr>
+          <tr>
+            <td>RAM usage</td>
+            <td>100% available</td>
+            <td>Shared with Windows</td>
+          </tr>
+          <tr>
+            <td>Switching</td>
+            <td>Requires restart</td>
+            <td>Instant</td>
+          </tr>
+          <tr>
+            <td>Best for</td>
+            <td>Daily work, gaming, coding</td>
+            <td>Quick testing</td>
+          </tr>
+        </tbody>
+      </table>
+      <p><strong>Verdict:</strong> For beginners who want to really use Linux, dual booting is better.</p>
+
+      <!-- What you need -->
+      <h2>What You Need Before You Start</h2>
+      <p>Gather these items first. Do not skip anything.</p>
+      <ul>
+        <li>A Windows 11 PC (plugged into power)</li>
+        <li>One USB flash drive (8GB or 16GB minimum) — this will be erased</li>
+        <li>A Linux ISO file (download link below)</li>
+        <li>An external drive or cloud storage for backup</li>
+      </ul>
+
+      <h3>Which Linux Version Should a Beginner Choose?</h3>
+      <p>Linux comes in different flavors called distributions (distros). For beginners, pick one of these:</p>
+      <table>
+        <thead>
+          <tr><th>Distro</th><th>Best for</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Ubuntu</td><td>Most popular, huge community help</td></tr>
+          <tr><td>Linux Mint</td><td>Looks like Windows, very easy</td></tr>
+          <tr><td>Pop!_OS</td><td>Good for gaming and newer hardware</td></tr>
+        </tbody>
+      </table>
+      <p><strong>Our recommendation:</strong> Start with Ubuntu. It works on almost every computer.</p>
+      <ul>
+        <li><a href="https://ubuntu.com/download/desktop" target="_blank" rel="noopener">Download Ubuntu Desktop ↗</a></li>
+        <li><a href="https://linuxmint.com/download.php" target="_blank" rel="noopener">Download Linux Mint ↗</a></li>
+      </ul>
+
+      <!-- Checklist -->
+      <h3>Your Pre-Installation Checklist</h3>
+      <ul class="checklist">
+        <li>I backed up my important Windows files</li>
+        <li>I have an empty 8GB+ USB drive</li>
+        <li>My laptop is plugged into a charger</li>
+        <li>I have 1 hour of free time</li>
+      </ul>
+
+      <!-- Steps -->
+      <h2><span class="step-number" aria-hidden="true">1</span> Back Up Your Windows 11 Files</h2>
+      <div class="callout">
+        <strong>⚠ Warning</strong>
+        If you skip backup, you risk losing your files forever.
+        Do not skip this step.
+      </div>
+      <p>
+        Dual booting is safe, but accidents can happen. A power outage or a wrong click could erase your data.
+      </p>
+      <h3>How to Back Up (Two Easy Ways)</h3>
+      <ul>
+        <li>
+          <strong>Cloud method:</strong> Drag your important folders (Documents, Desktop, Pictures)
+          into Google Drive, OneDrive, or Dropbox.
+        </li>
+        <li>
+          <strong>External drive method:</strong> Copy and paste the same folders to a USB hard drive.
+        </li>
+      </ul>
+
+      <h2><span class="step-number" aria-hidden="true">2</span> Disable Windows Fast Startup</h2>
+      <p>
+        Windows 11 has a feature called <strong>Fast Startup</strong> that can lock your hard drive.
+        This prevents Linux from accessing your files later. Turn it off now.
+      </p>
+      <h3>How to Disable Fast Startup in Windows 11</h3>
+      <ol>
+        <li>Open <strong>Control Panel</strong> (search for it in the Start menu)</li>
+        <li>Click <strong>Power Options</strong></li>
+        <li>Click <strong>Choose what the power buttons do</strong> (left sidebar)</li>
+        <li>Click <strong>Change settings that are currently unavailable</strong></li>
+        <li>Uncheck <strong>Turn on fast startup (recommended)</strong></li>
+        <li>Click <strong>Save changes</strong></li>
+      </ol>
+      <p>
+        <strong>Why this matters:</strong> Fast Startup keeps your drive in a semi-hibernated state.
+        Linux cannot safely open it. Disabling this avoids major headaches.
+      </p>
+
+      <h2><span class="step-number" aria-hidden="true">3</span> Create Space for Linux by Shrinking Your Drive</h2>
+      <img src="/home/karun/Documents/DUALBOOT/blog_files/hard_drive_partition_for_dual_boot.png" alt="Hard drive partition for dual boot" width="500" height="300">
+
+      <p>
+        Right now, Windows 11 probably uses your entire hard drive. You need to shrink it to make room for Linux.
+      </p>
+      <p>
+        Think of your hard drive as a pizza. Right now, Windows has the whole pizza.
+        You are going to cut one slice for Linux.You can use <a href="disk_partition_size_calculator_for_dual_boot.html"> disk partition size calculator</a> to gain insight on how much space to allocate for Linux.
+      </p>
+      <h3>How to Shrink Your Windows 11 Drive</h3>
+      <ol>
+        <li>Right-click the <strong>Start button</strong> and select <strong>Disk Management</strong></li>
+        <li>Find your main drive (usually labeled <code>C:</code>)</li>
+        <li>Right-click the <code>C:</code> section and choose <strong>Shrink Volume</strong></li>
+        <li>
+          Enter the amount of space to shrink:
+          <ul>
+            <li>Minimum: <code>50000 MB</code> (50 GB)</li>
+            <li>Recommended: <code>100000 MB</code> (100 GB)</li>
+          </ul>
+        </li>
+        <li>Click <strong>Shrink</strong></li>
+      </ol>
+      <p>
+        When finished, you will see a black bar labeled <strong>Unallocated Space</strong>.
+        This is your empty space for Linux. Do nothing else with it yet.
+      </p>
+
+      <h2><span class="step-number" aria-hidden="true">4</span> Create a Bootable USB Drive</h2>
+      <img src="/home/karun/Documents/DUALBOOT/blog_files/do_i_need_an_usb_for_dual_boot.png" alt="Do I need an USB for dual boot?" width="500" height="300">
+      <p>
+        You cannot install Linux by double-clicking a file. You need to turn your USB drive
+        into a bootable installer.
+      </p>
+      <p>
+        Think of this USB as a "master key" that tells your computer to ignore Windows and run Linux instead.
+      </p>
+      <h3>How to Make a Bootable USB Using Rufus</h3>
+
+      <ol>
+        <li>Plug in your USB drive</li>
+        <li>Download <a href="https://rufus.ie" target="_blank" rel="noopener">Rufus from rufus.ie ↗</a> (it is free)</li>
+        <img src="/home/karun/Documents/DUALBOOT/blog_files/how_to_download_rufus_for_dual_boot.png" alt="Rufus download" width="500" height="300">
+        <li>Open Rufus</li>
+        <li>Under <strong>Device</strong>, select your USB drive</li>
+
+        <img src="/home/karun/Documents/DUALBOOT/blog_files/rufus.png" alt="Rufus download" width="500" height="300">
+
+
+
+
+
+        <li>Click <strong>SELECT</strong> and choose your Linux ISO file (e.g., <code>ubuntu-24.04-desktop-amd64.iso</code>)</li>
+        <li>Leave all other settings as default</li>
+        <li>Click <strong>START</strong></li>
+        <li>Click <strong>OK</strong> on any warning pop-ups</li>
+        <li>Wait for the progress bar to reach 100% and say <strong>READY</strong></li>
+      </ol>
+      <p>Your bootable USB is done.</p>
+
+      <h2><span class="step-number" aria-hidden="true">5</span> Boot From Your USB Drive</h2>
+      <p>Now you need to tell your computer to start from the USB, not from Windows.</p>
+      <h3>How to Access the Boot Menu</h3>
+      <ol>
+        <li>Restart your computer with the USB still plugged in</li>
+        <li>As soon as the screen goes black and lights up again, tap the boot key repeatedly (once per second)</li>
+        <li>A menu appears. Use arrow keys to select your USB drive (look for <code>UEFI: USB</code> or the brand name)</li>
+        <li class="boot-slider-wrap">
+          <div class="boot-slider" aria-label="Boot menu examples">
+            <img
+              src="/home/karun/Documents/DUALBOOT/blog_files/how_to_dual_boot_windows_andUbuntu.png"
+              alt="Boot menu example image 1"
+              class="boot-slider__img"
+              loading="lazy"
+            >
+            <img
+              src="/home/karun/Documents/DUALBOOT/blog_files/how_to_dual_boot_windows_and_Ubuntu.png"
+              alt="Boot menu example image 2"
+              class="boot-slider__img"
+              loading="lazy"
+            >
+          </div>
+        </li>
+        <li value="4">Press Enter</li>
+      </ol>
+
+      <h3>Boot Keys by Brand</h3>
+      <table>
+        <thead>
+          <tr><th>Brand</th><th>Boot Menu Key</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Dell, Lenovo, Acer</td><td><code>F12</code></td></tr>
+          <tr><td>HP</td><td><code>F9</code></td></tr>
+          <tr><td>ASUS</td><td><code>F2</code> or <code>DEL</code></td></tr>
+          <tr><td>Microsoft Surface</td><td>Volume Down button</td></tr>
+        </tbody>
+      </table>
+
+      <div class="callout">
+        <strong>💡 Pro tip</strong>
+        If your computer ignores the USB and boots Windows anyway, you may need to
+        see the section below.
+      </div>
+
+      <h2><span class="step-number" aria-hidden="true">6</span> Install Linux Alongside Windows 11</h2>
+      <p>Once you boot from the USB, you will see a welcome screen.</p>
+      <h3>First Steps</h3>
+      <ol>
+        <li>Choose your language and keyboard layout</li>
+        <li>Connect to Wi-Fi (if available)</li>
+        <li>Check the box: <strong>Install third-party software for graphics and Wi-Fi</strong></li>
+        <li>Click Continue</li>
+      </ol>
+      <h3>The Most Important Screen: Installation Type</h3>
+      <p>You will see three options. <strong>Choose carefully.</strong></p>
+      <table>
+        <thead>
+          <tr><th>Option</th><th>What it does</th><th>Choose?</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Install Linux alongside Windows Boot Manager</td>
+            <td>Keeps Windows and adds Linux</td>
+            <td>✅ YES</td>
+          </tr>
+          <tr>
+            <td>Erase disk and install Linux</td>
+            <td>Deletes Windows completely</td>
+            <td>❌ NO</td>
+          </tr>
+          <tr>
+            <td>Something else</td>
+            <td>Manual partitioning (experts only)</td>
+            <td>❌ NO</td>
+          </tr>
+        </tbody>
+      </table>
+      <p>Select <strong>Install Linux alongside Windows Boot Manager</strong>.</p>
+      <p>The installer will automatically find the Unallocated Space you created earlier.</p>
+      <h3>Create Your User Account</h3>
+      <ul>
+        <li><strong>Your name:</strong> Enter your real name</li>
+        <li><strong>Computer name:</strong> A short name for your PC</li>
+        <li><strong>Username:</strong> A single word (lowercase)</li>
+        <li><strong>Password:</strong> Choose something memorable</li>
+      </ul>
+      <p>Click Continue. The installation takes 10 to 20 minutes.</p>
+
+      <h2><span class="step-number" aria-hidden="true">7</span> Restart and Meet the GRUB Menu</h2>
+      <p>
+        When installation finishes, click <strong>Restart Now</strong>.
+        Remove the USB drive when prompted.
+      </p>
+      <p>Your computer will restart and show a new screen called the <strong>GRUB menu</strong>.</p>
+      <h3>What You See in GRUB</h3>
+
+      <img src="/home/karun/Documents/DUALBOOT/blog_files/what_is_grub_in_linux.png" alt="What is GRUB in Linux?" width="500" height="300">
+      <ul>
+        <li><strong>Ubuntu</strong> (or Linux Mint) — Starts your new Linux system</li>
+        <li><strong>Advanced options for Ubuntu</strong> — Ignore this for now</li>
+        <li><strong>Windows Boot Manager</strong> — Starts Windows 11</li>
+      </ul>
+      <p>
+        Use arrow keys to choose. Press Enter to start.
+        If you do nothing for 10 seconds, the computer will start the top option (usually Linux).
+      </p>
+
+      <h2><span class="step-number" aria-hidden="true">8</span> Disable Secure Boot (If Needed)</h2>
+      <p>
+        If your computer still ignores the USB or your Wi-Fi does not work after installing Linux,
+        disable Secure Boot.
+      </p>
+      <h3>How to Disable Secure Boot</h3>
+      <ol>
+        <li>Go to <strong>Settings &gt; System &gt; Recovery</strong> in Windows 11</li>
+        <li>Next to <strong>Advanced Startup</strong>, click <strong>Restart Now</strong></li>
+        <li>When the blue menu appears, select <strong>Troubleshoot &gt; Advanced Options &gt; UEFI Firmware Settings</strong></li>
+        <li>Click <strong>Restart</strong></li>
+        <li>Inside the BIOS menu, find the <strong>Boot</strong> or <strong>Security</strong> tab</li>
+        <li>Locate <strong>Secure Boot</strong> and set it to <strong>Disabled</strong></li>
+        <li>Press <strong>F10</strong> to save and exit</li>
+      </ol>
+      <p>Most modern Linux distros work with Secure Boot on. Only disable it if you have problems.</p>
+
+      <!-- Pro Tips -->
+      <h2>Pro Tips for Your Dual Boot Life</h2>
+      <h3>Use Each System for What It Does Best</h3>
+      <table>
+        <thead>
+          <tr><th>Task</th><th>Use</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Gaming, Adobe, Microsoft Office</td><td>Windows 11</td></tr>
+          <tr><td>Coding, privacy, learning Linux</td><td>Linux</td></tr>
+        </tbody>
+      </table>
+      <h3>Share Files Between Both Systems</h3>
+      <p>
+        Linux can read your Windows files. Open the Linux file manager and look for
+        <strong>Other Locations &gt; Windows Drive</strong>.
+      </p>
+      <p>
+        For files you need in both systems: Save them to a cloud service like Google Drive or Dropbox.
+      </p>
+      <h3>Keep Both Systems Updated</h3>
+      <ul>
+        <li><strong>Linux updates:</strong> Improve security and battery life</li>
+        <li><strong>Windows updates:</strong> Finish them completely before switching to Linux</li>
+      </ul>
+
+      <!-- FAQ -->
+      <h2>Frequently Asked Questions</h2>
+      <h3>Does dual booting slow down my computer?</h3>
+      <p>
+        No. Only one system runs at a time. Both run at full speed. The only cost is storage space.
+      </p>
+      <h3>Can I remove Linux later?</h3>
+      <p>
+        Yes. Open Disk Management in Windows, delete the Linux partitions, then run a
+        Windows Startup Repair to remove the GRUB menu.
+      </p>
+      <h3>Can Windows read my Linux files?</h3>
+      <p>
+        Not easily. Linux uses a different file system (Ext4). Use a cloud drive or a shared USB
+        drive to move files between them.
+      </p>
+      <h3>Do I need to disable Secure Boot for Linux?</h3>
+      <p>
+        Most modern distros work with Secure Boot on. Only disable it if your USB won't boot
+        or your Wi-Fi doesn't work after installation.
+      </p>
+      <h3>What if I forget my Linux password?</h3>
+      <p>
+        You can reset it from the GRUB menu. Search online for
+        <em>"reset Ubuntu password from recovery mode."</em>
+      </p>
+
+      <!-- Conclusion -->
+      <h2>Conclusion</h2>
+      <p>You did it.</p>
+      <p>
+        You backed up your files, disabled Fast Startup, shrunk your Windows drive,
+        created a bootable USB, and installed Linux alongside Windows 11.
+      </p>
+      <p>
+        Now every time you turn on your computer, you have a choice.
+        Windows for gaming and work. Linux for coding, privacy, and exploration.
+      </p>
+      <p>Your first mission: Boot into Linux, open the Terminal, and type:</p>
+      <div class="terminal" role="region" aria-label="Terminal command">neofetch</div>
+      <p>
+        Press Enter. You will see a cool summary of your new system.
+        Welcome to the world of Linux. Happy exploring.
+      </p>
+
+    </div><!-- /article-body -->
+  </main>
+
+  <!-- ── FOOTER ─────────────────────────────────────────────── -->
+  <footer role="contentinfo">
+    <div class="footer__inner">
+      <div class="footer__top">
+
+        <div class="footer__brand">
+          <p class="footer__brand-name">
+            <img class="site-logo" src="dualboot-logo.svg" alt="" aria-hidden="true" />
+          </p>
+          <p class="footer__tagline">
+            Your beginner-friendly hub for dual booting Linux and Windows 11.
+          </p>
+        </div>
+
+        <nav class="footer__links-col" aria-label="Footer navigation">
+          <h4>Navigate</h4>
+          <a href="index.html"    target="_blank">Home</a>
+          <a href="about.html"    target="_blank">About</a>
+          <a href="contact.html"  target="_blank">Contact</a>
+          <a href="terms.html"    target="_blank">Terms</a>
+        </nav>
+
+      </div>
+
+      <div class="footer__bottom">
+        <p class="footer__copy">
+          © 2025 Dual Boot &amp; Linux. All rights reserved.
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <div class="lightbox" id="intro-lightbox" aria-hidden="true" role="dialog" aria-label="Image preview">
+    <button class="lightbox__close" type="button" aria-label="Close image preview">&times;</button>
+    <img src="/home/karun/Documents/DUALBOOT/blog_files/How_to_Dual_Boot_Linux_and_Windows_11_step_by_step_guide_for_beginner.jpg" alt="How to Dual Boot Linux and Windows 11" class="lightbox__image">
+  </div>
+
+
+
+
+
+
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Linux Commands for Beginners - Dual Boot & Linux</title>
+  <meta name="description" content="Linux commands organized by category with horizontal navigation, mobile-friendly table sliders, and click-to-copy command buttons." />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .cmd-page {
+      max-width: var(--max-w-wide);
+      margin: 0 auto;
+      padding: 48px 24px 84px;
+      width: 100%;
+      min-width: 0;
+    }
+
+    .cmd-hero {
+      max-width: var(--max-w);
+      margin: 0 auto 26px;
+    }
+
+    .cmd-hero-image {
+      max-width: var(--max-w);
+      margin: 0 auto 22px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      background: var(--surface);
+      box-shadow: var(--shadow);
+    }
+
+    .cmd-hero-image img {
+      width: 100%;
+      height: auto;
+      display: block;
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
+    }
+
+    .cmd-hero .article-meta__title,
+    .cmd-hero .article-meta__desc,
+    .cmd-hero .article-meta__tag {
+      overflow-wrap: anywhere;
+    }
+
+    .category-slider-shell {
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      align-items: center;
+      gap: 10px;
+      margin: 0 auto 26px;
+      max-width: var(--max-w);
+    }
+
+    .slider-btn {
+      width: 34px;
+      height: 34px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      background: var(--surface);
+      color: var(--text-muted);
+      font-family: var(--mono);
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: background var(--transition), color var(--transition), border-color var(--transition);
+      flex-shrink: 0;
+    }
+
+    .slider-btn:hover {
+      color: var(--accent);
+      border-color: color-mix(in srgb, var(--accent) 30%, var(--border));
+      background: color-mix(in srgb, var(--accent) 8%, var(--surface));
+    }
+
+    .category-track {
+      display: flex;
+      gap: 10px;
+      overflow-x: auto;
+      padding: 2px 2px 10px;
+      scroll-behavior: smooth;
+      scrollbar-width: thin;
+      -webkit-overflow-scrolling: touch;
+      overscroll-behavior-x: contain;
+      min-width: 0;
+    }
+
+    .category-track::-webkit-scrollbar {
+      height: 6px;
+    }
+
+    .category-track::-webkit-scrollbar-thumb {
+      background: var(--border);
+      border-radius: 99px;
+    }
+
+    .category-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex: 0 0 auto;
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 9px 14px;
+      white-space: nowrap;
+      background: var(--surface);
+    }
+
+    .category-link:hover,
+    .category-link:focus-visible {
+      color: var(--accent);
+      border-color: color-mix(in srgb, var(--accent) 30%, var(--border));
+      background: color-mix(in srgb, var(--accent) 8%, var(--surface));
+      opacity: 1;
+    }
+
+    .cmd-content {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      min-width: 0;
+    }
+
+    .cmd-section {
+      scroll-margin-top: calc(var(--nav-h) + 22px);
+      margin-bottom: 36px;
+    }
+
+    .cmd-section h2 {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .cmd-section h2::before {
+      content: '';
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--accent);
+      flex-shrink: 0;
+    }
+
+    .table-card {
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: var(--surface);
+      padding: 12px;
+    }
+
+    .table-top {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 8px;
+    }
+
+    .table-top .slider-btn {
+      width: 30px;
+      height: 30px;
+      font-size: 0.8rem;
+    }
+
+    .table-slider {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: thin;
+      min-width: 0;
+    }
+
+    .table-slider::-webkit-scrollbar {
+      height: 7px;
+    }
+
+    .table-slider::-webkit-scrollbar-thumb {
+      background: var(--border);
+      border-radius: 99px;
+    }
+
+    .table-slider table {
+      width: 100%;
+      min-width: 680px;
+      margin: 0;
+    }
+
+    .table-slider th,
+    .table-slider td {
+      white-space: nowrap;
+    }
+
+    .cmd-btn {
+      border: 1px solid var(--border);
+      background: var(--bg-alt);
+      color: var(--accent);
+      font-family: var(--mono);
+      font-size: 0.78rem;
+      border-radius: 6px;
+      padding: 5px 10px;
+      cursor: pointer;
+      transition: border-color var(--transition), background var(--transition), color var(--transition);
+    }
+
+    .cmd-btn:hover,
+    .cmd-btn:focus-visible {
+      border-color: color-mix(in srgb, var(--accent) 32%, var(--border));
+      background: color-mix(in srgb, var(--accent) 8%, var(--surface));
+      color: var(--accent);
+      opacity: 1;
+    }
+
+    .cmd-example {
+      font-family: var(--mono);
+      font-size: 0.82rem;
+      color: var(--text);
+    }
+
+    .copy-toast {
+      position: fixed;
+      right: 14px;
+      bottom: 14px;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--text);
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      padding: 10px 12px;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      opacity: 0;
+      transform: translateY(10px);
+      pointer-events: none;
+      transition: opacity var(--transition), transform var(--transition);
+      z-index: 1300;
+    }
+
+    .copy-toast.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 760px) {
+      .cmd-page {
+        padding: 30px 16px 64px;
+      }
+
+      .category-slider-shell {
+        gap: 8px;
+      }
+
+      .category-link {
+        font-size: 0.66rem;
+        padding: 8px 12px;
+      }
+
+      .table-card {
+        padding: 10px;
+      }
+
+      .table-slider table {
+        min-width: 620px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .category-slider-shell {
+        grid-template-columns: 1fr;
+      }
+
+      .category-slider-shell .slider-btn {
+        display: none;
+      }
+
+      .table-top {
+        margin-bottom: 6px;
+      }
+
+      .copy-toast {
+        left: 12px;
+        right: 12px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar" role="navigation" aria-label="Main navigation">
+    <div class="navbar__inner">
+      <button class="navbar__toggle" type="button" aria-label="Open navigation menu" aria-expanded="false">
+        <span class="navbar__toggle-lines" aria-hidden="true"><span></span></span>
+      </button>
+
+      <a href="index.html" class="navbar__logo" aria-label="Dual Boot & Linux home">
+        <img class="site-logo" src="/home/karun/Documents/DUALBOOT/dualboot-logo.svg" alt="" aria-hidden="true" />
+      </a>
+
+      <div class="navbar__nav">
+        <a href="index.html">Home</a>
+        <a href="disk_partition_size_calculator_for_dual_boot.html">Calculator</a>
+        <a href="linux_command_for_beginner.html">Commands</a>
+        <a href="about.html" class="navbar__mobile-only">About</a>
+        <a href="contact.html" class="navbar__mobile-only">Contact</a>
+        <a href="terms.html" class="navbar__mobile-only">Terms</a>
+      </div>
+
+      <div class="navbar__controls">
+        <button id="darkToggle" class="toggle-dark" aria-label="Toggle dark mode" title="Toggle dark mode">
+          <span class="toggle-dark__label" aria-hidden="true">🌙</span>
+        </button>
+      </div>
+
+      <div class="navbar__overlay" aria-hidden="true"></div>
+    </div>
+  </nav>
+
+  <main class="cmd-page" id="main-content">
+    <header class="article-meta cmd-hero fade-up">
+      <span class="article-meta__tag">Linux · Beginner · Command Reference</span>
+      <h1 class="article-meta__title">Linux Commands for Beginners</h1>
+      <p class="article-meta__desc">
+        Commands are grouped by categories. Swipe or slide the category row to jump to any section.
+      </p>
+      <div class="article-meta__divider" aria-hidden="true"></div>
+    </header>
+
+    <figure class="cmd-hero-image fade-up fade-up-1">
+      <img src="/home/karun/Documents/DUALBOOT/linux_commands_for_beginner.png" alt="linux commands for beginners" loading="lazy" />
+    </figure>
+
+    <section class="category-slider-shell fade-up fade-up-2" aria-label="Category navigation">
+      <button class="slider-btn" type="button" data-scroll-target="category-track" data-direction="prev" aria-label="Scroll categories left">&lt;</button>
+      <nav class="category-track" id="category-track" aria-label="Command categories">
+        <a href="#basic" class="category-link">Basic</a>
+        <a href="#file-operations" class="category-link">File Operations</a>
+        <a href="#text-processing" class="category-link">Text Processing</a>
+        <a href="#search" class="category-link">Search</a>
+        <a href="#system" class="category-link">System</a>
+        <a href="#network" class="category-link">Network</a>
+        <a href="#disk-memory" class="category-link">Disk and Memory</a>
+        <a href="#packages" class="category-link">Packages</a>
+        <a href="#media" class="category-link">Media</a>
+        <a href="#tools" class="category-link">Tools</a>
+      </nav>
+      <button class="slider-btn" type="button" data-scroll-target="category-track" data-direction="next" aria-label="Scroll categories right">&gt;</button>
+    </section>
+
+    <div class="cmd-content fade-up fade-up-2">
+      <section id="basic" class="cmd-section">
+        <h2>Basic Commands</h2>
+        <div class="table-card">
+          <div class="table-top">
+            <button class="slider-btn" type="button" data-scroll-target="table-basic" data-direction="prev" aria-label="Scroll table left">&lt;</button>
+            <button class="slider-btn" type="button" data-scroll-target="table-basic" data-direction="next" aria-label="Scroll table right">&gt;</button>
+          </div>
+          <div class="table-slider" id="table-basic">
+            <table>
+              <thead><tr><th>Command</th><th>Description</th><th>Example</th></tr></thead>
+              <tbody>
+                <tr><td><button class="cmd-btn" data-command="clear">clear</button></td><td>Clear terminal screen</td><td class="cmd-example">clear</td></tr>
+                <tr><td><button class="cmd-btn" data-command="history">history</button></td><td>Show command history</td><td class="cmd-example">history 20</td></tr>
+                <tr><td><button class="cmd-btn" data-command="man">man</button></td><td>Display manual page</td><td class="cmd-example">man ls</td></tr>
+                <tr><td><button class="cmd-btn" data-command="pwd">pwd</button></td><td>Print working directory</td><td class="cmd-example">pwd</td></tr>
+                <tr><td><button class="cmd-btn" data-command="whoami">whoami</button></td><td>Show current username</td><td class="cmd-example">whoami</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <section id="file-operations" class="cmd-section">
+        <h2>File Operations</h2>
+        <div class="table-card">
+          <div class="table-top">
+            <button class="slider-btn" type="button" data-scroll-target="table-files" data-direction="prev" aria-label="Scroll table left">&lt;</button>
+            <button class="slider-btn" type="button" data-scroll-target="table-files" data-direction="next" aria-label="Scroll table right">&gt;</button>
+          </div>
+          <div class="table-slider" id="table-files">
+            <table>
+              <thead><tr><th>Command</th><th>Description</th><th>Example</th></tr></thead>
+              <tbody>
+                <tr><td><button class="cmd-btn" data-command="cat">cat</button></td><td>View file contents</td><td class="cmd-example">cat file.txt</td></tr>
+                <tr><td><button class="cmd-btn" data-command="cp">cp</button></td><td>Copy files or folders</td><td class="cmd-example">cp file1.txt file2.txt</td></tr>
+                <tr><td><button class="cmd-btn" data-command="ls">ls</button></td><td>List directory contents</td><td class="cmd-example">ls -la</td></tr>
+                <tr><td><button class="cmd-btn" data-command="mkdir">mkdir</button></td><td>Create directories</td><td class="cmd-example">mkdir new_folder</td></tr>
+                <tr><td><button class="cmd-btn" data-command="mv">mv</button></td><td>Move or rename files</td><td class="cmd-example">mv old.txt new.txt</td></tr>
+                <tr><td><button class="cmd-btn" data-command="rm">rm</button></td><td>Remove files or folders</td><td class="cmd-example">rm -rf folder/</td></tr>
+                <tr><td><button class="cmd-btn" data-command="touch">touch</button></td><td>Create empty file</td><td class="cmd-example">touch newfile.txt</td></tr>
+                <tr><td><button class="cmd-btn" data-command="unzip">unzip</button></td><td>Extract zip archive</td><td class="cmd-example">unzip archive.zip</td></tr>
+                <tr><td><button class="cmd-btn" data-command="zip">zip</button></td><td>Create zip archive</td><td class="cmd-example">zip archive.zip file1.txt</td></tr>
+                <tr><td><button class="cmd-btn" data-command="ln">ln</button></td><td>Create links</td><td class="cmd-example">ln -s /target link</td></tr>
+                <tr><td><button class="cmd-btn" data-command="chmod">chmod</button></td><td>Change permissions</td><td class="cmd-example">chmod 755 script.sh</td></tr>
+                <tr><td><button class="cmd-btn" data-command="chown">chown</button></td><td>Change ownership</td><td class="cmd-example">sudo chown user:group file</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <section id="text-processing" class="cmd-section">
+        <h2>Text Processing</h2>
+        <div class="table-card">
+          <div class="table-top">
+            <button class="slider-btn" type="button" data-scroll-target="table-text" data-direction="prev" aria-label="Scroll table left">&lt;</button>
+            <button class="slider-btn" type="button" data-scroll-target="table-text" data-direction="next" aria-label="Scroll table right">&gt;</button>
+          </div>
+          <div class="table-slider" id="table-text">
+            <table>
+              <thead><tr><th>Command</th><th>Description</th><th>Example</th></tr></thead>
+              <tbody>
+                <tr><td><button class="cmd-btn" data-command="awk">awk</button></td><td>Pattern based text processing</td><td class="cmd-example">awk '{print $1}' file.txt</td></tr>
+                <tr><td><button class="cmd-btn" data-command="grep">grep</button></td><td>Search text with pattern</td><td class="cmd-example">grep "error" log.txt</td></tr>
+                <tr><td><button class="cmd-btn" data-command="head">head</button></td><td>Show top lines</td><td class="cmd-example">head -20 file.txt</td></tr>
+                <tr><td><button class="cmd-btn" data-command="sed">sed</button></td><td>Stream editor</td><td class="cmd-example">sed 's/old/new/g' file.txt</td></tr>
+                <tr><td><button class="cmd-btn" data-command="seq">seq</button></td><td>Generate number sequence</td><td class="cmd-example">seq 1 10</td></tr>
+                <tr><td><button class="cmd-btn" data-command="sort">sort</button></td><td>Sort lines</td><td class="cmd-example">sort names.txt</td></tr>
+                <tr><td><button class="cmd-btn" data-command="tail">tail</button></td><td>Show bottom lines</td><td class="cmd-example">tail -f log.txt</td></tr>
+                <tr><td><button class="cmd-btn" data-command="tr">tr</button></td><td>Translate characters</td><td class="cmd-example">echo "HELLO" | tr 'A-Z' 'a-z'</td></tr>
+                <tr><td><button class="cmd-btn" data-command="nano">nano</button></td><td>Simple text editor</td><td class="cmd-example">nano config.conf</td></tr>
+                <tr><td><button class="cmd-btn" data-command="vim">vim</button></td><td>Advanced text editor</td><td class="cmd-example">vim script.py</td></tr>
+                <tr><td><button class="cmd-btn" data-command="diff">diff</button></td><td>Compare files line by line</td><td class="cmd-example">diff file1.txt file2.txt</td></tr>
+                <tr><td><button class="cmd-btn" data-command="cut">cut</button></td><td>Select columns from lines</td><td class="cmd-example">cut -d',' -f1 data.csv</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <section id="search" class="cmd-section">
+        <h2>Search Commands</h2>
+        <div class="table-card">
+          <div class="table-top">
+            <button class="slider-btn" type="button" data-scroll-target="table-search" data-direction="prev" aria-label="Scroll table left">&lt;</button>
+            <button class="slider-btn" type="button" data-scroll-target="table-search" data-direction="next" aria-label="Scroll table right">&gt;</button>
+          </div>
+          <div class="table-slider" id="table-search">
+            <table>
+              <thead><tr><th>Command</th><th>Description</th><th>Example</th></tr></thead>
+              <tbody>
+                <tr><td><button class="cmd-btn" data-command="find">find</button></td><td>Find files and directories</td><td class="cmd-example">find /home -name "*.txt"</td></tr>
+                <tr><td><button class="cmd-btn" data-command="grep">grep</button></td><td>Find text in files</td><td class="cmd-example">grep -r "TODO" ./src</td></tr>
+                <tr><td><button class="cmd-btn" data-command="which">which</button></td><td>Locate executable path</td><td class="cmd-example">which python3</td></tr>
+                <tr><td><button class="cmd-btn" data-command="whereis">whereis</button></td><td>Locate binary and docs</td><td class="cmd-example">whereis ls</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <section id="system" class="cmd-section">
+        <h2>System and Permissions</h2>
+        <div class="table-card">
+          <div class="table-top">
+            <button class="slider-btn" type="button" data-scroll-target="table-system" data-direction="prev" aria-label="Scroll table left">&lt;</button>
+            <button class="slider-btn" type="button" data-scroll-target="table-system" data-direction="next" aria-label="Scroll table right">&gt;</button>
+          </div>
+          <div class="table-slider" id="table-system">
+            <table>
+              <thead><tr><th>Command</th><th>Description</th><th>Example</th></tr></thead>
+              <tbody>
+                <tr><td><button class="cmd-btn" data-command="alias">alias</button></td><td>Create command shortcut</td><td class="cmd-example">alias ll='ls -la'</td></tr>
+                <tr><td><button class="cmd-btn" data-command="chmod">chmod</button></td><td>Change permissions</td><td class="cmd-example">chmod +x script.sh</td></tr>
+                <tr><td><button class="cmd-btn" data-command="history">history</button></td><td>Show command history</td><td class="cmd-example">history | grep ssh</td></tr>
+                <tr><td><button class="cmd-btn" data-command="lsblk">lsblk</button></td><td>List block devices</td><td class="cmd-example">lsblk -f</td></tr>
+                <tr><td><button class="cmd-btn" data-command="man">man</button></td><td>Read manual pages</td><td class="cmd-example">man rsync</td></tr>
+                <tr><td><button class="cmd-btn" data-command="shutdown">shutdown</button></td><td>Shutdown or restart machine</td><td class="cmd-example">sudo shutdown -h now</td></tr>
+                <tr><td><button class="cmd-btn" data-command="sudo">sudo</button></td><td>Run as superuser</td><td class="cmd-example">sudo apt update</td></tr>
+                <tr><td><button class="cmd-btn" data-command="systemctl">systemctl</button></td><td>Control services</td><td class="cmd-example">systemctl status ssh</td></tr>
+                <tr><td><button class="cmd-btn" data-command="ps">ps</button></td><td>Show running processes</td><td class="cmd-example">ps aux | grep firefox</td></tr>
+                <tr><td><button class="cmd-btn" data-command="kill">kill</button></td><td>Terminate process</td><td class="cmd-example">kill -9 12345</td></tr>
+                <tr><td><button class="cmd-btn" data-command="crontab">crontab</button></td><td>Schedule recurring jobs</td><td class="cmd-example">crontab -e</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <section id="network" class="cmd-section">
+        <h2>Network Commands</h2>
+        <div class="table-card">
+          <div class="table-top">
+            <button class="slider-btn" type="button" data-scroll-target="table-network" data-direction="prev" aria-label="Scroll table left">&lt;</button>
+            <button class="slider-btn" type="button" data-scroll-target="table-network" data-direction="next" aria-label="Scroll table right">&gt;</button>
+          </div>
+          <div class="table-slider" id="table-network">
+            <table>
+              <thead><tr><th>Command</th><th>Description</th><th>Example</th></tr></thead>
+              <tbody>
+                <tr><td><button class="cmd-btn" data-command="curl">curl</button></td><td>Transfer data from or to server</td><td class="cmd-example">curl https://api.example.com</td></tr>
+                <tr><td><button class="cmd-btn" data-command="nmcli">nmcli</button></td><td>Control NetworkManager</td><td class="cmd-example">nmcli device status</td></tr>
+                <tr><td><button class="cmd-btn" data-command="wget">wget</button></td><td>Download files from internet</td><td class="cmd-example">wget https://example.com/file.zip</td></tr>
+                <tr><td><button class="cmd-btn" data-command="ssh">ssh</button></td><td>Secure shell connection</td><td class="cmd-example">ssh user@192.168.1.10</td></tr>
+                <tr><td><button class="cmd-btn" data-command="ping">ping</button></td><td>Check connectivity</td><td class="cmd-example">ping google.com</td></tr>
+                <tr><td><button class="cmd-btn" data-command="netstat">netstat</button></td><td>Show network stats</td><td class="cmd-example">netstat -tulpn</td></tr>
+                <tr><td><button class="cmd-btn" data-command="ip">ip</button></td><td>Manage routes and devices</td><td class="cmd-example">ip addr show</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <section id="disk-memory" class="cmd-section">
+        <h2>Disk and Memory Commands</h2>
+        <div class="table-card">
+          <div class="table-top">
+            <button class="slider-btn" type="button" data-scroll-target="table-disk" data-direction="prev" aria-label="Scroll table left">&lt;</button>
+            <button class="slider-btn" type="button" data-scroll-target="table-disk" data-direction="next" aria-label="Scroll table right">&gt;</button>
+          </div>
+          <div class="table-slider" id="table-disk">
+            <table>
+              <thead><tr><th>Command</th><th>Description</th><th>Example</th></tr></thead>
+              <tbody>
+                <tr><td><button class="cmd-btn" data-command="df">df</button></td><td>Disk space usage</td><td class="cmd-example">df -h</td></tr>
+                <tr><td><button class="cmd-btn" data-command="du">du</button></td><td>Directory space usage</td><td class="cmd-example">du -sh /home</td></tr>
+                <tr><td><button class="cmd-btn" data-command="lsblk">lsblk</button></td><td>List block devices</td><td class="cmd-example">lsblk</td></tr>
+                <tr><td><button class="cmd-btn" data-command="free">free</button></td><td>Memory usage</td><td class="cmd-example">free -h</td></tr>
+                <tr><td><button class="cmd-btn" data-command="fdisk">fdisk</button></td><td>Partition table utility</td><td class="cmd-example">sudo fdisk -l</td></tr>
+                <tr><td><button class="cmd-btn" data-command="mount">mount</button></td><td>Mount filesystems</td><td class="cmd-example">mount /dev/sda1 /mnt</td></tr>
+                <tr><td><button class="cmd-btn" data-command="rsync">rsync</button></td><td>Fast sync and copy</td><td class="cmd-example">rsync -avz source/ dest/</td></tr>
+                <tr><td><button class="cmd-btn" data-command="dd">dd</button></td><td>Copy disks and files</td><td class="cmd-example">dd if=/dev/sda of=backup.img</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <section id="packages" class="cmd-section">
+        <h2>Package Management</h2>
+        <div class="table-card">
+          <div class="table-top">
+            <button class="slider-btn" type="button" data-scroll-target="table-packages" data-direction="prev" aria-label="Scroll table left">&lt;</button>
+            <button class="slider-btn" type="button" data-scroll-target="table-packages" data-direction="next" aria-label="Scroll table right">&gt;</button>
+          </div>
+          <div class="table-slider" id="table-packages">
+            <table>
+              <thead><tr><th>Command</th><th>Description</th><th>Example</th></tr></thead>
+              <tbody>
+                <tr><td><button class="cmd-btn" data-command="apt">apt</button></td><td>APT package manager</td><td class="cmd-example">sudo apt install firefox</td></tr>
+                <tr><td><button class="cmd-btn" data-command="dpkg">dpkg</button></td><td>Debian package manager</td><td class="cmd-example">dpkg -i package.deb</td></tr>
+                <tr><td><button class="cmd-btn" data-command="snap">snap</button></td><td>Snap package manager</td><td class="cmd-example">snap install vlc</td></tr>
+                <tr><td><button class="cmd-btn" data-command="flatpak">flatpak</button></td><td>Flatpak apps manager</td><td class="cmd-example">flatpak install flathub org.videolan.VLC</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <section id="media" class="cmd-section">
+        <h2>Media Commands</h2>
+        <div class="table-card">
+          <div class="table-top">
+            <button class="slider-btn" type="button" data-scroll-target="table-media" data-direction="prev" aria-label="Scroll table left">&lt;</button>
+            <button class="slider-btn" type="button" data-scroll-target="table-media" data-direction="next" aria-label="Scroll table right">&gt;</button>
+          </div>
+          <div class="table-slider" id="table-media">
+            <table>
+              <thead><tr><th>Command</th><th>Description</th><th>Example</th></tr></thead>
+              <tbody>
+                <tr><td><button class="cmd-btn" data-command="ffmpeg">ffmpeg</button></td><td>Convert and record media</td><td class="cmd-example">ffmpeg -i input.mp4 output.avi</td></tr>
+                <tr><td><button class="cmd-btn" data-command="img2pdf">img2pdf</button></td><td>Convert images to PDF</td><td class="cmd-example">img2pdf *.jpg -o output.pdf</td></tr>
+                <tr><td><button class="cmd-btn" data-command="pdftk">pdftk</button></td><td>Merge or split PDF files</td><td class="cmd-example">pdftk *.pdf cat output merged.pdf</td></tr>
+                <tr><td><button class="cmd-btn" data-command="yt-dlp">yt-dlp</button></td><td>Download online videos</td><td class="cmd-example">yt-dlp https://youtube.com/watch?v=...</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <section id="tools" class="cmd-section">
+        <h2>Tools and Utilities</h2>
+        <div class="table-card">
+          <div class="table-top">
+            <button class="slider-btn" type="button" data-scroll-target="table-tools" data-direction="prev" aria-label="Scroll table left">&lt;</button>
+            <button class="slider-btn" type="button" data-scroll-target="table-tools" data-direction="next" aria-label="Scroll table right">&gt;</button>
+          </div>
+          <div class="table-slider" id="table-tools">
+            <table>
+              <thead><tr><th>Command</th><th>Description</th><th>Example</th></tr></thead>
+              <tbody>
+                <tr><td><button class="cmd-btn" data-command="gpg">gpg</button></td><td>Encrypt or decrypt files</td><td class="cmd-example">gpg -c secret.txt</td></tr>
+                <tr><td><button class="cmd-btn" data-command="lsof">lsof</button></td><td>List open files</td><td class="cmd-example">lsof -i :80</td></tr>
+                <tr><td><button class="cmd-btn" data-command="perl">perl</button></td><td>Perl interpreter</td><td class="cmd-example">perl -e 'print "Hello\\n"'</td></tr>
+                <tr><td><button class="cmd-btn" data-command="python3">python3</button></td><td>Python interpreter</td><td class="cmd-example">python3 script.py</td></tr>
+                <tr><td><button class="cmd-btn" data-command="qrencode">qrencode</button></td><td>Create QR code image</td><td class="cmd-example">qrencode -o qr.png "https://example.com"</td></tr>
+                <tr><td><button class="cmd-btn" data-command="shred">shred</button></td><td>Secure file deletion</td><td class="cmd-example">shred -uz secret.txt</td></tr>
+                <tr><td><button class="cmd-btn" data-command="upower">upower</button></td><td>Power and battery info</td><td class="cmd-example">upower -i /org/freedesktop/UPower/devices/battery_BAT0</td></tr>
+                <tr><td><button class="cmd-btn" data-command="wormhole">wormhole</button></td><td>Secure file transfer</td><td class="cmd-example">wormhole send file.txt</td></tr>
+                <tr><td><button class="cmd-btn" data-command="xclip">xclip</button></td><td>Copy text to clipboard</td><td class="cmd-example">echo "text" | xclip -selection c</td></tr>
+                <tr><td><button class="cmd-btn" data-command="alias">alias</button></td><td>Create shortcut aliases</td><td class="cmd-example">alias update='sudo apt update && sudo apt upgrade'</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer role="contentinfo">
+    <div class="footer__inner">
+      <div class="footer__top">
+        <div class="footer__brand">
+          <p class="footer__brand-name">
+            <img class="site-logo" src="/home/karun/Documents/DUALBOOT/dualboot-logo.svg" alt="" aria-hidden="true" />
+          </p>
+          <p class="footer__tagline">
+            Your beginner-friendly hub for dual booting Linux and Windows 11.
+          </p>
+        </div>
+
+        <nav class="footer__links-col" aria-label="Footer navigation">
+          <h4>Navigate</h4>
+          <a href="index.html" target="_blank">Home</a>
+          <a href="about.html" target="_blank">About</a>
+          <a href="contact.html" target="_blank">Contact</a>
+          <a href="terms.html" target="_blank">Terms</a>
+        </nav>
+      </div>
+
+      <div class="footer__bottom">
+        <p class="footer__copy">
+          © 2025 Dual Boot & Linux. All rights reserved.
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <div id="copyToast" class="copy-toast" role="status" aria-live="polite">Copied to clipboard</div>
+
+  <script>
+    (function () {
+      function copyText(value) {
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          return navigator.clipboard.writeText(value);
+        }
+
+        return new Promise(function (resolve, reject) {
+          try {
+            var textarea = document.createElement('textarea');
+            textarea.value = value;
+            textarea.setAttribute('readonly', '');
+            textarea.style.position = 'absolute';
+            textarea.style.left = '-9999px';
+            document.body.appendChild(textarea);
+            textarea.select();
+            document.execCommand('copy');
+            document.body.removeChild(textarea);
+            resolve();
+          } catch (err) {
+            reject(err);
+          }
+        });
+      }
+
+      function showToast(message) {
+        var toast = document.getElementById('copyToast');
+        if (!toast) return;
+
+        toast.textContent = message;
+        toast.classList.add('show');
+
+        clearTimeout(showToast._timer);
+        showToast._timer = setTimeout(function () {
+          toast.classList.remove('show');
+        }, 1400);
+      }
+
+      document.querySelectorAll('.cmd-btn').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          var command = btn.getAttribute('data-command') || btn.textContent.trim();
+          copyText(command)
+            .then(function () {
+              showToast('Copied: ' + command);
+            })
+            .catch(function () {
+              showToast('Copy failed');
+            });
+        });
+      });
+
+      document.querySelectorAll('.slider-btn[data-scroll-target]').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          var targetId = btn.getAttribute('data-scroll-target');
+          var target = document.getElementById(targetId);
+          if (!target) return;
+
+          var direction = btn.getAttribute('data-direction') === 'prev' ? -1 : 1;
+          var amount = Math.max(220, Math.floor(target.clientWidth * 0.8));
+          target.scrollBy({ left: direction * amount, behavior: 'smooth' });
+        });
+      });
+    })();
+  </script>
+
+  <script src="script.js"></script>
+</body>
+</html>
