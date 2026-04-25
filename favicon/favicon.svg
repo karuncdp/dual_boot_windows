@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-labelledby="title desc" width="128" height="128"><metadata><rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dc="http://purl.org/dc/elements/1.1/"><rdf:Description><dc:creator>RealFaviconGenerator</dc:creator><dc:source>https://realfavicongenerator.net</dc:source></rdf:Description></rdf:RDF></metadata><title id="title">Dual Boot shield logo</title><desc id="desc">A split shield representing Windows and Linux dual boot</desc><defs>
+    <linearGradient id="shieldStroke" x1="18" y1="16" x2="110" y2="112" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#bfc6cf"></stop>
+      <stop offset="1" stop-color="#6f7886"></stop>
+    </linearGradient>
+    <linearGradient id="winBlue" x1="18" y1="18" x2="66" y2="110" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#2e9bf5"></stop>
+      <stop offset="1" stop-color="#1b4fa3"></stop>
+    </linearGradient>
+    <linearGradient id="linuxOrange" x1="62" y1="18" x2="110" y2="110" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ffb02e"></stop>
+      <stop offset="1" stop-color="#f07b13"></stop>
+    </linearGradient>
+  </defs><path d="M64 10l40 10v34c0 24-14 44-40 64C38 98 24 78 24 54V20z" fill="#f6f7fb"></path><path d="M64 10l40 10v34c0 24-14 44-40 64C38 98 24 78 24 54V20z" fill="none" stroke="url(#shieldStroke)" stroke-width="4" stroke-linejoin="round"></path><path d="M28 24l36 0v84c-21-16-32-32-36-48z" fill="url(#winBlue)"></path><path d="M64 24l36 0c-4 16-15 32-36 48z" fill="url(#linuxOrange)"></path><path d="M62 22l-2 4v80c2-2 4-4 6-6V26z" fill="#ffffff" opacity="0.95"></path><rect x="38" y="40" width="28" height="28" rx="3" fill="#ffffff" opacity="0.98"></rect><path d="M52 40v28M38 54h28" stroke="#1a3762" stroke-width="3.5"></path><path d="M82 38c8 0 14 6 14 14 0 8-6 13-10 16l-4 3-4-3c-4-3-10-8-10-16 0-8 6-14 14-14z" fill="#fff"></path><path d="M82 34c3 0 5 2 5 4l-5 6-5-6c0-2 2-4 5-4z" fill="#222"></path><ellipse cx="76" cy="51" rx="4" ry="5" fill="#1b1b1b"></ellipse><ellipse cx="88" cy="51" rx="4" ry="5" fill="#1b1b1b"></ellipse><path d="M78 60l4-7 4 7" fill="#f79b1d"></path><path d="M75 74c3-7 5-10 7-10s4 3 7 10" fill="none" stroke="#1b1b1b" stroke-width="3" stroke-linecap="round"></path><path d="M74 74l-5 11 8-2 5-5" fill="#1b1b1b"></path><path d="M90 74l5 11-8-2-5-5" fill="#1b1b1b"></path><style class="native-dark-class-modified">@media (prefers-color-scheme: light) { :root { filter: contrast(1) brightness(1); } }
+@media (prefers-color-scheme: dark) { :root { filter: none; } }
+</style></svg>
