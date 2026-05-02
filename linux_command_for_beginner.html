@@ -200,11 +200,43 @@
       width: 100%;
       min-width: 680px;
       margin: 0;
+      border-collapse: collapse;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     }
 
     .table-slider th,
     .table-slider td {
+      padding: 12px 16px;
+      text-align: center;
+      border-bottom: 1px solid var(--border);
+      border-right: 1px solid var(--border);
       white-space: nowrap;
+    }
+
+    .table-slider th:last-child,
+    .table-slider td:last-child {
+      border-right: none;
+    }
+
+    .table-slider th {
+      background: linear-gradient(135deg, var(--accent) 0%, color-mix(in srgb, var(--accent) 15%, black));
+      color: white;
+      font-weight: 600;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .table-slider tbody tr:nth-child(even) {
+      background-color: var(--bg-alt);
+    }
+
+    .table-slider tbody tr:hover {
+      background-color: color-mix(in srgb, var(--accent) 8%, var(--surface));
+      transform: scale(1.01);
+      transition: all 0.2s ease;
     }
 
     .cmd-btn {
@@ -371,7 +403,7 @@
           </div>
           <div class="table-slider" id="table-basic">
             <table>
-              <thead><tr><th>Command</th><th>Description</th><th>Example</th></tr></thead>
+              <thead><tr><th>Command</th><th>Description</th><th>Examples</th></tr></thead>
               <tbody>
                 <tr><td><button class="cmd-btn" data-command="clear">clear</button></td><td>Clear terminal screen</td><td class="cmd-example">clear</td></tr>
                 <tr><td><button class="cmd-btn" data-command="history">history</button></td><td>Show command history</td><td class="cmd-example">history 20</td></tr>
@@ -393,7 +425,7 @@
           </div>
           <div class="table-slider" id="table-files">
             <table>
-              <thead><tr><th>Command</th><th>Description</th><th>Example</th></tr></thead>
+              <thead><tr><th>Command</th><th>Description</th><th>Examples</th></tr></thead>
               <tbody>
                 <tr><td><button class="cmd-btn" data-command="cat">cat</button></td><td>View file contents</td><td class="cmd-example">cat file.txt</td></tr>
                 <tr><td><button class="cmd-btn" data-command="cp">cp</button></td><td>Copy files or folders</td><td class="cmd-example">cp file1.txt file2.txt</td></tr>
@@ -422,7 +454,7 @@
           </div>
           <div class="table-slider" id="table-text">
             <table>
-              <thead><tr><th>Command</th><th>Description</th><th>Example</th></tr></thead>
+              <thead><tr><th>Command</th><th>Description</th><th>Examples</th></tr></thead>
               <tbody>
                 <tr><td><button class="cmd-btn" data-command="awk">awk</button></td><td>Pattern based text processing</td><td class="cmd-example">awk '{print $1}' file.txt</td></tr>
                 <tr><td><button class="cmd-btn" data-command="grep">grep</button></td><td>Search text with pattern</td><td class="cmd-example">grep "error" log.txt</td></tr>
@@ -451,7 +483,7 @@
           </div>
           <div class="table-slider" id="table-search">
             <table>
-              <thead><tr><th>Command</th><th>Description</th><th>Example</th></tr></thead>
+              <thead><tr><th>Command</th><th>Description</th><th>Examples</th></tr></thead>
               <tbody>
                 <tr><td><button class="cmd-btn" data-command="find">find</button></td><td>Find files and directories</td><td class="cmd-example">find /home -name "*.txt"</td></tr>
                 <tr><td><button class="cmd-btn" data-command="grep">grep</button></td><td>Find text in files</td><td class="cmd-example">grep -r "TODO" ./src</td></tr>
@@ -472,7 +504,7 @@
           </div>
           <div class="table-slider" id="table-system">
             <table>
-              <thead><tr><th>Command</th><th>Description</th><th>Example</th></tr></thead>
+              <thead><tr><th>Command</th><th>Description</th><th>Examples</th></tr></thead>
               <tbody>
                 <tr><td><button class="cmd-btn" data-command="alias">alias</button></td><td>Create command shortcut</td><td class="cmd-example">alias ll='ls -la'</td></tr>
                 <tr><td><button class="cmd-btn" data-command="chmod">chmod</button></td><td>Change permissions</td><td class="cmd-example">chmod +x script.sh</td></tr>
@@ -500,7 +532,7 @@
           </div>
           <div class="table-slider" id="table-network">
             <table>
-              <thead><tr><th>Command</th><th>Description</th><th>Example</th></tr></thead>
+              <thead><tr><th>Command</th><th>Description</th><th>Examples</th></tr></thead>
               <tbody>
                 <tr><td><button class="cmd-btn" data-command="curl">curl</button></td><td>Transfer data from or to server</td><td class="cmd-example">curl https://api.example.com</td></tr>
                 <tr><td><button class="cmd-btn" data-command="nmcli">nmcli</button></td><td>Control NetworkManager</td><td class="cmd-example">nmcli device status</td></tr>
@@ -524,7 +556,7 @@
           </div>
           <div class="table-slider" id="table-disk">
             <table>
-              <thead><tr><th>Command</th><th>Description</th><th>Example</th></tr></thead>
+              <thead><tr><th>Command</th><th>Description</th><th>Examples</th></tr></thead>
               <tbody>
                 <tr><td><button class="cmd-btn" data-command="df">df</button></td><td>Disk space usage</td><td class="cmd-example">df -h</td></tr>
                 <tr><td><button class="cmd-btn" data-command="du">du</button></td><td>Directory space usage</td><td class="cmd-example">du -sh /home</td></tr>
@@ -549,7 +581,7 @@
           </div>
           <div class="table-slider" id="table-packages">
             <table>
-              <thead><tr><th>Command</th><th>Description</th><th>Example</th></tr></thead>
+              <thead><tr><th>Command</th><th>Description</th><th>Examples</th></tr></thead>
               <tbody>
                 <tr><td><button class="cmd-btn" data-command="apt">apt</button></td><td>APT package manager</td><td class="cmd-example">sudo apt install firefox</td></tr>
                 <tr><td><button class="cmd-btn" data-command="dpkg">dpkg</button></td><td>Debian package manager</td><td class="cmd-example">dpkg -i package.deb</td></tr>
@@ -570,7 +602,7 @@
           </div>
           <div class="table-slider" id="table-media">
             <table>
-              <thead><tr><th>Command</th><th>Description</th><th>Example</th></tr></thead>
+              <thead><tr><th>Command</th><th>Description</th><th>Examples</th></tr></thead>
               <tbody>
                 <tr><td><button class="cmd-btn" data-command="ffmpeg">ffmpeg</button></td><td>Convert and record media</td><td class="cmd-example">ffmpeg -i input.mp4 output.avi</td></tr>
                 <tr><td><button class="cmd-btn" data-command="img2pdf">img2pdf</button></td><td>Convert images to PDF</td><td class="cmd-example">img2pdf *.jpg -o output.pdf</td></tr>
@@ -591,7 +623,7 @@
           </div>
           <div class="table-slider" id="table-tools">
             <table>
-              <thead><tr><th>Command</th><th>Description</th><th>Example</th></tr></thead>
+              <thead><tr><th>Command</th><th>Description</th><th>Examples</th></tr></thead>
               <tbody>
                 <tr><td><button class="cmd-btn" data-command="gpg">gpg</button></td><td>Encrypt or decrypt files</td><td class="cmd-example">gpg -c secret.txt</td></tr>
                 <tr><td><button class="cmd-btn" data-command="lsof">lsof</button></td><td>List open files</td><td class="cmd-example">lsof -i :80</td></tr>

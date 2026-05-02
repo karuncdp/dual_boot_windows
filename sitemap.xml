@@ -4,47 +4,63 @@
   <!-- Home -->
   <url>
     <loc>https://dualbootwindows.me/</loc>
-    <lastmod>2026-04-25</lastmod>
+    <lastmod>2026-05-02</lastmod>
     <priority>1.0</priority>
   </url>
 
   <!-- Blog: Dual Boot Guide -->
   <url>
     <loc>https://dualbootwindows.me/How-to-Dual-Boot-Linux-and-Windows-11-A-Beginner's-Step-by-Step-Guide.html</loc>
-    <lastmod>2026-04-25</lastmod>
+    <lastmod>2026-05-02</lastmod>
     <priority>0.9</priority>
   </url>
 
   <!-- Blog: Linux Commands -->
   <url>
     <loc>https://dualbootwindows.me/linux_command_for_beginner.html</loc>
-    <lastmod>2026-04-25</lastmod>
+    <lastmod>2026-05-02</lastmod>
     <priority>0.8</priority>
   </url>
 
   <!-- Tool: Disk Partition Calculator -->
   <url>
     <loc>https://dualbootwindows.me/disk_partition_size_calculator_for_dual_boot.html</loc>
-    <lastmod>2026-04-25</lastmod>
+    <lastmod>2026-05-02</lastmod>
     <priority>0.9</priority>
   </url>
+
+
+  <url>
+    <loc>https://dualbootwindows.me/linux_command_for_beginner.html</loc>
+    <lastmod>2026-05-2</lastmod>
+    <priority>0.9</priority>
+  </url>
+
+
+
+
+
+
+
+
+
 
   <!-- Static Pages -->
   <url>
     <loc>https://dualbootwindows.me/about.html</loc>
-    <lastmod>2026-04-25</lastmod>
+    <lastmod>2026-05-02</lastmod>
     <priority>0.5</priority>
   </url>
 
   <url>
     <loc>https://dualbootwindows.me/contact.html</loc>
-    <lastmod>2026-04-25</lastmod>
+    <lastmod>2026-05-02</lastmod>
     <priority>0.5</priority>
   </url>
 
   <url>
     <loc>https://dualbootwindows.me/terms.html</loc>
-    <lastmod>2026-04-25</lastmod>
+    <lastmod>2026-05-02</lastmod>
     <priority>0.4</priority>
   </url>
 
