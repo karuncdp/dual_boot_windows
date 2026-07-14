@@ -25,7 +25,15 @@
   }
   .hero-tag {
     font-family: 'DM Sans', sans-serif;
-    font-size: 11px;
+    /* Remove visible step number and bubble backgrounds (user preference) */
+    .step-number { display: none !important; }
+    .intro-section, .step-block, .conclusion {
+      background: transparent !important;
+      border: none !important;
+      box-shadow: none !important;
+      border-radius: 0 !important;
+    }
+
     font-weight: 500;
     letter-spacing: 3px;
     text-transform: uppercase;

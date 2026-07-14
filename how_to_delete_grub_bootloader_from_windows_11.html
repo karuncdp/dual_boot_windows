@@ -230,7 +230,16 @@
       color: #8b1c1c;
     }
 
-    .divider {
+      /* Remove visible step number and bubble backgrounds (user preference) */
+      .step-number { display: none !important; }
+      .intro-section, .step-block, .conclusion {
+        background: transparent !important;
+        border: none !important;
+        box-shadow: none !important;
+        border-radius: 0 !important;
+      }
+
+      .divider {
       border: none;
       border-top: 1px solid var(--border);
       margin: 48px 0;
