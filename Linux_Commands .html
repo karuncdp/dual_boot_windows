@@ -1,0 +1,5652 @@
+<!DOCTYPE html>
+<!-- saved from url=(0091)https://adarsha121.github.io/webnote/computer/Linux/linux_commands/#1-basic-system-commands -->
+<html lang="en" class="js-focus-visible js" data-darkreader-proxy-injected="true" data-js-focus-visible=""><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+      
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/">
+      
+      
+        <link rel="prev" href="https://adarsha121.github.io/webnote/physics/quantum/">
+      
+      
+        <link rel="next" href="https://adarsha121.github.io/webnote/computer/Python/numpy_pandas/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="https://adarsha121.github.io/webnote/assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Linux Commands - My Notes</title>
+      
+    
+    
+      <link rel="stylesheet" href="./Linux Commands _files/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="./Linux Commands _files/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
+        <link rel="stylesheet" href="./Linux Commands _files/css">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="./Linux Commands _files/extra.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  <meta name="theme-color" content="#000000"><meta name="color-scheme" content="dark"></head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="blue" data-md-color-media="">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/#linux-command-reference" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="https://adarsha121.github.io/webnote/" title="My Notes" class="md-header__button md-logo" aria-label="My Notes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
+    </label>
+    <div class="md-header__title md-header__title--active" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis" title="My Notes">
+            My Notes
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis" title="Linux Commands">
+            
+              Linux Commands
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="blue" aria-hidden="true" type="radio" name="__palette" id="__palette_0">
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required="">
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0">
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">Type to start searching</div>
+          <ol class="md-search-result__list" role="presentation" hidden=""></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs" hidden="">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="https://adarsha121.github.io/webnote/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="https://adarsha121.github.io/webnote/physics/mechanics/" class="md-tabs__link">
+          
+  
+  
+  Physics
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="https://adarsha121.github.io/webnote/math/calculus.md" class="md-tabs__link">
+          
+  
+  
+  Math
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="https://adarsha121.github.io/webnote/ai/rag.md" class="md-tabs__link">
+          
+  
+  
+  AI/ML
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/" class="md-tabs__link">
+          
+  
+  
+  Programming
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="https://adarsha121.github.io/webnote/tsc/intro_ed/" class="md-tabs__link">
+          
+  
+  
+  TSC
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" style="top: 54px;">
+                <div class="md-sidebar__scrollwrap" style="height: 838px;">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="https://adarsha121.github.io/webnote/" title="My Notes" class="md-nav__button md-logo" aria-label="My Notes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
+
+    </a>
+    My Notes
+  </label>
+  
+  <ul class="md-nav__list">
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://adarsha121.github.io/webnote/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2">
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Physics
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Physics
+  
+
+          </label>
+          <ul class="md-nav__list">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://adarsha121.github.io/webnote/physics/mechanics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Mechanics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://adarsha121.github.io/webnote/physics/quantum/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quantum
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3">
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Math
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Math
+  
+
+          </label>
+          <ul class="md-nav__list">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://adarsha121.github.io/webnote/math/calculus.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Calculus
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://adarsha121.github.io/webnote/math/linear.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Linear Algebra
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4">
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI/ML
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    AI/ML
+  
+
+          </label>
+          <ul class="md-nav__list">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://adarsha121.github.io/webnote/ai/rag.md" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RAG
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked="">
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Programming
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Programming
+  
+
+          </label>
+          <ul class="md-nav__list">
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Linux Commands
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Linux Commands
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc">
+      
+        <li class="md-nav__item">
+  <a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/#table-of-contents" class="md-nav__link md-nav__link--passed">
+    <span class="md-ellipsis">
+      
+        📑 Table of Contents
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/#1-basic-system-commands" class="md-nav__link md-nav__link--passed md-nav__link--active">
+    <span class="md-ellipsis">
+      
+        1. Basic System Commands
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Basic System Commands">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/#whoami" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        whoami
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/#pwd" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        pwd
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/#cd" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        cd
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/#ls" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ls
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/#clear" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        clear
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/#history" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        history
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/#man" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        man
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/#shutdown" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        shutdown
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/#alias" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        alias
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/#open" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        open
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/#2-disk-storage-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Disk &amp; Storage Management
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Disk &amp; Storage Management">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/#df" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        df
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/#du" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        du
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/#lsblk" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        lsblk
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/#finding-large-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Finding Large Files
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/#gui-tools-for-disk-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GUI Tools for Disk Analysis
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/#3-encryption-security" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Encryption &amp; Security
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Encryption &amp; Security">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/#chmod" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        chmod
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/#shred" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        shred
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/#zip-encrypted" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        zip (Encrypted)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/#ecryptfs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ecryptfs
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/#gpg" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        gpg
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/#4-file-directory-operations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. File &amp; Directory Operations
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. File &amp; Directory Operations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/#mkdir" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        mkdir
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/#cp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        cp
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/#mv" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        mv
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/#rm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        rm
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/#find" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        find
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/#5-git-version-control" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Git Version Control
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Git Version Control">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/#initial-setup-first-time" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Initial Setup (First Time)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/#daily-workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Daily Workflow
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/#git-rm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        git rm
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/#git-status" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        git status
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/#git-diff" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        git diff
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/#git-log" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        git log
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/#git-checkout" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        git checkout
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/#git-reset" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        git reset ⚠️
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/#git-clone" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        git clone
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/#git-pull" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        git pull
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/#6-media-processing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Media Processing
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Media Processing">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/#ffmpeg" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ffmpeg
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ffmpeg">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/#extract-audio-from-video" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Extract Audio from Video
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/#remove-audio-from-video" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Remove Audio from Video
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/#trim-media" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Trim Media
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/#convert-formats" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Convert Formats
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/#compress-video" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Compress Video
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/#resize-video" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Resize Video
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/#merge-multiple-videos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Merge Multiple Videos
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/#merge-multiple-audios" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Merge Multiple Audios
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/#merge-audio-and-video" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Merge Audio and Video
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/#replace-audio-in-a-video" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Replace Audio in a Video
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/#extract-frames" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Extract Frames
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/#add-fade-effects" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Add Fade Effects
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/#crossfade-transition-2-videos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Crossfade Transition (2 Videos)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/#img2pdf" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        img2pdf
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/#yt-dlp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        yt-dlp
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/#7-network-remote-access" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Network &amp; Remote Access
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. Network &amp; Remote Access">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/#ssh" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ssh
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/#scp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        scp
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/#rsync" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        rsync
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/#wget" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        wget
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/#curl" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        curl
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/#lsof" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        lsof
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/#nmcli" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        nmcli
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/#hostname" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        hostname
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/#resolvectl" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        resolvectl
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/#localtunnel-ngrok" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        localtunnel / ngrok
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/#python-local-servers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Python Local Servers
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/#ttyd" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ttyd
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/#wormhole" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        wormhole
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/#terminal-browsers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Terminal Browsers
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/#8-package-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Package Management
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8. Package Management">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/#apt" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        apt
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/#dpkg" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        dpkg
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/#snap" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        snap
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/#9-pdf-toolkit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. PDF Toolkit
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9. PDF Toolkit">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/#pdftk" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        pdftk
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/#qpdf" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        qpdf
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/#gs-ghostscript" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        gs (Ghostscript)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/#pdfcrack" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        pdfcrack
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/#john-john-the-ripper" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        john (John the Ripper)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/#10-system-information-monitoring" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. System Information &amp; Monitoring
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="10. System Information &amp; Monitoring">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/#lsb_release" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        lsb_release
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/#upower" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        upower
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/#fc-list" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        fc-list
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/#installing-fonts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Installing Fonts
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/#qrencode" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        qrencode
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/#seq" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        seq
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/#nl" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        nl
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/#11-text-processing-search" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11. Text Processing &amp; Search
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="11. Text Processing &amp; Search">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/#grep" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        grep
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/#awk" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        awk
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/#sed-stream-editor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        sed (Stream Editor)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/#tr" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        tr
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/#perl" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        perl
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/#head" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        head
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/#tail" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        tail
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/#less" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        less
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/#cat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        cat
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/#12-text-editors" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12. Text Editors
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/#13-vpn-tunneling" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13. VPN &amp; Tunneling
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="13. VPN &amp; Tunneling">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/#cloudflare-warp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cloudflare WARP
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/#14-working-with-latex" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14. Working with LaTeX
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="14. Working with LaTeX">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/#installation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Installation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/#editors" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Editors
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/#16-image-tools" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        16. Image tools
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="16. Image tools">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/#imagemagick" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ImageMagick
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5_2">
+        
+          
+          <label class="md-nav__link" for="__nav_5_2" id="__nav_5_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Python
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Python
+  
+
+          </label>
+          <ul class="md-nav__list">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://adarsha121.github.io/webnote/computer/Python/numpy_pandas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Numpy and Pandas
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://adarsha121.github.io/webnote/computer/Python/matplotlib/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Matplotlib
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6">
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    TSC
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    TSC
+  
+
+          </label>
+          <ul class="md-nav__list">
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://adarsha121.github.io/webnote/tsc/intro_ed/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    शिक्षाकाै परिचय
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://adarsha121.github.io/webnote/tsc/learning_principle/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    शैक्षिक सिद्धान्त
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://adarsha121.github.io/webnote/tsc/16th_plan_about_edu/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    साैह्रौं योजना
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://adarsha121.github.io/webnote/tsc/bhugool/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    भुगाेल
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://adarsha121.github.io/webnote/tsc/cirriculum_and_books/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    पाठ्यक्रम
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://adarsha121.github.io/webnote/tsc/constution_edu/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    सबि‌धान
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://adarsha121.github.io/webnote/tsc/ed_act_2028/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    शिक्षा एेन
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://adarsha121.github.io/webnote/tsc/ed_niyamawali/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    सिक्षा नियमावली
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://adarsha121.github.io/webnote/tsc/tsc_niyamabali_2057/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    शिक्षाक सेवा आयोग नियमावली
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://adarsha121.github.io/webnote/tsc/history_nepal/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    इतिहास
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://adarsha121.github.io/webnote/tsc/local_govt_ed_related/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    थानीय सरकार सञ्चालन ऐन
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://adarsha121.github.io/webnote/tsc/intl_orgs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    अन्तराष्ट्रिय स‌घसस्था
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://adarsha121.github.io/webnote/tsc/constution_edu/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    सबि‌धान
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" style="top: 54px;">
+                <div class="md-sidebar__scrollwrap" style="height: 838px;">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc">
+      
+        <li class="md-nav__item">
+  <a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/#table-of-contents" class="md-nav__link md-nav__link--passed">
+    <span class="md-ellipsis">
+      
+        📑 Table of Contents
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/#1-basic-system-commands" class="md-nav__link md-nav__link--passed md-nav__link--active">
+    <span class="md-ellipsis">
+      
+        1. Basic System Commands
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Basic System Commands">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/#whoami" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        whoami
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/#pwd" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        pwd
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/#cd" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        cd
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/#ls" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ls
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/#clear" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        clear
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/#history" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        history
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/#man" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        man
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/#shutdown" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        shutdown
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/#alias" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        alias
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/#open" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        open
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/#2-disk-storage-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Disk &amp; Storage Management
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Disk &amp; Storage Management">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/#df" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        df
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/#du" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        du
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/#lsblk" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        lsblk
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/#finding-large-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Finding Large Files
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/#gui-tools-for-disk-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GUI Tools for Disk Analysis
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/#3-encryption-security" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Encryption &amp; Security
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Encryption &amp; Security">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/#chmod" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        chmod
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/#shred" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        shred
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/#zip-encrypted" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        zip (Encrypted)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/#ecryptfs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ecryptfs
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/#gpg" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        gpg
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/#4-file-directory-operations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. File &amp; Directory Operations
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. File &amp; Directory Operations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/#mkdir" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        mkdir
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/#cp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        cp
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/#mv" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        mv
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/#rm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        rm
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/#find" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        find
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/#5-git-version-control" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Git Version Control
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Git Version Control">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/#initial-setup-first-time" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Initial Setup (First Time)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/#daily-workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Daily Workflow
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/#git-rm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        git rm
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/#git-status" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        git status
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/#git-diff" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        git diff
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/#git-log" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        git log
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/#git-checkout" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        git checkout
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/#git-reset" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        git reset ⚠️
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/#git-clone" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        git clone
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/#git-pull" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        git pull
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/#6-media-processing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Media Processing
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Media Processing">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/#ffmpeg" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ffmpeg
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ffmpeg">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/#extract-audio-from-video" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Extract Audio from Video
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/#remove-audio-from-video" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Remove Audio from Video
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/#trim-media" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Trim Media
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/#convert-formats" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Convert Formats
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/#compress-video" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Compress Video
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/#resize-video" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Resize Video
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/#merge-multiple-videos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Merge Multiple Videos
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/#merge-multiple-audios" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Merge Multiple Audios
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/#merge-audio-and-video" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Merge Audio and Video
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/#replace-audio-in-a-video" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Replace Audio in a Video
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/#extract-frames" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Extract Frames
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/#add-fade-effects" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Add Fade Effects
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/#crossfade-transition-2-videos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Crossfade Transition (2 Videos)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/#img2pdf" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        img2pdf
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/#yt-dlp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        yt-dlp
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/#7-network-remote-access" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Network &amp; Remote Access
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. Network &amp; Remote Access">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/#ssh" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ssh
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/#scp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        scp
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/#rsync" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        rsync
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/#wget" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        wget
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/#curl" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        curl
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/#lsof" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        lsof
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/#nmcli" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        nmcli
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/#hostname" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        hostname
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/#resolvectl" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        resolvectl
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/#localtunnel-ngrok" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        localtunnel / ngrok
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/#python-local-servers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Python Local Servers
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/#ttyd" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ttyd
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/#wormhole" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        wormhole
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/#terminal-browsers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Terminal Browsers
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/#8-package-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Package Management
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8. Package Management">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/#apt" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        apt
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/#dpkg" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        dpkg
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/#snap" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        snap
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/#9-pdf-toolkit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. PDF Toolkit
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9. PDF Toolkit">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/#pdftk" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        pdftk
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/#qpdf" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        qpdf
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/#gs-ghostscript" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        gs (Ghostscript)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/#pdfcrack" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        pdfcrack
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/#john-john-the-ripper" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        john (John the Ripper)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/#10-system-information-monitoring" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. System Information &amp; Monitoring
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="10. System Information &amp; Monitoring">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/#lsb_release" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        lsb_release
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/#upower" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        upower
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/#fc-list" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        fc-list
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/#installing-fonts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Installing Fonts
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/#qrencode" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        qrencode
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/#seq" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        seq
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/#nl" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        nl
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/#11-text-processing-search" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11. Text Processing &amp; Search
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="11. Text Processing &amp; Search">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/#grep" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        grep
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/#awk" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        awk
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/#sed-stream-editor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        sed (Stream Editor)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/#tr" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        tr
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/#perl" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        perl
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/#head" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        head
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/#tail" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        tail
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/#less" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        less
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/#cat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        cat
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/#12-text-editors" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        12. Text Editors
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/#13-vpn-tunneling" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        13. VPN &amp; Tunneling
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="13. VPN &amp; Tunneling">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/#cloudflare-warp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cloudflare WARP
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/#14-working-with-latex" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14. Working with LaTeX
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="14. Working with LaTeX">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/#installation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Installation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/#editors" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Editors
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/#16-image-tools" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        16. Image tools
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="16. Image tools">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/#imagemagick" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ImageMagick
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="linux-command-reference">🐧 Linux Command Reference</h1>
+<blockquote>
+<p>A comprehensive, production-quality reference guide to Linux commands.<br>
+<strong>Last Updated:</strong> July 2026</p>
+</blockquote>
+<p>Welcome to this comprehensive guide to Linux commands.</p>
+<p>Whether you're just beginning your journey with the Linux command line or you're already comfortable working in a Linux environment, this guide is designed to be a practical reference. Beginners can use it to build a solid foundation, while experienced users can use it as a quick command handbook and refresher.</p>
+<p>The primary focus is on Debian and Ubuntu-based systems. However, the vast majority of the commands discussed are part of standard Linux utilities and work across most Linux distributions. The primary differences between distributions usually lie in package management and a few system-specific tools. For example, Debian-based distributions use <code>apt</code>, while Fedora uses <code>dnf</code>, Arch Linux uses <code>pacman</code>, and openSUSE uses <code>zypper</code>.</p>
+<p><em>The best way to learn Linux is by using it—experiment with every command in a terminal as you read through this guide.</em>
+And you don't have to remember each commands at all, that is not the way of learning, you use it for many times and it comes to you naturally afterwards so don't worry if you don't remember the commands at the beginning. You can easily refer to this guide any time you feel you need it. </p>
+<hr>
+<h2 id="table-of-contents">📑 Table of Contents</h2>
+<ul>
+<li><a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/#1-basic-system-commands">Basic System Commands</a></li>
+<li><a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/#2-disk--storage-management">Disk &amp; Storage Management</a></li>
+<li><a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/#3-encryption--security">Encryption &amp; Security</a></li>
+<li><a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/#4-file--directory-operations">File &amp; Directory Operations</a></li>
+<li><a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/#5-git-version-control">Git Version Control</a></li>
+<li><a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/#6-media-processing">Media Processing</a></li>
+<li><a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/#7-network--remote-access">Network &amp; Remote Access</a></li>
+<li><a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/#8-package-management">Package Management</a></li>
+<li><a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/#9-pdf-toolkit">PDF Toolkit</a></li>
+<li><a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/#10-system-information--monitoring">System Information &amp; Monitoring</a></li>
+<li><a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/#11-text-processing--search">Text Processing &amp; Search</a></li>
+<li><a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/#12-text-editors">Text Editors</a></li>
+<li><a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/#13-vpn--tunneling">VPN &amp; Tunneling</a></li>
+<li><a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/#14-working-with-latex">Working with LaTeX</a></li>
+<li><a href="https://adarsha121.github.io/webnote/computer/Linux/linux_commands/#16-image-tools">Image Tools</a></li>
+</ul>
+<hr>
+<h2 id="1-basic-system-commands">1. Basic System Commands</h2>
+<h3 id="whoami"><code>whoami</code></h3>
+<p>Prints the current username.</p>
+<p><strong>Syntax:</strong></p>
+<pre id="__code_0"><code class="language-bash">whoami
+</code></pre>
+<p><strong>Example:</strong></p>
+<pre id="__code_1"><code class="language-bash">whoami
+</code></pre>
+<p><strong>Output:</strong></p>
+<pre id="__code_2"><code>ubuntu
+</code></pre>
+<hr>
+<h3 id="pwd"><code>pwd</code></h3>
+<p>Displays the current working directory (Print Working Directory).</p>
+<p><strong>Syntax:</strong></p>
+<pre id="__code_3"><code class="language-bash">pwd
+</code></pre>
+<p><strong>Example:</strong></p>
+<pre id="__code_4"><code class="language-bash">pwd
+</code></pre>
+<p><strong>Output:</strong></p>
+<pre id="__code_5"><code>/home/ubuntu/projects
+</code></pre>
+<hr>
+<h3 id="cd"><code>cd</code></h3>
+<p>Changes the current directory.</p>
+<p><strong>Syntax:</strong></p>
+<pre id="__code_6"><code class="language-bash">cd &lt;directory&gt;
+</code></pre>
+<p><strong>Special Paths:</strong></p>
+<div class="md-typeset__scrollwrap"><div class="md-typeset__table"><table>
+<thead>
+<tr>
+<th>Path</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/</code></td>
+<td>Root directory (top level)</td>
+</tr>
+<tr>
+<td><code>~</code></td>
+<td>Home directory</td>
+</tr>
+<tr>
+<td><code>..</code></td>
+<td>One level up (parent directory)</td>
+</tr>
+<tr>
+<td><code>.</code></td>
+<td>Current directory</td>
+</tr>
+</tbody>
+</table></div></div>
+<p><strong>Examples:</strong></p>
+<pre id="__code_7"><code class="language-bash">cd /var/log          # Navigate to /var/log
+cd ~                 # Go to home directory
+cd ..                # Go one level up
+cd ../..             # Go two levels up
+cd ~/Documents       # Go to Documents in home
+</code></pre>
+<hr>
+<h3 id="ls"><code>ls</code></h3>
+<p>Lists all files and directories in the specified location.</p>
+<p><strong>Syntax:</strong></p>
+<pre id="__code_8"><code class="language-bash">ls [flags] [directory]
+</code></pre>
+<p><strong>Relevant Flags:</strong></p>
+<div class="md-typeset__scrollwrap"><div class="md-typeset__table"><table>
+<thead>
+<tr>
+<th>Flag</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>-a</code></td>
+<td>List all files, including hidden files (those starting with <code>.</code>)</td>
+</tr>
+<tr>
+<td><code>-l</code></td>
+<td>Long format — shows permissions, owner, size, modification date</td>
+</tr>
+<tr>
+<td><code>-h</code></td>
+<td>Human-readable sizes (e.g., <code>2.5M</code>, <code>1.2G</code>) — use with <code>-l</code></td>
+</tr>
+<tr>
+<td><code>-i</code></td>
+<td>Display inode (index node) numbers</td>
+</tr>
+<tr>
+<td><code>-d */</code></td>
+<td>List only subdirectories</td>
+</tr>
+</tbody>
+</table></div></div>
+<p><strong>Examples:</strong></p>
+<pre id="__code_9"><code class="language-bash">ls
+</code></pre>
+<p><strong>Output:</strong></p>
+<pre id="__code_10"><code>Documents  Downloads  file.txt  script.py
+</code></pre>
+<pre id="__code_11"><code class="language-bash">ls -la
+</code></pre>
+<p><strong>Output:</strong></p>
+<pre id="__code_12"><code>drwxr-xr-x 5 ubuntu ubuntu 4096 Jul 09 10:00 .
+drwxr-xr-x 3 root   root   4096 Jul 08 09:00 ..
+-rw-r--r-- 1 ubuntu ubuntu  220 Jul 09 08:00 .bash_logout
+-rw-r--r-- 1 ubuntu ubuntu 3771 Jul 09 08:00 .bashrc
+-rw-r--r-- 1 ubuntu ubuntu  898 Jul 09 09:30 file.txt
+</code></pre>
+<pre id="__code_13"><code class="language-bash">ls *.py
+</code></pre>
+<p><strong>Output:</strong></p>
+<pre id="__code_14"><code>script.py  utils.py  main.py
+</code></pre>
+<pre id="__code_15"><code class="language-bash">ls -d */
+</code></pre>
+<p><strong>Output:</strong></p>
+<pre id="__code_16"><code>Documents/  Downloads/  Projects/
+</code></pre>
+<hr>
+<h3 id="clear"><code>clear</code></h3>
+<p>Clears the terminal screen.</p>
+<p><strong>Syntax:</strong></p>
+<pre id="__code_17"><code class="language-bash">clear
+</code></pre>
+<hr>
+<h3 id="history"><code>history</code></h3>
+<p>Displays all previously executed commands in the current session and past sessions.</p>
+<p><strong>Syntax:</strong></p>
+<pre id="__code_18"><code class="language-bash">history
+</code></pre>
+<p><strong>Pro Tips:</strong></p>
+<pre id="__code_19"><code class="language-bash">history | grep "ssh"     # Search for past SSH commands
+! 42                     # Execute command number 42 from history
+</code></pre>
+<hr>
+<h3 id="man"><code>man</code></h3>
+<p>Displays the manual (documentation) for a given command.</p>
+<p><strong>Syntax:</strong></p>
+<pre id="__code_20"><code class="language-bash">man &lt;command&gt;
+</code></pre>
+<p><strong>Navigation:</strong>
+- Press <code>q</code> to quit the manual viewer.
+- Use <code>↑</code>/<code>↓</code> or <code>Page Up</code>/<code>Page Down</code> to scroll.</p>
+<p><strong>Example:</strong></p>
+<pre id="__code_21"><code class="language-bash">man ls
+</code></pre>
+<hr>
+<h3 id="shutdown"><code>shutdown</code></h3>
+<p>Shuts down or reboots the system.</p>
+<p><strong>Syntax:</strong></p>
+<pre id="__code_22"><code class="language-bash">shutdown [options]
+</code></pre>
+<p><strong>Relevant Options:</strong></p>
+<div class="md-typeset__scrollwrap"><div class="md-typeset__table"><table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>-h</code></td>
+<td>Halt (shutdown) after 1 minute (default)</td>
+</tr>
+<tr>
+<td><code>-h now</code></td>
+<td>Shutdown immediately</td>
+</tr>
+<tr>
+<td><code>-h +10</code></td>
+<td>Shutdown after 10 minutes</td>
+</tr>
+<tr>
+<td><code>-c</code></td>
+<td>Cancel a scheduled shutdown</td>
+</tr>
+<tr>
+<td><code>-r now</code></td>
+<td>Reboot immediately</td>
+</tr>
+</tbody>
+</table></div></div>
+<p><strong>Examples:</strong></p>
+<pre id="__code_23"><code class="language-bash">sudo shutdown -h now      # Immediate shutdown
+sudo shutdown -h +10      # Shutdown in 10 minutes
+sudo shutdown -c        # Cancel scheduled shutdown
+sudo shutdown -r now    # Reboot now
+</code></pre>
+<p><strong>💡 Tip:</strong> Create an alias for convenience:</p>
+<pre id="__code_24"><code class="language-bash">alias sd='sudo shutdown -h now'
+</code></pre>
+<p><em>Note: Aliases persist only for the current session unless added to <code>~/.bashrc</code>.</em></p>
+<hr>
+<h3 id="alias"><code>alias</code></h3>
+<p>Creates a shortcut (alias) for a command.</p>
+<p><strong>Syntax:</strong></p>
+<pre id="__code_25"><code class="language-bash">alias &lt;name&gt;='&lt;command&gt;'
+</code></pre>
+<p><strong>Example:</strong></p>
+<pre id="__code_26"><code class="language-bash">alias lst='tail -50'
+alias gs='git status'
+</code></pre>
+<p><strong>To make aliases permanent:</strong></p>
+<pre id="__code_27"><code class="language-bash">nano ~/.bashrc
+# Add aliases at the end of the file, then save and exit
+source ~/.bashrc   # Reload the configuration
+</code></pre>
+<hr>
+<h3 id="open"><code>open</code></h3>
+<p>Opens a file or program with its default application.</p>
+<p><strong>Syntax:</strong></p>
+<pre id="__code_28"><code class="language-bash">open &lt;file_or_program&gt;
+</code></pre>
+<p><strong>Examples:</strong></p>
+<pre id="__code_29"><code class="language-bash">open hello.pdf        # Open PDF in default viewer
+open code             # Open VS Code (if installed)
+</code></pre>
+<p><strong>Side Note:</strong> Update VS Code via terminal:</p>
+<pre id="__code_30"><code class="language-bash">sudo apt update &amp;&amp; sudo apt upgrade code
+</code></pre>
+<hr>
+<h2 id="2-disk-storage-management">2. Disk &amp; Storage Management</h2>
+<h3 id="df"><code>df</code></h3>
+<p>Reports disk space usage of all mounted filesystems (<strong>d</strong>isk <strong>f</strong>ree).</p>
+<p><strong>Syntax:</strong></p>
+<pre id="__code_31"><code class="language-bash">df [flags]
+</code></pre>
+<p><strong>Relevant Flags:</strong></p>
+<div class="md-typeset__scrollwrap"><div class="md-typeset__table"><table>
+<thead>
+<tr>
+<th>Flag</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>-h</code></td>
+<td>Human-readable format (e.g., <code>10G</code>, <code>500M</code>)</td>
+</tr>
+</tbody>
+</table></div></div>
+<p><strong>Example:</strong></p>
+<pre id="__code_32"><code class="language-bash">df -h
+</code></pre>
+<p><strong>Output:</strong></p>
+<pre id="__code_33"><code>Filesystem      Size  Used Avail Use% Mounted on
+/dev/sda1        50G   20G   28G  42% /
+tmpfs           3.9G  1.2M  3.9G   1% /run
+</code></pre>
+<hr>
+<h3 id="du"><code>du</code></h3>
+<p>Estimates file and directory space usage (<strong>d</strong>isk <strong>u</strong>sage).</p>
+<p><strong>Syntax:</strong></p>
+<pre id="__code_34"><code class="language-bash">du [flags] &lt;path&gt;
+</code></pre>
+<p><strong>Relevant Flags:</strong></p>
+<div class="md-typeset__scrollwrap"><div class="md-typeset__table"><table>
+<thead>
+<tr>
+<th>Flag</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>-h</code></td>
+<td>Human-readable sizes</td>
+</tr>
+<tr>
+<td><code>-s</code></td>
+<td>Summary (total only, not individual files)</td>
+</tr>
+<tr>
+<td><code>--max-depth=N</code></td>
+<td>Show directories up to N levels deep</td>
+</tr>
+</tbody>
+</table></div></div>
+<p><strong>Examples:</strong></p>
+<pre id="__code_35"><code class="language-bash">du -sh /var/log
+</code></pre>
+<p><strong>Output:</strong></p>
+<pre id="__code_36"><code>1.2G    /var/log
+</code></pre>
+<pre id="__code_37"><code class="language-bash">sudo du -h --max-depth=1 / | sort -h
+</code></pre>
+<p><strong>Output:</strong></p>
+<pre id="__code_38"><code>0       /proc
+4.0K    /mnt
+120M    /tmp
+2.5G    /usr
+8.0G    /var
+</code></pre>
+<hr>
+<h3 id="lsblk"><code>lsblk</code></h3>
+<p>Lists information about all available block devices (disks, partitions).</p>
+<p><strong>Syntax:</strong></p>
+<pre id="__code_39"><code class="language-bash">lsblk
+</code></pre>
+<p><strong>Example Output:</strong></p>
+<pre id="__code_40"><code>NAME   MAJ:MIN RM   SIZE RO TYPE MOUNTPOINT
+sda      8:0    0    50G  0 disk
+├─sda1   8:1    0    49G  0 part /
+└─sda2   8:2    0     1G  0 part [SWAP]
+sr0     11:0    1  1024M  0 rom
+</code></pre>
+<hr>
+<h3 id="finding-large-files">Finding Large Files</h3>
+<p>List the 20 largest files on the entire system:</p>
+<pre id="__code_41"><code class="language-bash">sudo find / -type f -exec du -h {} + 2&gt;/dev/null | sort -rh | head -n 20
+</code></pre>
+<hr>
+<h3 id="gui-tools-for-disk-analysis">GUI Tools for Disk Analysis</h3>
+<div class="md-typeset__scrollwrap"><div class="md-typeset__table"><table>
+<thead>
+<tr>
+<th>Tool</th>
+<th>Installation</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ncdu</code></td>
+<td><code>sudo apt install ncdu</code></td>
+<td>NCurses Disk Usage — interactive, terminal-based</td>
+</tr>
+<tr>
+<td><code>baobab</code></td>
+<td><code>sudo apt install baobab</code></td>
+<td>GNOME Disk Usage Analyzer — graphical</td>
+</tr>
+</tbody>
+</table></div></div>
+<hr>
+<h2 id="3-encryption-security">3. Encryption &amp; Security</h2>
+<h3 id="chmod"><code>chmod</code></h3>
+<p>Changes file or directory permissions (<strong>ch</strong>ange <strong>mod</strong>e).</p>
+<p><strong>Syntax:</strong></p>
+<pre id="__code_42"><code class="language-bash">chmod [permissions] &lt;file_or_directory&gt;
+</code></pre>
+<p><strong>Symbolic Mode Examples:</strong></p>
+<pre id="__code_43"><code class="language-bash">chmod +x script.sh        # Make executable
+chmod -w datafile.dat     # Remove write permission
+chmod 755 myfolder        # rwxr-xr-x
+chmod 600 private.key     # rw------- (owner only)
+</code></pre>
+<hr>
+<h3 id="shred"><code>shred</code></h3>
+<p>Securely overwrites files to prevent recovery (unlike <code>rm</code>, which only marks space as free).</p>
+<p><strong>Syntax:</strong></p>
+<pre id="__code_44"><code class="language-bash">shred [flags] &lt;file&gt;
+</code></pre>
+<p><strong>Relevant Flags:</strong></p>
+<div class="md-typeset__scrollwrap"><div class="md-typeset__table"><table>
+<thead>
+<tr>
+<th>Flag</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>-n N</code></td>
+<td>Overwrite N times (default: 3)</td>
+</tr>
+<tr>
+<td><code>-z</code></td>
+<td>Add final overwrite with zeros to hide shredding</td>
+</tr>
+<tr>
+<td><code>-u</code></td>
+<td>Truncate and remove file after overwriting</td>
+</tr>
+<tr>
+<td><code>-v</code></td>
+<td>Verbose mode (show progress)</td>
+</tr>
+<tr>
+<td><code>-f</code></td>
+<td>Force permissions change if needed</td>
+</tr>
+</tbody>
+</table></div></div>
+<p><strong>Example:</strong></p>
+<pre id="__code_45"><code class="language-bash">shred -n 5 -zu -v secret.txt
+</code></pre>
+<p>⚠️ <strong>Limitation:</strong> Does not work reliably on modern SSDs due to wear-leveling. For SSDs, consider <code>hdparm</code> (use with extreme caution).</p>
+<hr>
+<h3 id="zip-encrypted"><code>zip</code> (Encrypted)</h3>
+<p>Encrypts a folder into a password-protected ZIP archive.</p>
+<p><strong>Syntax:</strong></p>
+<pre id="__code_46"><code class="language-bash">zip -er &lt;archive.zip&gt; &lt;folder/&gt;
+</code></pre>
+<p><strong>Example:</strong></p>
+<pre id="__code_47"><code class="language-bash">zip -er my_secure_folder.zip my_folder/
+# You will be prompted to enter and verify a password
+</code></pre>
+<p><strong>To decrypt:</strong></p>
+<pre id="__code_48"><code class="language-bash">unzip my_secure_folder.zip
+# Enter password when prompted
+</code></pre>
+<hr>
+<h3 id="ecryptfs"><code>ecryptfs</code></h3>
+<p>More secure and robust directory encryption.</p>
+<p><strong>Installation:</strong></p>
+<pre id="__code_49"><code class="language-bash">sudo apt install ecryptfs-utils
+</code></pre>
+<p><strong>Usage:</strong></p>
+<pre id="__code_50"><code class="language-bash">sudo mount -t ecryptfs &lt;encrypted_source&gt; &lt;decrypted_destination&gt;
+</code></pre>
+<hr>
+<h3 id="gpg"><code>gpg</code></h3>
+<p>Encrypts and decrypts files using GNU Privacy Guard.</p>
+<p><strong>Encrypt a file:</strong></p>
+<pre id="__code_51"><code class="language-bash">gpg -c my_secret.txt
+# Creates my_secret.txt.gpg
+# You will be prompted for a password
+</code></pre>
+<p><strong>Decrypt a file:</strong></p>
+<pre id="__code_52"><code class="language-bash">gpg -d my_secret.txt.gpg &gt; my_secret.txt
+</code></pre>
+<hr>
+<h2 id="4-file-directory-operations">4. File &amp; Directory Operations</h2>
+<h3 id="mkdir"><code>mkdir</code></h3>
+<p>Creates a new directory (<strong>m</strong>a<strong>k</strong>e <strong>dir</strong>ectory).</p>
+<p><strong>Syntax:</strong></p>
+<pre id="__code_53"><code class="language-bash">mkdir &lt;directory_name&gt;
+# or
+md &lt;directory_name&gt;
+</code></pre>
+<p><strong>Example:</strong></p>
+<pre id="__code_54"><code class="language-bash">mkdir Projects
+mkdir -p Projects/web/app   # Create nested directories
+</code></pre>
+<hr>
+<h3 id="cp"><code>cp</code></h3>
+<p>Copies files and directories.</p>
+<p><strong>Syntax:</strong></p>
+<pre id="__code_55"><code class="language-bash">cp [flags] &lt;source&gt; &lt;destination&gt;
+</code></pre>
+<p><strong>Relevant Flags:</strong></p>
+<div class="md-typeset__scrollwrap"><div class="md-typeset__table"><table>
+<thead>
+<tr>
+<th>Flag</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>-r</code></td>
+<td>Recursive (copy directories and their contents)</td>
+</tr>
+<tr>
+<td><code>-v</code></td>
+<td>Verbose (show what's being copied)</td>
+</tr>
+<tr>
+<td><code>-u</code></td>
+<td>Copy only if source is newer than destination</td>
+</tr>
+<tr>
+<td><code>-n</code></td>
+<td>Do not overwrite existing files</td>
+</tr>
+<tr>
+<td><code>-p</code></td>
+<td>Preserve timestamps and permissions</td>
+</tr>
+</tbody>
+</table></div></div>
+<p><strong>Examples:</strong></p>
+<pre id="__code_56"><code class="language-bash">cp file.txt /backup/
+cp -r my_folder/ /backup/my_folder/
+cp -v *.log /archive/
+</code></pre>
+<hr>
+<h3 id="mv"><code>mv</code></h3>
+<p>Moves or renames files and directories.</p>
+<p><strong>Syntax:</strong></p>
+<pre id="__code_57"><code class="language-bash">mv &lt;source&gt; &lt;destination&gt;
+</code></pre>
+<p><strong>Examples:</strong></p>
+<pre id="__code_58"><code class="language-bash">mv old_name.txt new_name.txt      # Rename
+mv file.txt /home/ubuntu/docs/    # Move
+mv folder/ /backup/               # Move directory
+</code></pre>
+<hr>
+<h3 id="rm"><code>rm</code></h3>
+<p>Removes files and directories <strong>permanently</strong>.</p>
+<p><strong>Syntax:</strong></p>
+<pre id="__code_59"><code class="language-bash">rm [flags] &lt;file_or_directory&gt;
+</code></pre>
+<p><strong>Relevant Flags:</strong></p>
+<div class="md-typeset__scrollwrap"><div class="md-typeset__table"><table>
+<thead>
+<tr>
+<th>Flag</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>-r</code></td>
+<td>Recursive (remove directories and contents)</td>
+</tr>
+<tr>
+<td><code>-f</code></td>
+<td>Force removal without prompting</td>
+</tr>
+<tr>
+<td><code>-i</code></td>
+<td>Interactive (prompt before each removal)</td>
+</tr>
+</tbody>
+</table></div></div>
+<p><strong>Examples:</strong></p>
+<pre id="__code_60"><code class="language-bash">rm file.txt
+rm -r old_project/
+rm -rf temp/          # Force remove directory (use with caution!)
+</code></pre>
+<p><strong>⚠️ Special Case:</strong> If a filename starts with <code>-</code>, <code>rm</code> may interpret it as a flag. Use <code>--</code> to indicate end of flags:</p>
+<pre id="__code_61"><code class="language-bash">rm -- -weird-filename.txt
+</code></pre>
+<hr>
+<h3 id="find"><code>find</code></h3>
+<p>Searches for files and directories matching specified criteria.</p>
+<p><strong>Syntax:</strong></p>
+<pre id="__code_62"><code class="language-bash">find [path] [options] [expression]
+</code></pre>
+<p><strong>Common Paths:</strong></p>
+<div class="md-typeset__scrollwrap"><div class="md-typeset__table"><table>
+<thead>
+<tr>
+<th>Path</th>
+<th>Search Scope</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/</code></td>
+<td>Entire filesystem (may need <code>sudo</code>)</td>
+</tr>
+<tr>
+<td><code>~</code></td>
+<td>Home directory</td>
+</tr>
+<tr>
+<td><code>.</code></td>
+<td>Current directory and subdirectories</td>
+</tr>
+</tbody>
+</table></div></div>
+<p><strong>Relevant Options &amp; Expressions:</strong></p>
+<div class="md-typeset__scrollwrap"><div class="md-typeset__table"><table>
+<thead>
+<tr>
+<th>Flag/Expression</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>-maxdepth N</code></td>
+<td>Limit search depth to N levels</td>
+</tr>
+<tr>
+<td><code>-type f</code></td>
+<td>Find only regular files</td>
+</tr>
+<tr>
+<td><code>-type d</code></td>
+<td>Find only directories</td>
+</tr>
+<tr>
+<td><code>-name "pattern"</code></td>
+<td>Case-sensitive name match</td>
+</tr>
+<tr>
+<td><code>-iname "pattern"</code></td>
+<td>Case-insensitive name match</td>
+</tr>
+</tbody>
+</table></div></div>
+<p><strong>Examples:</strong></p>
+<pre id="__code_63"><code class="language-bash">find ~ -type f -name "*.py"
+</code></pre>
+<p><strong>Output:</strong></p>
+<pre id="__code_64"><code>/home/ubuntu/scripts/main.py
+/home/ubuntu/utils/helpers.py
+</code></pre>
+<pre id="__code_65"><code class="language-bash">find . -maxdepth 1 -type f
+</code></pre>
+<p><strong>Output:</strong></p>
+<pre id="__code_66"><code>./file.txt
+./script.py
+./README.md
+</code></pre>
+<pre id="__code_67"><code class="language-bash">find . -maxdepth 1 -type d
+</code></pre>
+<p><strong>Output:</strong></p>
+<pre id="__code_68"><code>.
+./Documents
+./Downloads
+</code></pre>
+<hr>
+<h2 id="5-git-version-control">5. Git Version Control</h2>
+<h3 id="initial-setup-first-time">Initial Setup (First Time)</h3>
+<pre id="__code_69"><code class="language-bash">git init                              # Initialize a new Git repository
+git add .                             # Stage all files
+git add &lt;file&gt; &lt;folder&gt;               # Stage specific files/folders
+git commit -m "Initial commit"        # Commit with a message
+
+# Connect to remote repository
+git remote add origin https://github.com/&lt;username&gt;/&lt;repo&gt;.git
+# or for GitLab:
+git remote add origin https://gitlab.com/&lt;username&gt;/&lt;repo&gt;.git
+
+# If you need to update an existing remote URL
+git remote set-url origin https://github.com/&lt;username&gt;/&lt;repo&gt;.git
+
+# Push to main branch
+git branch -M main
+git push -u origin main
+</code></pre>
+<hr>
+<h3 id="daily-workflow">Daily Workflow</h3>
+<pre id="__code_70"><code class="language-bash">git add .                             # Stage changes
+git commit -m "Updated project with new features"
+git push origin main                  # Push to remote
+</code></pre>
+<hr>
+<h3 id="git-rm"><code>git rm</code></h3>
+<p>Removes a file from both the working directory and the staging area.</p>
+<p><strong>Syntax:</strong></p>
+<pre id="__code_71"><code class="language-bash">git rm &lt;file_to_remove&gt;
+</code></pre>
+<hr>
+<h3 id="git-status"><code>git status</code></h3>
+<p>Shows which files have been modified, staged, or are untracked.</p>
+<p><strong>Syntax:</strong></p>
+<pre id="__code_72"><code class="language-bash">git status
+</code></pre>
+<hr>
+<h3 id="git-diff"><code>git diff</code></h3>
+<p>Shows the differences between working directory and staging area.</p>
+<p><strong>Syntax:</strong></p>
+<pre id="__code_73"><code class="language-bash">git diff
+</code></pre>
+<hr>
+<h3 id="git-log"><code>git log</code></h3>
+<p>Displays commit history.</p>
+<p><strong>Syntax:</strong></p>
+<pre id="__code_74"><code class="language-bash">git log
+</code></pre>
+<p><strong>Example Output:</strong></p>
+<pre id="__code_75"><code>commit a3d5f6b91e1b2c8f...
+Author: Your Name &lt;you@example.com&gt;
+Date:   Sat Oct 12 14:22:18 2025
+
+    Fixed bug in login module
+</code></pre>
+<p><strong>Relevant Flags:</strong></p>
+<div class="md-typeset__scrollwrap"><div class="md-typeset__table"><table>
+<thead>
+<tr>
+<th>Flag</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>--oneline</code></td>
+<td>Compact one-line format per commit</td>
+</tr>
+<tr>
+<td><code>--graph</code></td>
+<td>ASCII graph of branch/merge history</td>
+</tr>
+<tr>
+<td><code>--all</code></td>
+<td>Show all branches</td>
+</tr>
+</tbody>
+</table></div></div>
+<p><strong>Example:</strong></p>
+<pre id="__code_76"><code class="language-bash">git log --oneline
+</code></pre>
+<p><strong>Output:</strong></p>
+<pre id="__code_77"><code>a3d5f6b Fixed bug in login module
+8c2b1a4 Added user dashboard
+4f9e2d1 Initial commit
+</code></pre>
+<hr>
+<h3 id="git-checkout"><code>git checkout</code></h3>
+<p>Switches branches or restores files. Use to temporarily inspect an old commit.</p>
+<p><strong>Syntax:</strong></p>
+<pre id="__code_78"><code class="language-bash">git checkout &lt;commit-hash&gt;          # Detached HEAD state — explore old version
+git checkout main                   # Return to latest main branch
+git checkout &lt;commit-hash&gt; -- path/to/file   # Restore specific file from old commit
+</code></pre>
+<hr>
+<h3 id="git-reset"><code>git reset</code> ⚠️</h3>
+<p>Permanently reverts to a specific commit. <strong>Destructive</strong> — use with caution.</p>
+<p><strong>Syntax:</strong></p>
+<pre id="__code_79"><code class="language-bash">git reset --hard &lt;commit-hash&gt;
+</code></pre>
+<p><strong>To push the revert to remote:</strong></p>
+<pre id="__code_80"><code class="language-bash">git push origin main --force
+</code></pre>
+<hr>
+<h3 id="git-clone"><code>git clone</code></h3>
+<p>Copies a remote repository to your local machine.</p>
+<p><strong>Syntax:</strong></p>
+<pre id="__code_81"><code class="language-bash">git clone &lt;repository-url&gt;
+</code></pre>
+<p><strong>Example:</strong></p>
+<pre id="__code_82"><code class="language-bash">git clone https://github.com/torvalds/linux.git
+</code></pre>
+<hr>
+<h3 id="git-pull"><code>git pull</code></h3>
+<p>Fetches and integrates the latest changes from the remote repository.</p>
+<p><strong>Syntax:</strong></p>
+<pre id="__code_83"><code class="language-bash">git pull
+</code></pre>
+<hr>
+<h2 id="6-media-processing">6. Media Processing</h2>
+<h3 id="ffmpeg"><code>ffmpeg</code></h3>
+<p>A comprehensive multimedia framework for audio, video, and image processing.</p>
+<p><strong>Key Capabilities:</strong>
+- Format conversion (MP4, MP3, WAV, MKV, PNG, JPG, etc.)
+- Audio/video extraction and merging
+- Trimming, resizing, compressing, and applying filters</p>
+<hr>
+<h4 id="extract-audio-from-video">Extract Audio from Video</h4>
+<p><strong>To MP3 (best quality):</strong></p>
+<pre id="__code_84"><code class="language-bash">ffmpeg -i input.mp4 -q:a 0 -map a output.mp3
+</code></pre>
+<p><strong>To WAV:</strong></p>
+<pre id="__code_85"><code class="language-bash">ffmpeg -i input.mp4 -vn -acodec pcm_s16le -ar 44100 -ac 2 output.wav
+</code></pre>
+<hr>
+<h4 id="remove-audio-from-video">Remove Audio from Video</h4>
+<pre id="__code_86"><code class="language-bash">ffmpeg -i input.mp4 -c copy -an muted.mp4
+</code></pre>
+<hr>
+<h4 id="trim-media">Trim Media</h4>
+<p><strong>Video (without re-encoding — fast):</strong></p>
+<pre id="__code_87"><code class="language-bash">ffmpeg -ss 00:01:00 -to 00:02:30 -i input.mp4 -c copy trimmed.mp4
+</code></pre>
+<p><strong>Audio:</strong></p>
+<pre id="__code_88"><code class="language-bash">ffmpeg -ss 30 -to 90 -i input.mp3 -c copy trimmed.mp3
+</code></pre>
+<hr>
+<h4 id="convert-formats">Convert Formats</h4>
+<p><strong>Video (MP4 → MKV):</strong></p>
+<pre id="__code_89"><code class="language-bash">ffmpeg -i input.mp4 -c copy output.mkv
+</code></pre>
+<p><strong>Audio (WAV → MP3):</strong></p>
+<pre id="__code_90"><code class="language-bash">ffmpeg -i input.wav -codec:a libmp3lame -qscale:a 2 output.mp3
+</code></pre>
+<hr>
+<h4 id="compress-video">Compress Video</h4>
+<pre id="__code_91"><code class="language-bash" tabindex="0">ffmpeg -i input.mp4 -vcodec libx264 -crf 28 -preset veryfast -acodec aac compressed.mp4
+</code></pre>
+<hr>
+<h4 id="resize-video">Resize Video</h4>
+<pre id="__code_92"><code class="language-bash">ffmpeg -i input.mp4 -vf scale=1280:720 -c:a copy output_720p.mp4
+</code></pre>
+<hr>
+<h4 id="merge-multiple-videos">Merge Multiple Videos</h4>
+<pre id="__code_93"><code class="language-bash"># Step 1: Create a file list
+echo "file 'video1.mp4'" &gt; file_list.txt
+echo "file 'video2.mp4'" &gt;&gt; file_list.txt
+
+# Step 2: Concatenate
+ffmpeg -f concat -safe 0 -i file_list.txt -c copy merged.mp4
+</code></pre>
+<hr>
+<h4 id="merge-multiple-audios">Merge Multiple Audios</h4>
+<pre id="__code_94"><code class="language-bash">echo "file 'audio1.mp3'" &gt; audio_list.txt
+echo "file 'audio2.mp3'" &gt;&gt; audio_list.txt
+ffmpeg -f concat -safe 0 -i audio_list.txt -c copy merged.mp3
+</code></pre>
+<hr>
+<h4 id="merge-audio-and-video">Merge Audio and Video</h4>
+<pre id="__code_95"><code class="language-bash">ffmpeg -i input.mp4 -i input.mp3 -c:v copy -c:a aac -strict experimental output.mp4
+</code></pre>
+<hr>
+<h4 id="replace-audio-in-a-video">Replace Audio in a Video</h4>
+<pre id="__code_96"><code class="language-bash" tabindex="0">ffmpeg -i input.mp4 -i new_audio.mp3 -map 0:v -map 1:a -c:v copy -shortest replaced.mp4
+</code></pre>
+<hr>
+<h4 id="extract-frames">Extract Frames</h4>
+<pre id="__code_97"><code class="language-bash">ffmpeg -i input.mp4 -vf fps=1 frame_%04d.png
+</code></pre>
+<p><em>Extracts 1 frame per second, named <code>frame_0001.png</code>, <code>frame_0002.png</code>, etc.</em></p>
+<hr>
+<h4 id="add-fade-effects">Add Fade Effects</h4>
+<p><strong>Video (fade in for 3s, fade out starting at 27s for 3s):</strong></p>
+<pre id="__code_98"><code class="language-bash">ffmpeg -i input.mp4 -vf "fade=t=in:st=0:d=3,fade=t=out:st=27:d=3" -c:a copy faded.mp4
+</code></pre>
+<p><strong>Audio:</strong></p>
+<pre id="__code_99"><code class="language-bash">ffmpeg -i input.mp3 -af "afade=t=in:ss=0:d=3,afade=t=out:st=57:d=3" faded.mp3
+</code></pre>
+<hr>
+<h4 id="crossfade-transition-2-videos">Crossfade Transition (2 Videos)</h4>
+<pre id="__code_100"><code class="language-bash" tabindex="0">ffmpeg -i video1.mp4 -i video2.mp4 -filter_complex "[0:v][1:v]xfade=transition=fade:duration=2:offset=4[v];  [0:a][1:a]acrossfade=d=2[a]" -map "[v]" -map "[a]" output.mp4
+</code></pre>
+<hr>
+<h3 id="img2pdf"><code>img2pdf</code></h3>
+<p>Converts images to PDF.</p>
+<p><strong>Installation:</strong></p>
+<pre id="__code_101"><code class="language-bash">sudo apt install img2pdf
+</code></pre>
+<p><strong>Syntax:</strong></p>
+<pre id="__code_102"><code class="language-bash">img2pdf [options] &lt;images...&gt; -o &lt;output.pdf&gt;
+</code></pre>
+<p><strong>Examples:</strong></p>
+<pre id="__code_103"><code class="language-bash">img2pdf image.jpg -o converted_img.pdf
+img2pdf --pagesize A4 --output out.pdf *.jpg
+img2pdf --border 2cm:2.5cm -o out.pdf *.jpg
+img2pdf --fit shrink -S A4 -o out.pdf *.jpg
+img2pdf --from-file list.txt -o out.pdf
+img2pdf --dry-run *.jpg       # Validate without creating output
+</code></pre>
+<hr>
+<h3 id="yt-dlp"><code>yt-dlp</code></h3>
+<p>Downloads videos and audio from YouTube and other sites.</p>
+<p><strong>Installation:</strong></p>
+<pre id="__code_104"><code class="language-bash" tabindex="0">sudo wget https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp -O /usr/bin/yt-dlp
+sudo chmod a+rx /usr/bin/yt-dlp
+</code></pre>
+<p><strong>Syntax:</strong></p>
+<pre id="__code_105"><code class="language-bash">yt-dlp [options] &lt;URL&gt;
+</code></pre>
+<p><strong>Examples:</strong></p>
+<pre id="__code_106"><code class="language-bash">yt-dlp &lt;URL&gt;                          # Download video
+yt-dlp -x --audio-format mp3 &lt;URL&gt;    # Extract audio as MP3
+yt-dlp -f best &lt;URL&gt;                  # Best quality available
+yt-dlp -o "%(title)s.%(ext)s" &lt;URL&gt;   # Download playlist with original titles
+yt-dlp -4 &lt;URL&gt;                       # Force IPv4
+yt-dlp -U                             # Update yt-dlp
+</code></pre>
+<hr>
+<h2 id="7-network-remote-access">7. Network &amp; Remote Access</h2>
+<h3 id="ssh"><code>ssh</code></h3>
+<p>Connects to a remote server securely via SSH.</p>
+<p><strong>Prerequisites:</strong>
+- Server Public IP Address
+- Server Username
+- Private SSH Key File (<code>.key</code> or <code>.pem</code>)
+- Firewall rules allowing SSH (port 22)</p>
+<p><strong>Syntax:</strong></p>
+<pre id="__code_107"><code class="language-bash">ssh -i &lt;ssh-key-file&gt; &lt;username&gt;@&lt;public-ip&gt;
+</code></pre>
+<p><strong>Example:</strong></p>
+<pre id="__code_108"><code class="language-bash">ssh -i ssh-key-2025.key ubuntu@161.118.160.112
+</code></pre>
+<p><strong>Fix Permission Errors:</strong></p>
+<pre id="__code_109"><code class="language-bash">chmod 600 &lt;ssh-key-file&gt;
+</code></pre>
+<hr>
+<h3 id="scp"><code>scp</code></h3>
+<p>Securely copies files between local and remote machines over SSH.</p>
+<p><strong>Syntax:</strong></p>
+<pre id="__code_110"><code class="language-bash">scp -i &lt;ssh-key&gt; &lt;local-file&gt; &lt;username&gt;@&lt;host&gt;:&lt;remote-path&gt;
+</code></pre>
+<p><strong>Example:</strong></p>
+<pre id="__code_111"><code class="language-bash">scp -i ssh-key.key report.pdf ubuntu@161.118.160.112:/home/ubuntu/docs/
+</code></pre>
+<hr>
+<h3 id="rsync"><code>rsync</code></h3>
+<p>Synchronizes files and directories between locations (local or remote). Faster than <code>scp</code> for large transfers.</p>
+<p><strong>Syntax:</strong></p>
+<pre id="__code_112"><code class="language-bash">rsync [flags] &lt;source&gt; &lt;destination&gt;
+</code></pre>
+<p><strong>Relevant Flags:</strong></p>
+<div class="md-typeset__scrollwrap"><div class="md-typeset__table"><table>
+<thead>
+<tr>
+<th>Flag</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>-a</code></td>
+<td>Archive mode (preserves permissions, timestamps, symlinks)</td>
+</tr>
+<tr>
+<td><code>-v</code></td>
+<td>Verbose</td>
+</tr>
+<tr>
+<td><code>-z</code></td>
+<td>Compress during transfer</td>
+</tr>
+<tr>
+<td><code>-e ssh</code></td>
+<td>Use SSH for remote transfer</td>
+</tr>
+</tbody>
+</table></div></div>
+<p><strong>Examples:</strong></p>
+<pre id="__code_113"><code class="language-bash">rsync -av /source/ /backup/
+rsync -avz -e ssh /local/path/ user@remote_host:/remote/path/
+</code></pre>
+<hr>
+<h3 id="wget"><code>wget</code></h3>
+<p>Downloads files from the web.</p>
+<p><strong>Syntax:</strong></p>
+<pre id="__code_114"><code class="language-bash">wget &lt;URL&gt;
+</code></pre>
+<hr>
+<h3 id="curl"><code>curl</code></h3>
+<p>Transfers data from or to a server (supports many protocols).</p>
+<p><strong>Syntax:</strong></p>
+<pre id="__code_115"><code class="language-bash">curl [options] &lt;URL&gt;
+</code></pre>
+<p><strong>Examples:</strong></p>
+<pre id="__code_116"><code class="language-bash">curl ifconfig.me              # Get public IPv4 address
+curl loca.lt/mytunnelpassword # Get public IP / tunnel password
+curl -O https://example.com/file.zip   # Download and save with original name
+</code></pre>
+<hr>
+<h3 id="lsof"><code>lsof</code></h3>
+<p>Lists open files and the processes that opened them. Useful for checking ports.</p>
+<p><strong>Syntax:</strong></p>
+<pre id="__code_117"><code class="language-bash">lsof -i:&lt;port_number&gt;
+</code></pre>
+<p><strong>Example:</strong></p>
+<pre id="__code_118"><code class="language-bash">lsof -i:3000
+</code></pre>
+<hr>
+<h3 id="nmcli"><code>nmcli</code></h3>
+<p>Network Manager command-line tool for controlling network connections.</p>
+<p><strong>Examples:</strong></p>
+<pre id="__code_119"><code class="language-bash">nmcli device show                 # Show full network info (IP, DNS, etc.)
+nmcli device wifi show-password   # Display current Wi-Fi password
+</code></pre>
+<hr>
+<h3 id="hostname"><code>hostname</code></h3>
+<p>Displays or sets the system's hostname.</p>
+<p><strong>Example:</strong></p>
+<pre id="__code_120"><code class="language-bash">hostname -I                       # Display local IP address(es)
+</code></pre>
+<hr>
+<h3 id="resolvectl"><code>resolvectl</code></h3>
+<p>Checks DNS resolution status.</p>
+<p><strong>Syntax:</strong></p>
+<pre id="__code_121"><code class="language-bash">resolvectl status
+</code></pre>
+<hr>
+<h3 id="localtunnel-ngrok"><code>localtunnel</code> / <code>ngrok</code></h3>
+<p>Exposes a local server to the public internet.</p>
+<p><strong>localtunnel (easiest):</strong></p>
+<pre id="__code_122"><code class="language-bash">npm install -g localtunnel
+lt --port &lt;port_number&gt;
+</code></pre>
+<p><strong>ngrok:</strong>
+Requires account setup and auth token configuration.</p>
+<hr>
+<h3 id="python-local-servers">Python Local Servers</h3>
+<p><strong>HTTP Server:</strong></p>
+<pre id="__code_123"><code class="language-bash">python3 -m http.server 8000
+</code></pre>
+<p><em>Serves the current directory over HTTP on port 8000.</em></p>
+<p><strong>FTP Server:</strong></p>
+<pre id="__code_124"><code class="language-bash">sudo apt install python3-pyftpdlib
+python3 -m pyftpdlib -w
+</code></pre>
+<hr>
+<h3 id="ttyd"><code>ttyd</code></h3>
+<p>Shares your terminal in a web browser.</p>
+<p><strong>Syntax:</strong></p>
+<pre id="__code_125"><code class="language-bash">ttyd -p 8080                      # Read-only mode
+ttyd -W -p 8080                   # Write mode
+ttyd -W -p 8080 -c user:password bash   # With authentication
+</code></pre>
+<p><em>Access at <code>http://localhost:8080</code></em></p>
+<hr>
+<h3 id="wormhole"><code>wormhole</code></h3>
+<p>Securely sends files between computers via a magic code.</p>
+<p><strong>Sender:</strong></p>
+<pre id="__code_126"><code class="language-bash">wormhole send &lt;filename&gt;
+# Returns a code like: 7-guitarist-revenge
+</code></pre>
+<p><strong>Receiver:</strong></p>
+<pre id="__code_127"><code class="language-bash">wormhole receive &lt;code&gt;
+</code></pre>
+<hr>
+<h3 id="terminal-browsers">Terminal Browsers</h3>
+<div class="md-typeset__scrollwrap"><div class="md-typeset__table"><table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>links2 &lt;url&gt;</code></td>
+<td>Text-based web browser</td>
+</tr>
+<tr>
+<td><code>links -g &lt;url&gt;</code></td>
+<td>Graphical mode in terminal</td>
+</tr>
+<tr>
+<td><code>w3m &lt;url&gt;</code></td>
+<td>Another text-based browser</td>
+</tr>
+</tbody>
+</table></div></div>
+<hr>
+<h2 id="8-package-management">8. Package Management</h2>
+<h3 id="apt"><code>apt</code></h3>
+<p>The default package manager for Debian/Ubuntu systems.</p>
+<p><strong>Syntax:</strong></p>
+<pre id="__code_128"><code class="language-bash">sudo apt [command] [package]
+</code></pre>
+<p><strong>Common Commands:</strong></p>
+<div class="md-typeset__scrollwrap"><div class="md-typeset__table"><table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>update</code></td>
+<td>Refresh package lists</td>
+</tr>
+<tr>
+<td><code>upgrade</code></td>
+<td>Upgrade installed packages</td>
+</tr>
+<tr>
+<td><code>install &lt;pkg&gt;</code></td>
+<td>Install a package</td>
+</tr>
+<tr>
+<td><code>remove &lt;pkg&gt;</code></td>
+<td>Remove a package</td>
+</tr>
+<tr>
+<td><code>search &lt;pkg&gt;</code></td>
+<td>Search for a package</td>
+</tr>
+<tr>
+<td><code>list --installed</code></td>
+<td>List installed packages</td>
+</tr>
+</tbody>
+</table></div></div>
+<p><strong>Examples:</strong></p>
+<pre id="__code_129"><code class="language-bash">sudo apt update
+sudo apt upgrade code              # Upgrade VS Code specifically
+sudo apt install nginx
+apt search python3-pandas
+</code></pre>
+<hr>
+<h3 id="dpkg"><code>dpkg</code></h3>
+<p>Low-level package manager. Useful for listing installed packages.</p>
+<p><strong>Syntax:</strong></p>
+<pre id="__code_130"><code class="language-bash">dpkg -l                          # List all installed packages
+</code></pre>
+<hr>
+<h3 id="snap"><code>snap</code></h3>
+<p>Ubuntu's universal package format.</p>
+<p><strong>Syntax:</strong></p>
+<pre id="__code_131"><code class="language-bash">snap list --all                   # List all snap packages
+sudo snap remove &lt;package&gt;        # Remove a snap package
+</code></pre>
+<hr>
+<h2 id="9-pdf-toolkit">9. PDF Toolkit</h2>
+<h3 id="pdftk"><code>pdftk</code></h3>
+<p>The classic PDF toolkit for merging, splitting, rotating, and more.</p>
+<p><strong>Installation:</strong></p>
+<pre id="__code_132"><code class="language-bash">sudo apt install pdftk
+</code></pre>
+<p><strong>Operations:</strong></p>
+<div class="md-typeset__scrollwrap"><div class="md-typeset__table"><table>
+<thead>
+<tr>
+<th>Task</th>
+<th>Command</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Merge PDFs</strong></td>
+<td><code>pdftk file1.pdf file2.pdf cat output merged.pdf</code></td>
+</tr>
+<tr>
+<td><strong>Split (burst)</strong></td>
+<td><code>pdftk input.pdf burst output page_%02d.pdf</code></td>
+</tr>
+<tr>
+<td><strong>Extract pages 2–4</strong></td>
+<td><code>pdftk input.pdf cat 2-4 output extracted.pdf</code></td>
+</tr>
+<tr>
+<td><strong>Extract non-contiguous</strong></td>
+<td><code>pdftk input.pdf cat 1 3 5 output selected.pdf</code></td>
+</tr>
+<tr>
+<td><strong>Remove page 2</strong></td>
+<td><code>pdftk input.pdf cat 1 3-end output removed.pdf</code></td>
+</tr>
+<tr>
+<td><strong>Rotate page 3 (90° CW)</strong></td>
+<td><code>pdftk input.pdf cat 1-2 3E 4-end output rotated.pdf</code></td>
+</tr>
+<tr>
+<td><strong>Rotate all (180°)</strong></td>
+<td><code>pdftk input.pdf cat 1-endS output rotated_all.pdf</code></td>
+</tr>
+<tr>
+<td><strong>Background watermark</strong></td>
+<td><code>pdftk input.pdf background bg.pdf output watermarked.pdf</code></td>
+</tr>
+<tr>
+<td><strong>Stamp overlay</strong></td>
+<td><code>pdftk input.pdf stamp stamp.pdf output stamped.pdf</code></td>
+</tr>
+<tr>
+<td><strong>Custom merge order</strong></td>
+<td><code>pdftk A=doc1.pdf B=doc2.pdf cat A1-3 B2-4 A4-end output merged.pdf</code></td>
+</tr>
+<tr>
+<td><strong>Repair PDF</strong></td>
+<td><code>pdftk broken.pdf output fixed.pdf</code></td>
+</tr>
+<tr>
+<td><strong>Unlock PDF</strong></td>
+<td><code>pdftk input.pdf input_pw YOUR_PASSWORD output unlocked.pdf</code></td>
+</tr>
+</tbody>
+</table></div></div>
+<p><strong>Rotation Codes:</strong> <code>N</code> = 0°, <code>E</code> = 90°, <code>S</code> = 180°, <code>W</code> = 270°</p>
+<hr>
+<h3 id="qpdf"><code>qpdf</code></h3>
+<p>A modern, robust alternative to <code>pdftk</code>, especially for encryption tasks.</p>
+<p><strong>Decrypt a PDF:</strong></p>
+<pre id="__code_133"><code class="language-bash">qpdf --password=YOUR_PASSWORD --decrypt input.pdf unlocked_output.pdf
+</code></pre>
+<hr>
+<h3 id="gs-ghostscript"><code>gs</code> (Ghostscript)</h3>
+<p>Pre-installed tool for PDF and PostScript manipulation.</p>
+<p><strong>Compress PDF:</strong></p>
+<pre id="__code_134"><code class="language-bash" tabindex="0">gs -dSAFER -dBATCH -dNOPAUSE -sDEVICE=pdfwrite    -dCompatibilityLevel=1.4 -dPDFSETTINGS=/screen    -sOutputFile=compressed.pdf input.pdf
+</code></pre>
+<p><strong>Extract Pages:</strong></p>
+<pre id="__code_135"><code class="language-bash" tabindex="0">gs -sDEVICE=pdfwrite -dNOPAUSE -dBATCH -dSAFER    -dFirstPage=1 -dLastPage=1    -sOutputFile=extracted.pdf input.pdf
+</code></pre>
+<hr>
+<h3 id="pdfcrack"><code>pdfcrack</code></h3>
+<p>Brute-force PDF password recovery.</p>
+<p><strong>Installation:</strong></p>
+<pre id="__code_136"><code class="language-bash">sudo apt install pdfcrack
+</code></pre>
+<p><strong>Syntax:</strong></p>
+<pre id="__code_137"><code class="language-bash">pdfcrack -f input.pdf
+</code></pre>
+<hr>
+<h3 id="john-john-the-ripper"><code>john</code> (John the Ripper)</h3>
+<p>Password cracking tool. Can be used with PDF hashes via <code>pdf2john</code>.</p>
+<pre id="__code_138"><code class="language-bash">pdf2john input.pdf &gt; pdf.hash
+john pdf.hash
+</code></pre>
+<hr>
+<h2 id="10-system-information-monitoring">10. System Information &amp; Monitoring</h2>
+<h3 id="lsb_release"><code>lsb_release</code></h3>
+<p>Displays Linux distribution information.</p>
+<p><strong>Syntax:</strong></p>
+<pre id="__code_139"><code class="language-bash">lsb_release -a
+</code></pre>
+<p><strong>Example Output:</strong></p>
+<pre id="__code_140"><code>Distributor ID: Ubuntu
+Description:    Ubuntu 22.04.4 LTS
+Release:        22.04
+Codename:       jammy
+</code></pre>
+<hr>
+<h3 id="upower"><code>upower</code></h3>
+<p>Checks battery health and status.</p>
+<p><strong>Syntax:</strong></p>
+<pre id="__code_141"><code class="language-bash">upower -e | grep 'BAT'            # Find battery path
+upower -i &lt;battery_path&gt;          # Get battery details
+</code></pre>
+<p><strong>Example:</strong></p>
+<pre id="__code_142"><code class="language-bash">upower -e | grep 'BAT'
+</code></pre>
+<p><strong>Output:</strong></p>
+<pre id="__code_143"><code>/org/freedesktop/UPower/devices/battery_BAT0
+</code></pre>
+<pre id="__code_144"><code class="language-bash">upower -i /org/freedesktop/UPower/devices/battery_BAT0
+</code></pre>
+<blockquote>
+<p><strong>Note:</strong> Capacity below 50% is generally considered poor battery health.</p>
+</blockquote>
+<hr>
+<h3 id="fc-list"><code>fc-list</code></h3>
+<p>Lists all installed font families.</p>
+<p><strong>Syntax:</strong></p>
+<pre id="__code_145"><code class="language-bash">fc-list : family
+</code></pre>
+<p><strong>Example:</strong></p>
+<pre id="__code_146"><code class="language-bash">fc-list : family | grep -i "arial"
+</code></pre>
+<hr>
+<h3 id="installing-fonts">Installing Fonts</h3>
+<p><strong>Microsoft Core Fonts:</strong></p>
+<pre id="__code_147"><code class="language-bash">sudo apt install ttf-mscorefonts-installer
+</code></pre>
+<p><em>Accept the EULA using Tab and Enter keys during installation.</em></p>
+<p><strong>Multilingual Input (iBus):</strong></p>
+<pre id="__code_148"><code class="language-bash">sudo apt install ibus ibus-m17n
+</code></pre>
+<hr>
+<h3 id="qrencode"><code>qrencode</code></h3>
+<p>Generates QR codes in the terminal.</p>
+<p><strong>Syntax:</strong></p>
+<pre id="__code_149"><code class="language-bash">qrencode -t ansiutf8 '&lt;content&gt;'
+</code></pre>
+<p><strong>Example:</strong></p>
+<pre id="__code_150"><code class="language-bash">qrencode -t ansiutf8 'https://example.com'
+</code></pre>
+<hr>
+<h3 id="seq"><code>seq</code></h3>
+<p>Generates sequences of numbers.</p>
+<p><strong>Syntax:</strong></p>
+<pre id="__code_151"><code class="language-bash">seq [start] [increment] [end]
+</code></pre>
+<p><strong>Example:</strong></p>
+<pre id="__code_152"><code class="language-bash">seq 1 5
+</code></pre>
+<p><strong>Output:</strong></p>
+<pre id="__code_153"><code>1
+2
+3
+4
+5
+</code></pre>
+<hr>
+<h3 id="nl"><code>nl</code></h3>
+<p>Adds line numbers to output.</p>
+<p><strong>Syntax:</strong></p>
+<pre id="__code_154"><code class="language-bash">nl &lt;file&gt;
+</code></pre>
+<hr>
+<h2 id="11-text-processing-search">11. Text Processing &amp; Search</h2>
+<h3 id="grep"><code>grep</code></h3>
+<p>Searches for patterns in files using regular expressions.</p>
+<p><strong>Syntax:</strong></p>
+<pre id="__code_155"><code class="language-bash">grep [flags] &lt;pattern&gt; &lt;file&gt;
+</code></pre>
+<p><strong>Relevant Flags:</strong></p>
+<div class="md-typeset__scrollwrap"><div class="md-typeset__table"><table>
+<thead>
+<tr>
+<th>Flag</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>-r</code></td>
+<td>Recursive search through directories</td>
+</tr>
+<tr>
+<td><code>-i</code></td>
+<td>Case-insensitive search</td>
+</tr>
+<tr>
+<td><code>-c</code></td>
+<td>Count matching lines only</td>
+</tr>
+<tr>
+<td><code>-n</code></td>
+<td>Show line numbers</td>
+</tr>
+<tr>
+<td><code>-E</code></td>
+<td>Extended regex (enables <code>|</code> OR operator)</td>
+</tr>
+</tbody>
+</table></div></div>
+<p><strong>Examples:</strong></p>
+<pre id="__code_156"><code class="language-bash">grep 'error' output.log
+</code></pre>
+<p><strong>Output:</strong></p>
+<pre id="__code_157"><code>[2025-07-09] error: connection timeout
+[2025-07-09] error: file not found
+</code></pre>
+<pre id="__code_158"><code class="language-bash">grep -i 'efield' forces.txt
+</code></pre>
+<pre id="__code_159"><code class="language-bash">grep -n 'cow' breeds.csv
+</code></pre>
+<p><strong>Output:</strong></p>
+<pre id="__code_160"><code>3:Angus,cow,Scotland
+7:Holstein,cow,Netherlands
+</code></pre>
+<pre id="__code_161"><code class="language-bash">grep -ri 'hello' /Documents
+</code></pre>
+<pre id="__code_162"><code class="language-bash">grep -E 'id: |correct: ' file.dat
+</code></pre>
+<hr>
+<h3 id="awk"><code>awk</code></h3>
+<p>Pattern scanning and processing language. Excellent for column-based data.</p>
+<p><strong>Syntax:</strong></p>
+<pre id="__code_163"><code class="language-bash">awk '{print $&lt;column&gt;}' &lt;file&gt;
+</code></pre>
+<p><strong>Example:</strong></p>
+<pre id="__code_164"><code class="language-bash">awk '{print $1}' filename.dat
+</code></pre>
+<p><em>Prints the first column of each line.</em></p>
+<hr>
+<h3 id="sed-stream-editor"><code>sed</code> (Stream Editor)</h3>
+<p>Edits text in a stream or file non-interactively.</p>
+<p><strong>Syntax:</strong></p>
+<pre id="__code_165"><code class="language-bash">sed [flags] 's&lt;delimiter&gt;&lt;old&gt;&lt;delimiter&gt;&lt;new&gt;&lt;delimiter&gt;[g]' &lt;file&gt;
+</code></pre>
+<p><strong>Relevant Flags:</strong></p>
+<div class="md-typeset__scrollwrap"><div class="md-typeset__table"><table>
+<thead>
+<tr>
+<th>Flag</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>-i</code></td>
+<td>Edit in-place (modifies the file directly)</td>
+</tr>
+<tr>
+<td><code>-n</code></td>
+<td>Suppress automatic printing</td>
+</tr>
+</tbody>
+</table></div></div>
+<p><strong>Examples:</strong></p>
+<pre id="__code_166"><code class="language-bash">sed 's/pizza/burger/g' food.txt
+</code></pre>
+<p><em>Replaces all occurrences of "pizza" with "burger".</em></p>
+<pre id="__code_167"><code class="language-bash">sed -i 's/^start.*/begin from 30 steps;/' begin.txt
+</code></pre>
+<p><em>Replaces entire lines starting with "start".</em></p>
+<pre id="__code_168"><code class="language-bash">sed '3d' file.txt
+</code></pre>
+<p><em>Deletes line 3 (output only; use <code>-i</code> to modify file).</em></p>
+<blockquote>
+<p><strong>Tip:</strong> Omit <code>-i</code> to preview changes before applying them.</p>
+</blockquote>
+<hr>
+<h3 id="tr"><code>tr</code></h3>
+<p>Translates or deletes characters. Simpler than <code>sed</code> but less powerful.</p>
+<p><strong>Syntax:</strong></p>
+<pre id="__code_169"><code class="language-bash">tr "&lt;old_chars&gt;" "&lt;new_chars&gt;" &lt; &lt;file&gt;
+</code></pre>
+<p><strong>Example:</strong></p>
+<pre id="__code_170"><code class="language-bash">cat file.txt | tr "a-z" "A-Z"
+</code></pre>
+<p><em>Converts lowercase to uppercase.</em></p>
+<hr>
+<h3 id="perl"><code>perl</code></h3>
+<p>Extremely powerful text manipulation, especially for complex regex and arithmetic.</p>
+<p><strong>Syntax:</strong></p>
+<pre id="__code_171"><code class="language-bash">perl -i -pe 's/old/new/g' file.txt
+</code></pre>
+<p><strong>Examples:</strong></p>
+<pre id="__code_172"><code class="language-bash">perl -i -pe 's/src=".*?"/src="new"/g' file.txt
+</code></pre>
+<p><em>Non-greedy replacement.</em></p>
+<pre id="__code_173"><code class="language-bash">perl -i -pe 's/(\d+)/$1 * 2/ge' file.txt
+</code></pre>
+<p><em>Doubles all numbers in the file.</em></p>
+<pre id="__code_174"><code class="language-bash" tabindex="0">perl -pe 's/(id:\s*)(\d+)/$1 . ($2 - 1)/e; s/(correct:\s*)(\d+)/$1 . ($2 + 1)/e' data.yaml | grep -E 'id: || correct:'
+</code></pre>
+<p><em>Advanced arithmetic substitution with regex.</em></p>
+<hr>
+<h3 id="head"><code>head</code></h3>
+<p>Displays the first N lines of a file.</p>
+<p><strong>Syntax:</strong></p>
+<pre id="__code_175"><code class="language-bash">head -n &lt;count&gt; &lt;file&gt;
+</code></pre>
+<p><strong>Example:</strong></p>
+<pre id="__code_176"><code class="language-bash">head -n 20 log.txt
+</code></pre>
+<hr>
+<h3 id="tail"><code>tail</code></h3>
+<p>Displays the last N lines of a file.</p>
+<p><strong>Syntax:</strong></p>
+<pre id="__code_177"><code class="language-bash">tail -n &lt;count&gt; &lt;file&gt;
+</code></pre>
+<p><strong>Example:</strong></p>
+<pre id="__code_178"><code class="language-bash">tail -n 50 log.txt
+</code></pre>
+<p><strong>Follow mode (real-time updates):</strong></p>
+<pre id="__code_179"><code class="language-bash">tail -f log.txt
+</code></pre>
+<hr>
+<h3 id="less"><code>less</code></h3>
+<p>Paginated file viewer (more powerful than <code>more</code>).</p>
+<p><strong>Navigation:</strong>
+- <code>↑</code> / <code>↓</code> — Scroll line by line
+- <code>Page Up</code> / <code>Page Down</code> — Scroll by page
+- <code>/pattern</code> — Search forward
+- <code>?pattern</code> — Search backward
+- <code>q</code> — Quit</p>
+<p><strong>Syntax:</strong></p>
+<pre id="__code_180"><code class="language-bash">less &lt;file&gt;
+</code></pre>
+<hr>
+<h3 id="cat"><code>cat</code></h3>
+<p>Concatenates and displays file contents.</p>
+<p><strong>Syntax:</strong></p>
+<pre id="__code_181"><code class="language-bash">cat &lt;file&gt;
+</code></pre>
+<p><strong>Examples:</strong></p>
+<pre id="__code_182"><code class="language-bash">cat file1.txt file2.txt &gt; combined.txt
+</code></pre>
+<hr>
+<h2 id="12-text-editors">12. Text Editors</h2>
+<div class="md-typeset__scrollwrap"><div class="md-typeset__table"><table>
+<thead>
+<tr>
+<th>Editor</th>
+<th>Description</th>
+<th>Best For</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>nano</code></td>
+<td>Simple, beginner-friendly editor</td>
+<td>Quick edits</td>
+</tr>
+<tr>
+<td><code>vim</code></td>
+<td>Powerful, modal editor</td>
+<td>Advanced users</td>
+</tr>
+<tr>
+<td><code>fresh</code></td>
+<td>Familiar keybindings (like GUI editors)</td>
+<td>Comfortable transition</td>
+</tr>
+<tr>
+<td><code>gedit</code></td>
+<td>GNOME text editor (GUI)</td>
+<td>Graphical editing</td>
+</tr>
+<tr>
+<td><code>nedit</code></td>
+<td>Motif-based GUI editor</td>
+<td>Legacy systems</td>
+</tr>
+</tbody>
+</table></div></div>
+<p><strong>Quick Nano Guide:</strong></p>
+<pre id="__code_183"><code class="language-bash">nano filename.txt
+</code></pre>
+<ul>
+<li><code>Ctrl + O</code> → Save</li>
+<li><code>Ctrl + X</code> → Exit</li>
+<li><code>Ctrl + K</code> → Cut line</li>
+<li><code>Ctrl + U</code> → Paste line</li>
+</ul>
+<hr>
+<h2 id="13-vpn-tunneling">13. VPN &amp; Tunneling</h2>
+<h3 id="cloudflare-warp">Cloudflare WARP</h3>
+<p>A VPN service by Cloudflare.</p>
+<p><strong>Installation:</strong></p>
+<pre id="__code_184"><code class="language-bash" tabindex="0">sudo apt update &amp;&amp; sudo apt install curl
+curl -fsSL https://pkg.cloudflareclient.com/pubkey.gpg |   sudo gpg --yes --dearmor --output /usr/share/keyrings/cloudflare-warp-archive-keyring.gpg
+
+echo "deb [signed-by=/usr/share/keyrings/cloudflare-warp-archive-keyring.gpg]   https://pkg.cloudflareclient.com/ $(lsb_release -cs) main" |   sudo tee /etc/apt/sources.list.d/cloudflare-client.list
+
+sudo apt-get update &amp;&amp; sudo apt-get install cloudflare-warp
+</code></pre>
+<p><strong>Usage:</strong></p>
+<pre id="__code_185"><code class="language-bash">warp-cli registration new      # Register
+warp-cli connect               # Connect
+warp-cli status                # Check status
+warp-cli disconnect            # Disconnect
+warp-cli --help                # Full help
+</code></pre>
+<p><strong>Verify Connection:</strong></p>
+<pre id="__code_186"><code class="language-bash">curl https://www.cloudflare.com/cdn-cgi/trace/
+</code></pre>
+<hr>
+<h2 id="14-working-with-latex">14. Working with LaTeX</h2>
+<h3 id="installation">Installation</h3>
+<p><strong>Full Installation (~7 GB):</strong></p>
+<pre id="__code_187"><code class="language-bash">sudo apt install texlive-full
+</code></pre>
+<p><strong>Lightweight Base:</strong></p>
+<pre id="__code_188"><code class="language-bash">sudo apt install texlive-base texlive-latex-base
+</code></pre>
+<p><strong>Build Tool:</strong></p>
+<pre id="__code_189"><code class="language-bash">sudo apt install latexmk
+</code></pre>
+<hr>
+<h3 id="editors">Editors</h3>
+<div class="md-typeset__scrollwrap"><div class="md-typeset__table"><table>
+<thead>
+<tr>
+<th>Editor</th>
+<th>Installation</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>TeXstudio</td>
+<td><code>sudo apt install texstudio</code></td>
+<td>Full-featured GUI</td>
+</tr>
+<tr>
+<td>TeXmaker</td>
+<td><code>sudo apt install tex-maker</code></td>
+<td>Cross-platform GUI</td>
+</tr>
+<tr>
+<td>VS Code</td>
+<td>Install "LaTeX Workshop" extension</td>
+<td>Requires <code>latexmk</code></td>
+</tr>
+</tbody>
+</table></div></div>
+<hr>
+<h2 id="16-image-tools">16. Image tools</h2>
+<h3 id="imagemagick">ImageMagick</h3>
+<p>A powerful command-line tool for image manipulation.</p>
+<pre id="__code_190"><code class="language-bash"># Usually pre-installed or available via:
+sudo apt install imagemagick
+</code></pre>
+<hr>
+<p>This guide is a collection of notes that I compiled throughout my journey of learning Linux. It has been organized and expanded into a comprehensive reference so that others can learn from it as well. If this guide has been helpful to you, feel free to share it with others.</p>
+<p>While I have made every effort to ensure the accuracy of the content, mistakes and omissions are always possible. If you find any errors, have suggestions for improvement, or would like to contribute additional examples or explanations, your feedback is greatly appreciated. You can connect with me on <a href="https://www.linkedin.com/in/adarsha-gyawali-6439b5280/">LinkedIn</a> or Email me at adarsha.825511@cdp.tu.edu.np</p>
+<hr>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden="" tabindex="-1" style="top: 70px;">
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"></path></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "navigation.expand", "toc.follow"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="./Linux Commands _files/bundle.79ae519e.min.js"></script>
+      
+        <script src="./Linux Commands _files/tab-dropdown.js"></script><button class="sidebar-toggle" aria-label="Toggle sidebars on/off">Toggle Sidebars</button>
+      
+    
+  
+</body></html>

@@ -180,7 +180,136 @@ function initLightbox() {
   });
 }
 
-// ── Init ───────────────────────────────────────────────────────
+// ── Clipboard copy for command chips ─────────────────────────
+function initClipboardCopy() {
+  const buttons = document.querySelectorAll('[data-copy]');
+  if (!buttons.length) return;
+
+  let toast = document.getElementById('copyToast');
+  if (!toast) {
+    toast = document.createElement('div');
+    toast.id = 'copyToast';
+    toast.className = 'copy-toast';
+    toast.setAttribute('role', 'status');
+    toast.setAttribute('aria-live', 'polite');
+    document.body.appendChild(toast);
+  }
+
+  let hideTimer;
+  const showToast = (message) => {
+    toast.textContent = message;
+    toast.classList.add('show');
+    clearTimeout(hideTimer);
+    hideTimer = setTimeout(() => toast.classList.remove('show'), 1600);
+  };
+
+  buttons.forEach((button) => {
+    button.addEventListener('click', async () => {
+      const text = button.getAttribute('data-copy') || button.textContent.trim();
+
+      try {
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          await navigator.clipboard.writeText(text);
+        } else {
+          const temp = document.createElement('textarea');
+          temp.value = text;
+          temp.setAttribute('readonly', '');
+          temp.style.position = 'fixed';
+          temp.style.left = '-9999px';
+          document.body.appendChild(temp);
+          temp.select();
+          document.execCommand('copy');
+          document.body.removeChild(temp);
+        }
+
+        showToast('Copied to clipboard');
+      } catch (error) {
+        showToast('Copy failed');
+      }
+    });
+  });
+}
+
+// ── Command search ──────────────────────────────────────────
+function initCommandSearch() {
+  const searchInput = document.getElementById('cmdSearch');
+  const cards = document.querySelectorAll('.cmd-card');
+  if (!searchInput || !cards.length) return;
+
+  const noResults = document.createElement('p');
+  noResults.className = 'cmd-no-results';
+  noResults.textContent = 'No matching commands found. Try a broader keyword.';
+  noResults.hidden = true;
+  searchInput.closest('.cmd-toolbar').insertAdjacentElement('afterend', noResults);
+
+  const applyFilter = () => {
+    const query = searchInput.value.trim().toLowerCase();
+    let visibleCards = 0;
+
+    cards.forEach((card) => {
+      const chips = card.querySelectorAll('.cmd-chip');
+      let visibleChips = 0;
+
+      chips.forEach((chip) => {
+        const text = (chip.getAttribute('data-copy') || chip.textContent).toLowerCase();
+        const isMatch = !query || text.includes(query);
+        chip.classList.toggle('is-hidden', !isMatch);
+        if (isMatch) visibleChips += 1;
+      });
+
+      const shouldShow = visibleChips > 0;
+      card.classList.toggle('is-hidden', !shouldShow);
+      if (shouldShow) visibleCards += 1;
+    });
+
+    noResults.hidden = visibleCards > 0;
+  };
+
+  searchInput.addEventListener('input', applyFilter);
+  applyFilter();
+}
+
+function initCommandDetails() {
+  const detailPanel = document.getElementById('cmdDetailPanel');
+  if (!detailPanel) return;
+
+  const categoryLabel = detailPanel.querySelector('.cmd-detail__category');
+  const title = detailPanel.querySelector('.cmd-detail__title');
+  const desc = detailPanel.querySelector('.cmd-detail__desc');
+  const syntax = detailPanel.querySelector('.cmd-detail__syntax');
+  const example = detailPanel.querySelector('.cmd-detail__example');
+  const output = detailPanel.querySelector('.cmd-detail__output');
+  const closeButton = detailPanel.querySelector('.cmd-detail__close');
+  const chips = document.querySelectorAll('.cmd-chip');
+
+  const updatePanel = (button) => {
+    const command = button.getAttribute('data-copy') || button.textContent.trim();
+    const label = button.querySelector('small')?.textContent.trim() || '';
+    const card = button.closest('.cmd-card');
+    const section = card ? card.querySelector('h2')?.textContent.trim() : 'Command';
+
+    categoryLabel.textContent = section;
+    title.textContent = command;
+    desc.textContent = label ? `${label.charAt(0).toUpperCase()}${label.slice(1)}.` : `Show details for ${command}.`;
+    syntax.textContent = command;
+    example.textContent = command;
+    output.textContent = label ? `Expected output: ${label.toLowerCase()}.` : 'Output depends on your terminal and system configuration.';
+    detailPanel.hidden = false;
+    detailPanel.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  };
+
+  chips.forEach(button => {
+    button.addEventListener('click', () => updatePanel(button));
+  });
+
+  if (closeButton) {
+    closeButton.addEventListener('click', () => {
+      detailPanel.hidden = true;
+    });
+  }
+}
+
+// ── Init ─────────────────────────────────────────────────────
 document.addEventListener('DOMContentLoaded', () => {
   initTheme();
   initNavbarScroll();
@@ -192,4 +321,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   setActiveLink();
   initLightbox();
+  initClipboardCopy();
+  initCommandSearch();
+  initCommandDetails();
 });
