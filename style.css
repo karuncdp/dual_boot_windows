@@ -382,6 +382,211 @@ body.nav-open .navbar__toggle-lines::after {
   }
 }
 
+/* ── Command reference layout ─────────────────────────────── */
+.cmd-intro {
+  max-width: var(--max-w);
+  margin: 0 auto 1rem;
+  padding: 0 6px;
+  color: var(--text-muted);
+}
+
+.cmd-toolbar {
+  max-width: var(--max-w);
+  margin: 0 auto 1.4rem;
+  padding: 0 6px;
+}
+
+.cmd-search {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 0.75rem 1rem;
+  box-shadow: var(--shadow);
+}
+
+.cmd-search__icon {
+  color: var(--accent);
+  font-size: 1rem;
+}
+
+.cmd-search input {
+  flex: 1;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: var(--text);
+  font: 0.95rem/1.4 var(--mono);
+}
+
+.cmd-search__hint {
+  margin-top: 0.55rem;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+.cmd-nav {
+  max-width: var(--max-w);
+  margin: 0 auto 1.2rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  padding: 0 6px;
+}
+
+.cmd-nav a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.45rem 0.8rem;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--surface);
+  color: var(--text);
+  font-size: 0.86rem;
+  font-family: var(--mono);
+}
+
+.cmd-grid {
+  max-width: var(--max-w);
+  margin: 0 auto 3rem;
+  padding: 0 6px;
+  display: grid;
+  gap: 1.15rem;
+}
+
+.cmd-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 1rem 1rem 0.95rem;
+  box-shadow: var(--shadow);
+  margin-top: 0.35rem;
+}
+
+.cmd-section {
+  display: grid;
+  gap: 0.6rem;
+}
+
+.cmd-section__heading {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  margin-bottom: 0.1rem;
+}
+
+.cmd-section__number {
+  font-family: var(--mono);
+  font-weight: 700;
+  color: var(--accent);
+  font-size: 1rem;
+}
+
+.cmd-section__heading h2 {
+  font-family: var(--mono);
+  font-size: 1.375rem;
+  color: var(--accent);
+  letter-spacing: 0.02em;
+}
+
+.cmd-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 1rem 1rem 0.95rem;
+  box-shadow: var(--shadow);
+  margin-top: 0.2rem;
+}
+
+.cmd-list {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.cmd-item {
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 0.8rem 0.9rem;
+  background: linear-gradient(180deg, color-mix(in srgb, var(--surface) 90%, var(--bg-alt)), var(--surface));
+  transition: transform var(--transition), border-color var(--transition), box-shadow var(--transition);
+}
+
+.cmd-item:hover {
+  transform: translateY(-1px);
+  border-color: color-mix(in srgb, var(--accent) 26%, var(--border));
+  box-shadow: 0 6px 20px rgba(0,0,0,0.06);
+}
+
+.cmd-item.is-hidden {
+  display: none;
+}
+
+.cmd-item__row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.8rem;
+}
+
+.cmd-item__command {
+  font-family: var(--mono);
+  font-weight: 700;
+  color: var(--accent);
+  background: color-mix(in srgb, var(--accent) 10%, transparent);
+  padding: 0.35rem 0.6rem;
+  border-radius: 8px;
+  word-break: break-word;
+  cursor: pointer;
+}
+
+.cmd-item__copy {
+  border: 0;
+  border-radius: 999px;
+  padding: 0.45rem 0.75rem;
+  background: var(--accent);
+  color: #fff;
+  font: 700 0.78rem/1 var(--mono);
+  cursor: pointer;
+  transition: transform var(--transition), opacity var(--transition);
+}
+
+.cmd-item__copy:hover,
+.cmd-item__copy:focus-visible {
+  transform: translateY(-1px);
+  opacity: 0.95;
+}
+
+.cmd-item__details {
+  margin-top: 0.6rem;
+  display: grid;
+  gap: 0.25rem;
+}
+
+.cmd-item__desc,
+.cmd-item__example {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+}
+
+.cmd-item__example span {
+  font-weight: 700;
+  color: var(--text);
+}
+
+@media (max-width: 700px) {
+  .cmd-item__row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .cmd-item__copy {
+    width: 100%;
+  }
+}
+
 /* ── Hero (index page) ──────────────────────────────────────── */
 .hero {
   background: var(--surface);
@@ -1453,42 +1658,8 @@ footer {
   border: 1px solid var(--border);
 }
 
-.cmd-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-}
-
-.cmd-chip {
-  border: 1px solid var(--border);
-  background: linear-gradient(180deg, var(--surface), var(--bg-alt));
-  color: var(--accent);
-  font-family: var(--mono);
-  font-size: 0.84rem;
-  border-radius: 999px;
-  padding: 8px 12px;
-  cursor: pointer;
-  transition: transform var(--transition), border-color var(--transition), box-shadow var(--transition);
-}
-
-.cmd-chip:hover,
-.cmd-chip:focus-visible {
-  transform: translateY(-1px);
-  border-color: color-mix(in srgb, var(--accent) 32%, var(--border));
-  box-shadow: 0 6px 16px rgba(0,0,0,0.08);
-  outline: none;
-}
-
-.cmd-chip small {
-  display: block;
-  margin-top: 4px;
-  color: var(--text-muted);
-  font-family: var(--sans);
-  font-size: 0.8rem;
-}
-
 .cmd-card.is-hidden,
-.cmd-chip.is-hidden {
+.cmd-item.is-hidden {
   display: none;
 }
 
