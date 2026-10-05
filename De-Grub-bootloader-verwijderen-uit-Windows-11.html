@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="nl" data-theme="light">
+<head>
+  <link rel="canonical" href="https://dualbootwindows.me/De-Grub-bootloader-verwijderen-uit-Windows-11.html" />
+  <meta name="msvalidate.01" content="EFA4977DE77020B34218969623A1AE63" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>De GRUB-bootloader verwijderen uit Windows 11</title>
+  <meta name="description" content="Een volledige stapsgewijze handleiding om de GRUB-bootloader uit Windows 11 te verwijderen nadat Ubuntu of Linux is verwijderd." />
+  <link rel="icon" type="image/x-icon" href="favicon/favicon.ico">
+  <link rel="icon" type="image/png" sizes="96x96" href="favicon/favicon-96x96.png">
+  <link rel="icon" type="image/svg+xml" href="favicon/favicon.svg">
+  <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
+  <link rel="manifest" href="favicon/site.webmanifest">
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .article-hero { background: var(--surface); border-bottom: 1px solid var(--border); padding: 64px 24px 40px; text-align: center; margin-bottom: 24px; }
+    .article-hero__tag { color: var(--accent); display: inline-flex; font: .75rem/1 var(--mono); letter-spacing: .14em; margin-bottom: 18px; text-transform: uppercase; }
+    .article-hero h1 { color: var(--text); font: 700 clamp(2.25rem, 5vw, 3.6rem)/1.08 var(--serif); margin: 0 auto 20px; max-width: 780px; }
+    .article-hero__summary { color: var(--text-muted); font-size: 1.05rem; line-height: 1.8; margin: 0 auto 18px; max-width: 700px; }
+    .article-hero__meta { color: var(--text-muted); font-size: .95rem; }
+    .article-image { margin: 0 auto 30px; max-width: 960px; padding: 0 18px; text-align: center; }
+    .article-image img { border: 1px solid var(--border); border-radius: 20px; box-shadow: var(--shadow); display: inline-block; width: 100%; }
+    .article-content { margin: 0 auto; max-width: var(--max-w); padding: 0 24px 60px; }
+    .article-intro { border-left: 4px solid var(--accent); margin: 28px 0; padding: 4px 0 4px 24px; }
+    .article-intro p, .article-step p, .article-step li, .article-conclusion p { color: var(--text); font-size: 1rem; line-height: 1.85; }
+    .article-intro p, .article-conclusion p { margin-bottom: 16px; }
+    .article-step { border-top: 1px solid var(--border); margin: 32px 0; padding-top: 30px; }
+    .article-step__label { color: var(--accent); display: inline-block; font: .75rem/1.4 var(--mono); letter-spacing: .12em; margin-bottom: 12px; text-transform: uppercase; }
+    .article-step h2, .article-conclusion h2 { color: var(--text); font-family: var(--serif); line-height: 1.2; margin-bottom: 18px; }
+    .article-step h2 { font-size: 1.8rem; }
+    .article-conclusion { border-top: 1px solid var(--border); margin-top: 46px; padding-top: 34px; text-align: center; }
+    .article-conclusion h2 { font-size: 2rem; }
+    .article-step ol { margin: 16px 0 18px; padding-left: 1.4rem; }
+    .article-step li { margin-bottom: 10px; }
+    .article-callout { background: color-mix(in srgb, var(--accent) 8%, var(--surface)); border: 1px solid color-mix(in srgb, var(--accent) 25%, transparent); border-left: 4px solid var(--accent); border-radius: var(--radius); color: var(--text); margin: 24px 0; padding: 16px 20px; }
+    .article-callout--warning { background: #fdf0f0; border-color: #f4c1c1; color: #8b1c1c; }
+    [data-theme="dark"] .article-callout--warning { background: #351d1d; border-color: #713535; color: #f1b7b7; }
+    .article-gallery { display: flex; gap: 10px; margin: 24px 0; overflow-x: auto; padding-bottom: 8px; scroll-snap-type: x mandatory; }
+    .article-gallery img { border: 1px solid var(--border); border-radius: var(--radius); flex: 0 0 min(100%, 520px); scroll-snap-align: start; width: 100%; }
+    .article-commands { background: var(--bg-alt); border: 1px solid var(--border); border-left: 3px solid var(--accent); border-radius: var(--radius); color: var(--text); font: .88rem/1.8 var(--mono); margin: 24px 0; overflow-x: auto; padding: 20px 24px; white-space: pre; }
+    .article-faq { border-top: 1px solid var(--border); margin-top: 42px; padding-top: 30px; }
+    .article-faq h2 { font-family: var(--serif); }
+    .article-faq details { border-bottom: 1px solid var(--border); padding: 16px 0; }
+    .article-faq summary { color: var(--text); cursor: pointer; font-weight: 700; }
+    .article-faq p { color: var(--text-muted); margin: 12px 0 0; }
+    @media (max-width: 640px) { .article-hero { padding: 48px 18px 32px; } .article-content { padding: 0 18px 56px; } .article-intro { padding-left: 18px; } .article-step h2 { font-size: 1.55rem; } }
+  </style>
+</head>
+<body>
+  <nav class="navbar" role="navigation" aria-label="Hoofdnavigatie">
+    <div class="navbar__inner">
+      <button class="navbar__toggle" type="button" aria-label="Navigatiemenu openen" aria-expanded="false"><span class="navbar__toggle-lines" aria-hidden="true"><span></span></span></button>
+      <a href="index.html" class="navbar__logo" aria-label="Dual Boot en Linux startpagina"><img class="site-logo" src="assets/images/dualboot-logo.svg" alt="Dual-Boot-logo" aria-hidden="true" /></a>
+      <div class="navbar__nav">
+        <a href="index.html">Home</a>
+        <a href="disk_partition_size_calculator_for_dual_boot.html">Calculator</a>
+        <a href="linux_command_for_beginner.html">Commando's</a>
+        <a href="about.html" class="navbar__mobile-only">Over ons</a>
+        <a href="contact.html" class="navbar__mobile-only">Contact</a>
+        <a href="terms.html" class="navbar__mobile-only">Voorwaarden</a>
+      </div>
+      <div class="navbar__controls"><button id="darkToggle" class="toggle-dark" aria-label="Donkere modus inschakelen" title="Donkere modus inschakelen"><span class="toggle-dark__label" aria-hidden="true">🌙</span></button></div>
+      <div class="navbar__overlay" aria-hidden="true"></div>
+    </div>
+  </nav>
+
+  <main>
+    <header class="article-hero" aria-labelledby="article-title">
+      <span class="article-hero__tag">Windows 11 · Beginnersvriendelijke handleiding</span>
+      <h1 id="article-title">De GRUB-bootloader verwijderen uit Windows 11</h1>
+      <p class="article-hero__summary">Zie je bij elke start van je pc nog steeds het GRUB-menu, ook nadat je Ubuntu of Linux hebt verwijderd? Deze handleiding laat zien hoe je GRUB volledig verwijdert en Windows 11 weer schoon laat opstarten.</p>
+      <div class="article-hero__meta">Geen hulpprogramma's van derden · Stap voor stap · Leestijd: 8 minuten</div>
+    </header>
+
+    <div class="article-image"><img src="assets/images/how_to_delete_grub_window_from_windows_11.png" alt="Overzicht van GRUB verwijderen uit Windows 11" loading="lazy"></div>
+
+    <div class="article-content">
+      <section class="article-intro" aria-label="Inleiding">
+        <p>Het verwijderen van Linux uit een dual-boot-opstelling <strong>herstelt de Windows Boot Manager niet automatisch.</strong></p>
+        <p>Elke stap bevat duidelijke instructies en schermafbeeldingen, zodat je de procedure ook zonder specialistische kennis veilig kunt volgen.</p>
+      </section>
+
+      <section class="article-step">
+        <span class="article-step__label">Stap 1</span>
+        <h2>De gereserveerde ruimte voor Ubuntu verwijderen</h2>
+        <p>Open <strong>Schijfbeheer</strong> en verwijder de Linux-partitie. Druk op <code>Windows + X</code> en klik op Schijfbeheer, of zoek ernaar in het startmenu.</p>
+        <p>De Linux-partitie heeft geen stationsletter en wordt meestal weergegeven als <strong>RAW</strong> of als een onbekend bestandssysteem. Ze kan ook verschijnen als een kleine partitie met alleen het label „Linux” of zonder label.</p>
+        <ol><li>Klik met de rechtermuisknop op de Linux-partitie.</li><li>Selecteer <strong>Volume verwijderen</strong>.</li><li>Bevestig wanneer daarom wordt gevraagd.</li></ol>
+        <div class="article-gallery">
+          <img src="assets/images/grub/delete_the_partition_space_of_ubuntu.png" alt="De Ubuntu-partitie verwijderen in Schijfbeheer" loading="lazy">
+          <img src="assets/images/grub/delete_space.png" alt="Het verwijderen van de ruimte bevestigen" loading="lazy">
+        </div>
+        <div class="article-callout"><strong>Opmerking:</strong> Heb je een aparte Linux-swappartitie (meestal 2–8 GB), verwijder die dan ook.</div>
+      </section>
+
+      <section class="article-step">
+        <span class="article-step__label">Stap 2</span>
+        <h2>De ruimte opnieuw aan Windows toewijzen</h2>
+        <p>Klik met de rechtermuisknop op station <code>C:</code> en kies <strong>Volume uitbreiden → Volgende → Volgende → Voltooien</strong>.</p>
+        <div class="article-gallery">
+          <img src="assets/images/grub/extend_the_unallocated_space_of_ubuntu_to_cdrive.png" alt="Niet-toegewezen ruimte aan station C toevoegen" loading="lazy">
+          <img src="assets/images/grub/extend_the_unallocated_space_to_cdrive.png" alt="De wizard Volume uitbreiden kiezen" loading="lazy">
+          <img src="assets/images/grub/extend_the_unallocated_space_to_cdrives.png" alt="Niet-toegewezen ruimte gebruiken voor station C" loading="lazy">
+        </div>
+        <div class="article-callout"><strong>Opmerking:</strong> Je kunt niet-toegewezen ruimte alleen aan een station toevoegen als die ruimte zich <strong>rechts</strong> van het station bevindt, niet links.</div>
+      </section>
+
+      <section class="article-step">
+        <span class="article-step__label">Stap 3</span>
+        <h2>Een stationsletter toewijzen aan de EFI-partitie</h2>
+        <p>De <strong>EFI-partitie</strong> is een kleine, verborgen partitie waarin bootloaderbestanden, waaronder GRUB, zijn opgeslagen. Windows verbergt deze standaard. Open de Opdrachtprompt als administrator en voer deze opdrachten uit:</p>
+        <div class="article-commands">C:\&gt; diskpart
+DISKPART&gt; list disk
+DISKPART&gt; select disk 0
+DISKPART&gt; list partition
+DISKPART&gt; select partition X
+DISKPART&gt; assign letter=Z</div>
+        <div class="article-gallery">
+          <img src="assets/images/grub/type_diskpart_in_the_cmd.png" alt="Diskpart uitvoeren in de Opdrachtprompt" loading="lazy">
+          <img src="assets/images/grub/type_listdisk_in_the_cmd.png.png" alt="List disk invoeren in Diskpart" loading="lazy">
+          <img src="assets/images/grub/type_select_disk_0_in_the_cmd.png.png" alt="Schijf 0 selecteren in Diskpart" loading="lazy">
+          <img src="assets/images/grub/type_list_partition_in_the_cmd.png" alt="Partities weergeven in Diskpart" loading="lazy">
+          <img src="assets/images/grub/type_select_partition_1_in_the_cmd.png" alt="De EFI-partitie selecteren" loading="lazy">
+          <img src="assets/images/grub/type_assign_letter_z_in_the_cmd.png" alt="Stationsletter Z aan de EFI-partitie toewijzen" loading="lazy">
+        </div>
+        <div class="article-callout"><strong>Tip:</strong> Heb je meer dan één schijf, gebruik dan <code>list disk</code> om te controleren of je op Schijf 0 (je belangrijkste Windows-schijf) werkt.</div>
+      </section>
+
+      <section class="article-step">
+        <span class="article-step__label">Stap 4</span>
+        <h2>De Ubuntu-bootloaderbestanden uit de EFI-partitie verwijderen</h2>
+        <p>Navigeer nu naar de EFI-partitie en verwijder de Ubuntu-gerelateerde bootloadermap.</p>
+        <ol><li>Druk op <code>Ctrl + Shift + Esc</code> om Taakbeheer te openen.</li><li>Klik op <strong>Bestand → Nieuwe taak uitvoeren</strong>.</li><li>Typ <code>explorer.exe</code>, vink „Deze taak met beheerdersrechten maken” aan en klik op OK.</li><li>Ga in Verkenner naar <strong>Deze pc → Z: → EFI</strong>.</li><li>Zoek de map <code>ubuntu</code> en verwijder deze.</li></ol>
+        <div class="article-gallery">
+          <img src="assets/images/grub/click_run_new_task.png" alt="Nieuwe taak uitvoeren in Taakbeheer" loading="lazy">
+          <img src="assets/images/grub/browse_to_this_pc.png" alt="Naar Deze pc navigeren in Verkenner" loading="lazy">
+          <img src="assets/images/grub/right_click_in_the_ubuntu.png" alt="De Ubuntu-map in EFI selecteren" loading="lazy">
+          <img src="assets/images/grub/click_on_EFI.png" alt="De EFI-map openen in Verkenner" loading="lazy">
+          <img src="assets/images/grub/right_click_on_ubuntu_delete.png" alt="De Ubuntu-map uit EFI verwijderen" loading="lazy">
+        </div>
+        <div class="article-callout article-callout--warning"><strong>Belangrijk:</strong> Verwijder alleen de map <code>ubuntu</code>. Verwijder <strong>niet</strong> de map <code>Microsoft</code>; anders kan Windows niet meer opstarten.</div>
+      </section>
+
+      <section class="article-step">
+        <span class="article-step__label">Stap 5</span>
+        <h2>De tijdelijke stationsletter verwijderen</h2>
+        <p>Laat de EFI-partitie niet toegankelijk. Ga terug naar de Opdrachtprompt en verwijder de letter die je hebt toegewezen:</p>
+        <div class="article-commands">DISKPART&gt; select volume Z
+DISKPART&gt; remove letter=Z</div>
+        <div class="article-callout"><strong>Gereed:</strong> De EFI-partitie is weer verborgen en je systeem start schoon op in Windows 11.</div>
+      </section>
+
+      <section class="article-faq" aria-labelledby="faq-title">
+        <h2 id="faq-title">Veelgestelde vragen</h2>
+        <details><summary>Is het veilig om GRUB uit Windows 11 te verwijderen?</summary><p>Ja, zolang Linux al is verwijderd en je alleen de map <code>ubuntu</code> wist. Laat de map <code>Microsoft</code> altijd staan.</p></details>
+        <details><summary>Waarom verschijnt GRUB nog na het verwijderen van Ubuntu?</summary><p>De Ubuntu-partitie en de GRUB-bestanden in de verborgen EFI-partitie zijn verschillend. Daarom moet de Ubuntu-map in EFI ook worden verwijderd.</p></details>
+        <details><summary>Kan ik GRUB verwijderen zonder Linux te verwijderen?</summary><p>Technisch kan dat, maar het wordt niet aanbevolen. Zonder GRUB kun je de Linux-installatie mogelijk niet meer starten.</p></details>
+      </section>
+
+      <section class="article-conclusion"><h2>GRUB is verwijderd.</h2><p>Je pc start nu rechtstreeks op in Windows 11. De schijf is opgeruimd en er zijn geen Linux-bootloaderresten meer.</p></section>
+    </div>
+  </main>
+
+  <footer role="contentinfo">
+    <div class="footer__inner"><div class="footer__top">
+      <div class="footer__brand"><p class="footer__brand-name"><img class="site-logo" src="assets/images/dualboot-logo.svg" alt="Dual-Boot-logo" aria-hidden="true" /></p><p class="footer__tagline">Jouw beginnersvriendelijke bron voor Linux en Windows 11 in dual-boot.</p></div>
+      <nav class="footer__links-col" aria-label="Voetnavigatie"><h4>Navigatie</h4><a href="index.html">Home</a><a href="about.html">Over ons</a><a href="contact.html">Contact</a><a href="terms.html">Voorwaarden</a></nav>
+    </div><div class="footer__bottom"><p class="footer__copy">© 2025 Dual Boot &amp; Linux. Alle rechten voorbehouden.</p></div></div>
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>

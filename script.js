@@ -200,6 +200,145 @@ function escapeHtml(value) {
     .replace(/'/g, '&#39;');
 }
 
+function getInitials(name) {
+  return String(name || 'R')
+    .trim()
+    .split(/\s+/)
+    .filter(Boolean)
+    .slice(0, 2)
+    .map(part => part.charAt(0).toUpperCase())
+    .join('') || 'R';
+}
+
+function attachCommentInteractions(article, replyButton, replyForm, repliesList, replySummary) {
+  const cancelButton = replyForm.querySelector('.comment-reply-form__cancel');
+
+  article.querySelectorAll('.comment-reaction').forEach((button) => {
+    button.addEventListener('click', () => {
+      const reaction = button.dataset.reaction;
+      const opposite = reaction === 'like' ? 'dislike' : 'like';
+      const count = button.querySelector('.comment-reaction__count');
+      const oppositeButton = article.querySelector(`[data-reaction="${opposite}"]`);
+      const wasActive = button.classList.contains('is-active');
+
+      button.classList.toggle('is-active', !wasActive);
+      if (count) count.textContent = String(Math.max(0, Number(count.textContent || '0') + (wasActive ? -1 : 1)));
+
+      if (!wasActive && oppositeButton?.classList.contains('is-active')) {
+        oppositeButton.classList.remove('is-active');
+        const oppositeCount = oppositeButton.querySelector('.comment-reaction__count');
+        if (oppositeCount) oppositeCount.textContent = String(Math.max(0, Number(oppositeCount.textContent || '0') - 1));
+      }
+    });
+  });
+
+  const syncReplySummary = () => {
+    const count = Number(article.dataset.replyCount || '0');
+    if (count > 0) {
+      replySummary.hidden = false;
+      replySummary.textContent = repliesList.hidden
+        ? (count === 1 ? 'View reply' : `View replies (${count})`)
+        : (count === 1 ? 'Hide reply' : 'Hide replies');
+      replySummary.setAttribute('aria-expanded', String(!repliesList.hidden));
+    } else {
+      replySummary.hidden = true;
+      replySummary.setAttribute('aria-expanded', 'false');
+      repliesList.hidden = true;
+    }
+  };
+
+  replySummary.addEventListener('click', () => {
+    repliesList.hidden = !repliesList.hidden;
+    syncReplySummary();
+  });
+
+  replyButton.addEventListener('click', () => {
+    replyForm.hidden = !replyForm.hidden;
+    replyButton.setAttribute('aria-expanded', String(!replyForm.hidden));
+    if (!replyForm.hidden) replyForm.querySelector('textarea').focus();
+  });
+
+  cancelButton.addEventListener('click', () => {
+    replyForm.hidden = true;
+    replyForm.reset();
+    replyButton.setAttribute('aria-expanded', 'false');
+  });
+
+  replyForm.addEventListener('submit', (event) => {
+    event.preventDefault();
+    const textarea = replyForm.querySelector('textarea');
+    const replyMessage = (textarea.value || '').trim();
+    if (!replyMessage) {
+      textarea.focus();
+      return;
+    }
+
+    const replyNode = buildCommentCard('You', replyMessage, { isReply: true });
+    repliesList.appendChild(replyNode);
+    article.dataset.replyCount = String(Number(article.dataset.replyCount || '0') + 1);
+    repliesList.hidden = false;
+    replyForm.reset();
+    replyForm.hidden = true;
+    replyButton.setAttribute('aria-expanded', 'false');
+    syncReplySummary();
+  });
+
+  syncReplySummary();
+}
+
+function buildCommentCard(name, message, options = {}) {
+  const isReply = Boolean(options.isReply);
+  const dateValue = options.date || new Date().toLocaleDateString(undefined, { month: 'short', day: 'numeric', year: 'numeric' });
+  const initials = getInitials(name);
+
+  const replySummary = document.createElement('button');
+  replySummary.type = 'button';
+  replySummary.className = 'comment-item__view-replies';
+  replySummary.hidden = true;
+  replySummary.textContent = 'View reply';
+
+  const article = document.createElement('article');
+  article.className = `comment-item${isReply ? ' is-reply' : ''}`;
+  article.dataset.replyCount = '0';
+  article.innerHTML = `
+    <div class="comment-item__avatar" aria-label="${escapeHtml(name)} profile picture">${escapeHtml(initials)}</div>
+    <div class="comment-item__body">
+      <div class="comment-item__meta">
+        <strong>${escapeHtml(name)}</strong>
+        <span>${escapeHtml(dateValue)}</span>
+      </div>
+      <p>${escapeHtml(message).replace(/\n/g, '<br>')}</p>
+      <div class="comment-item__actions">
+        <button type="button" class="comment-reaction" data-reaction="like" aria-label="Like comment">
+          <span aria-hidden="true">&#128077;</span><span class="comment-reaction__count">0</span>
+        </button>
+        <button type="button" class="comment-reaction" data-reaction="dislike" aria-label="Dislike comment">
+          <span aria-hidden="true">&#128078;</span>
+        </button>
+        <button type="button" class="comment-item__reply-trigger" aria-expanded="false">Reply</button>
+      </div>
+      <form class="comment-reply-form" hidden>
+        <textarea name="reply-message" placeholder="Write a reply..."></textarea>
+        <div class="comment-reply-form__actions">
+          <button type="button" class="comment-reply-form__cancel">Cancel</button>
+          <button type="submit" class="comment-reply-form__button">Send</button>
+        </div>
+      </form>
+      <div class="comment-item__replies" hidden></div>
+    </div>
+  `;
+
+  const replyTrigger = article.querySelector('.comment-item__reply-trigger');
+  const replyForm = article.querySelector('.comment-reply-form');
+  const repliesList = article.querySelector('.comment-item__replies');
+  const body = article.querySelector('.comment-item__body');
+
+  body.appendChild(replySummary);
+  attachCommentInteractions(article, replyTrigger, replyForm, repliesList, replySummary);
+
+  return article;
+}
+
 function renderCommandList() {
   const container = document.getElementById('commandList');
   if (!container) return;
@@ -560,6 +699,189 @@ function initCommandSearch() {
   applyFilter();
 }
 
+function enhanceExistingComments() {
+  document.querySelectorAll('.comment-item').forEach((comment) => {
+    if (comment.dataset.commentEnhanced === 'true') return;
+    comment.dataset.commentEnhanced = 'true';
+    comment.dataset.replyCount = '0';
+
+    const name = comment.querySelector('.comment-item__meta strong')?.textContent?.trim() || 'Reader';
+    const text = comment.querySelector('p')?.textContent?.trim() || '';
+    const date = comment.querySelector('.comment-item__meta span')?.textContent?.trim() || new Date().toLocaleDateString(undefined, { month: 'short', day: 'numeric', year: 'numeric' });
+
+    const avatar = document.createElement('div');
+    avatar.className = 'comment-item__avatar';
+    avatar.setAttribute('aria-label', `${name} profile picture`);
+    avatar.textContent = getInitials(name);
+
+    const body = document.createElement('div');
+    body.className = 'comment-item__body';
+
+    const meta = document.createElement('div');
+    meta.className = 'comment-item__meta';
+    meta.innerHTML = `<strong>${escapeHtml(name)}</strong><span>${escapeHtml(date)}</span>`;
+
+    const paragraph = document.createElement('p');
+    paragraph.innerHTML = escapeHtml(text).replace(/\n/g, '<br>');
+
+    const actions = document.createElement('div');
+    actions.className = 'comment-item__actions';
+    actions.innerHTML = `
+      <button type="button" class="comment-reaction" data-reaction="like" aria-label="Like comment">
+        <span aria-hidden="true">&#128077;</span><span class="comment-reaction__count">0</span>
+      </button>
+      <button type="button" class="comment-reaction" data-reaction="dislike" aria-label="Dislike comment">
+        <span aria-hidden="true">&#128078;</span>
+      </button>
+    `;
+    const replyButton = document.createElement('button');
+    replyButton.type = 'button';
+    replyButton.className = 'comment-item__reply-trigger';
+    replyButton.textContent = 'Reply';
+    replyButton.setAttribute('aria-expanded', 'false');
+    actions.appendChild(replyButton);
+
+    const viewReplies = document.createElement('button');
+    viewReplies.type = 'button';
+    viewReplies.className = 'comment-item__view-replies';
+    viewReplies.hidden = true;
+    viewReplies.textContent = 'View reply';
+
+    const replyForm = document.createElement('form');
+    replyForm.className = 'comment-reply-form';
+    replyForm.hidden = true;
+    replyForm.innerHTML = `
+      <textarea name="reply-message" placeholder="Write a reply..."></textarea>
+      <div class="comment-reply-form__actions">
+        <button type="button" class="comment-reply-form__cancel">Cancel</button>
+        <button type="submit" class="comment-reply-form__button">Send</button>
+      </div>
+    `;
+
+    const repliesList = document.createElement('div');
+    repliesList.className = 'comment-item__replies';
+    repliesList.hidden = true;
+
+    body.appendChild(meta);
+    body.appendChild(paragraph);
+    body.appendChild(actions);
+    body.appendChild(replyForm);
+    body.appendChild(repliesList);
+    body.appendChild(viewReplies);
+
+    comment.innerHTML = '';
+    comment.appendChild(avatar);
+    comment.appendChild(body);
+    attachCommentInteractions(comment, replyButton, replyForm, repliesList, viewReplies);
+  });
+}
+
+function initComments() {
+  document.querySelectorAll('.comment-section').forEach((section) => {
+    if (section.dataset.feedbackInitialized === 'true') return;
+    section.dataset.feedbackInitialized = 'true';
+    if (!section.id) section.id = 'article-comments';
+    section.hidden = true;
+
+    const feedbackButton = document.createElement('button');
+    feedbackButton.type = 'button';
+    feedbackButton.className = 'feedback-trigger';
+    feedbackButton.textContent = 'Give feedback';
+    feedbackButton.setAttribute('aria-expanded', 'false');
+    feedbackButton.setAttribute('aria-controls', section.id || 'article-comments');
+    section.insertAdjacentElement('beforebegin', feedbackButton);
+
+    feedbackButton.addEventListener('click', () => {
+      const isOpening = section.hidden;
+      section.hidden = !isOpening;
+      feedbackButton.textContent = isOpening ? 'Hide feedback' : 'Give feedback';
+      feedbackButton.setAttribute('aria-expanded', String(isOpening));
+      if (isOpening) {
+        section.querySelector('input[name="comment-name"]')?.focus();
+      }
+    });
+  });
+
+  enhanceExistingComments();
+
+  document.querySelectorAll('.comment-list').forEach((list) => {
+    const items = Array.from(list.querySelectorAll(':scope > .comment-item'));
+    if (items.length <= 1) return;
+
+    items.forEach((item, index) => {
+      item.hidden = index > 0;
+    });
+
+    const toggleButton = document.createElement('button');
+    toggleButton.type = 'button';
+    toggleButton.className = 'comment-list__toggle';
+    toggleButton.textContent = 'See more comments';
+
+    let expanded = false;
+    toggleButton.addEventListener('click', () => {
+      expanded = !expanded;
+      items.forEach((item, itemIndex) => {
+        if (itemIndex === 0) return;
+        item.hidden = !(expanded || itemIndex === 0);
+      });
+      toggleButton.textContent = expanded ? 'Show fewer comments' : 'See more comments';
+    });
+
+    list.insertAdjacentElement('afterend', toggleButton);
+  });
+
+  document.querySelectorAll('.comment-form').forEach((form) => {
+    const list = form.closest('.comment-section')?.querySelector('.comment-list');
+    if (!list) return;
+
+    form.addEventListener('submit', (event) => {
+      event.preventDefault();
+
+      const nameField = form.querySelector('input[name="comment-name"]');
+      const messageField = form.querySelector('textarea[name="comment-message"]');
+      const name = (nameField?.value || 'Reader').trim() || 'Reader';
+      const message = (messageField?.value || '').trim();
+
+      if (!message) {
+        if (messageField) messageField.focus();
+        return;
+      }
+
+      const article = buildCommentCard(name, message, { date: new Date().toLocaleDateString(undefined, { month: 'short', day: 'numeric', year: 'numeric' }) });
+      list.prepend(article);
+      const items = Array.from(list.querySelectorAll(':scope > .comment-item'));
+      items.forEach((item, index) => {
+        item.hidden = index > 0;
+      });
+
+      const existingToggle = list.parentElement?.querySelector('.comment-list__toggle');
+      if (existingToggle) existingToggle.remove();
+
+      const toggleButton = document.createElement('button');
+      toggleButton.type = 'button';
+      toggleButton.className = 'comment-list__toggle';
+      toggleButton.textContent = 'See more comments';
+
+      let expanded = false;
+      toggleButton.addEventListener('click', () => {
+        expanded = !expanded;
+        Array.from(list.querySelectorAll(':scope > .comment-item')).forEach((item, index) => {
+          if (index === 0) return;
+          item.hidden = !expanded;
+        });
+        toggleButton.textContent = expanded ? 'Show fewer comments' : 'See more comments';
+      });
+
+      if (items.length > 1) {
+        list.insertAdjacentElement('afterend', toggleButton);
+      }
+
+      form.reset();
+      messageField?.focus();
+    });
+  });
+}
+
 // ── Init ─────────────────────────────────────────────────────
 document.addEventListener('DOMContentLoaded', () => {
   initTheme();
@@ -576,4 +898,5 @@ document.addEventListener('DOMContentLoaded', () => {
   attachCommandCopyHandlers();
   initClipboardCopy();
   initCommandSearch();
+  initComments();
 });

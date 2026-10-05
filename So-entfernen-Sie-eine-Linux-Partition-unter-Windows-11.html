@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="de" data-theme="light">
+<head>
+  <link rel="canonical" href="https://dualbootwindows.me/So-entfernen-Sie-eine-Linux-Partition-unter-Windows-11.html" />
+  <meta name="msvalidate.01" content="EFA4977DE77020B34218969623A1AE63" />
+  <link rel="icon" type="image/x-icon" href="favicon/favicon.ico">
+  <link rel="icon" type="image/png" sizes="96x96" href="favicon/favicon-96x96.png">
+  <link rel="icon" type="image/svg+xml" href="favicon/favicon.svg">
+  <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
+  <link rel="manifest" href="favicon/site.webmanifest">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>So entfernen Sie eine Linux-Partition unter Windows 11</title>
+  <meta name="description" content="Eine sichere Schritt-für-Schritt-Anleitung zum Löschen einer Linux-Partition und Zurückgewinnen des Speicherplatzes unter Windows 11." />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .article-hero {
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      padding: 64px 24px 40px;
+      text-align: center;
+      margin-bottom: 24px;
+    }
+
+    .article-hero__tag {
+      color: var(--accent);
+      display: inline-flex;
+      font: 0.75rem/1 var(--mono);
+      letter-spacing: 0.14em;
+      margin-bottom: 18px;
+      text-transform: uppercase;
+    }
+
+    .article-hero h1 {
+      color: var(--text);
+      font: 700 clamp(2.35rem, 5vw, 3.6rem)/1.08 var(--serif);
+      margin: 0 auto 20px;
+      max-width: 780px;
+    }
+
+    .article-hero__summary {
+      color: var(--text-muted);
+      font-size: 1.05rem;
+      line-height: 1.8;
+      margin: 0 auto 18px;
+      max-width: 700px;
+    }
+
+    .article-hero__meta {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+
+    .article-image {
+      margin: 0 auto 30px;
+      max-width: 960px;
+      padding: 0 18px;
+      text-align: center;
+    }
+
+    .article-image img {
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      box-shadow: var(--shadow);
+      display: inline-block;
+      width: 100%;
+    }
+
+    .article-content {
+      margin: 0 auto;
+      max-width: var(--max-w);
+      padding: 0 24px 60px;
+    }
+
+    .article-intro,
+    .article-step,
+    .article-conclusion {
+      margin: 28px 0;
+    }
+
+    .article-intro {
+      border-left: 4px solid var(--accent);
+      padding: 4px 0 4px 24px;
+    }
+
+    .article-intro p,
+    .article-step p,
+    .article-step li,
+    .article-conclusion p {
+      color: var(--text);
+      font-size: 1rem;
+      line-height: 1.85;
+    }
+
+    .article-intro p,
+    .article-conclusion p {
+      margin-bottom: 16px;
+    }
+
+    .article-step {
+      border-top: 1px solid var(--border);
+      padding-top: 30px;
+    }
+
+    .article-step__label {
+      color: var(--accent);
+      display: inline-block;
+      font: 0.75rem/1.4 var(--mono);
+      letter-spacing: 0.12em;
+      margin-bottom: 12px;
+      text-transform: uppercase;
+    }
+
+    .article-step h2,
+    .article-conclusion h2 {
+      color: var(--text);
+      font-family: var(--serif);
+      line-height: 1.2;
+      margin-bottom: 18px;
+    }
+
+    .article-step h2 {
+      font-size: 1.8rem;
+    }
+
+    .article-conclusion {
+      border-top: 1px solid var(--border);
+      margin-top: 46px;
+      padding-top: 34px;
+      text-align: center;
+    }
+
+    .article-conclusion h2 {
+      font-size: 2rem;
+    }
+
+    ul {
+      margin: 16px 0 18px;
+      padding-left: 1.4rem;
+    }
+
+    li {
+      margin-bottom: 12px;
+    }
+
+    .article-callout {
+      background: #fdf0f0;
+      border: 1px solid #f4c1c1;
+      border-radius: 12px;
+      color: #8b1c1c;
+      font: 0.95rem/1.7 var(--mono);
+      margin: 26px 0;
+      padding: 18px 22px;
+    }
+
+    [data-theme="dark"] .article-callout {
+      background: #351d1d;
+      border-color: #713535;
+      color: #f1b7b7;
+    }
+
+    table {
+      border-collapse: collapse;
+      margin: 28px 0;
+      min-width: 320px;
+      width: 100%;
+    }
+
+    th,
+    td {
+      border: 1px solid var(--border);
+      color: var(--text);
+      line-height: 1.65;
+      padding: 14px 16px;
+      text-align: left;
+      vertical-align: top;
+    }
+
+    th {
+      background: var(--surface);
+    }
+
+    @media (max-width: 760px) {
+      .article-hero {
+        padding: 48px 18px 32px;
+      }
+
+      .article-hero h1 {
+        font-size: 2.35rem;
+      }
+
+      .article-content {
+        padding: 0 18px 56px;
+      }
+
+      .article-intro {
+        padding-left: 18px;
+      }
+
+      table {
+        font-size: 0.9rem;
+      }
+
+      th,
+      td {
+        padding: 11px 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar" role="navigation" aria-label="Hauptnavigation">
+    <div class="navbar__inner">
+      <button class="navbar__toggle" type="button" aria-label="Navigationsmenü öffnen" aria-expanded="false">
+        <span class="navbar__toggle-lines" aria-hidden="true"><span></span></span>
+      </button>
+      <a href="index.html" class="navbar__logo" aria-label="Dual Boot und Linux Startseite">
+        <img class="site-logo" src="assets/images/dualboot-logo.svg" alt="Dual-Boot-Logo" aria-hidden="true" />
+      </a>
+      <div class="navbar__nav">
+        <a href="index.html">Home</a>
+        <a href="disk_partition_size_calculator_for_dual_boot.html">Calculator</a>
+        <a href="linux_command_for_beginner.html">Commands</a>
+        <a href="about.html" class="navbar__mobile-only">About</a>
+        <a href="contact.html" class="navbar__mobile-only">Contact</a>
+        <a href="terms.html" class="navbar__mobile-only">Terms</a>
+      </div>
+      <div class="navbar__controls">
+        <button id="darkToggle" class="toggle-dark" aria-label="Dunkelmodus aktivieren" title="Dunkelmodus aktivieren">
+          <span class="toggle-dark__label" aria-hidden="true">🌙</span>
+        </button>
+      </div>
+      <div class="navbar__overlay" aria-hidden="true"></div>
+    </div>
+  </nav>
+
+  <main>
+    <header class="article-hero" aria-labelledby="article-title">
+      <span class="article-hero__tag">Windows 11 · Speicherplatz zurückgewinnen</span>
+      <h1 id="article-title">So entfernen Sie eine Linux-Partition unter Windows 11</h1>
+      <p class="article-hero__summary">Eine sichere Schritt-für-Schritt-Anleitung, mit der Sie Ihre alte Linux-Partition löschen und den Speicherplatz unter Windows 11 zurückgewinnen.</p>
+      <div class="article-hero__meta">Anfängerfreundliche Anleitung · Lesezeit: 5 Minuten</div>
+    </header>
+
+    <div class="article-image">
+      <img src="assets/images/hard_drive_partition_for_dual_boot.png" alt="Festplattenpartitionen unter Windows 11" loading="lazy">
+    </div>
+
+    <div class="article-content">
+      <section class="article-intro" aria-label="Einleitung">
+        <p>Wenn dir der Gedanke, deine Festplattenpartitionen anzufassen, Schweiß auf die Stirn treibt, bist du nicht allein. Viele Anfänger machen sich Sorgen, dass sie beim Löschen einer Linux-Partition versehentlich Windows beschädigen könnten.</p>
+        <p>Diese Anleitung führt dich Schritt für Schritt durch den gesamten Prozess – nur mit den integrierten Windows-11-Tools – damit du deinen Festplattenspeicher mit Zuversicht zurückgewinnst.</p>
+      </section>
+
+      <section class="article-step">
+        <span class="article-step__label">Bevor du beginnst</span>
+        <h2>Voraussetzungen</h2>
+        <p>Bevor du in die Schritte einsteigst, stelle sicher, dass du Folgendes bereithältst. Das macht den gesamten Prozess reibungsloser und sicherer.</p>
+        <ul>
+          <li><strong>Eine Sicherung deiner wichtigen Dateien</strong> – Auch wenn diese Anleitung darauf ausgelegt ist, nur die Linux-Partition anzufassen, ist es immer klug, vorher alles Wichtige auf deinem Windows-Laufwerk zu sichern.</li>
+          <li><strong>Administratorzugriff auf deinen Windows-11-PC</strong> – Du benötigst ein Administratorkonto, um die Datenträgerverwaltung zu öffnen und Partitionen zu ändern.</li>
+          <li><strong>Ein wenig Zeit (15–20 Minuten)</strong> – Hetze bei Datenträgeränderungen ist der Weg, auf dem Fehler passieren, also plane einen ruhigen Zeitblock ein.</li>
+          <li><strong>Dein Laptop am Stromnetz</strong> – Ein Laptop, der mitten im Prozess ausgeht, könnte Probleme verursachen, also schließe dein Ladegerät an, bevor du beginnst.</li>
+          <li><strong>Eine Vorstellung davon, welche Partition Linux ist</strong> – Die Größe oder Bezeichnung der Linux-Partition zu kennen, hilft dir, nicht die falsche zu löschen.</li>
+        </ul>
+      </section>
+
+      <section class="article-step">
+        <span class="article-step__label">Schritt 1</span>
+        <h2>Datenträgerverwaltung öffnen</h2>
+        <p>Das erste Tool, das du verwenden wirst, ist die <strong>Datenträgerverwaltung</strong>. Sie ist in Windows 11 integriert und zeigt jede Partition auf deinem Computer an.</p>
+        <p>Klicke mit der rechten Maustaste auf die <strong>Start-Schaltfläche</strong> und wähle <strong>Datenträgerverwaltung</strong>. Du kannst auch „Datenträger erstellen und formatieren“ in die Windows-Suchleiste eingeben.</p>
+      </section>
+
+      <section class="article-step">
+        <span class="article-step__label">Schritt 2</span>
+        <h2>Die Linux-Partition identifizieren</h2>
+        <p>Jetzt kommt der wichtigste Teil: korrekt zu identifizieren, welche Partition zu Linux gehört.</p>
+        <p>Linux-Partitionen erscheinen normalerweise als <strong>Unbekannt</strong> oder unformatiert, weil Windows Linux-Dateisysteme wie ext4 nicht lesen kann. Sie erscheinen oft als schwarzer Balken ohne Laufwerksbuchstaben.</p>
+        <p>Klicke auf jede Partition und vergleiche die in der Datenträgerverwaltung angezeigte Größe und Bezeichnung mit dem, was du bereits über dein Setup weißt.</p>
+        <div class="article-callout"><strong>Warnung:</strong> Prüfe alles doppelt, bevor du löschst. Stelle sicher, dass du nicht das Windows-<strong>C:</strong>-Laufwerk auswählst. Das Löschen der falschen Partition kann zu dauerhaftem Datenverlust führen.</div>
+      </section>
+
+      <section class="article-step">
+        <span class="article-step__label">Schritt 3</span>
+        <h2>Die Linux-Partition löschen</h2>
+        <p>Sobald du sicher bist, dass du die richtige Partition ausgewählt hast, klicke mit der rechten Maustaste darauf und wähle <strong>Volume löschen</strong>.</p>
+        <p>Windows wird warnen, dass alle Daten auf dieser Partition gelöscht werden – das ist zu erwarten, da dies die alte Linux-Partition ist, die du entfernst.</p>
+        <p>Nach dem Löschen wird die Partition zu <strong>Nicht zugewiesenem Speicherplatz</strong>, der als schwarzer Balken ohne Bezeichnung angezeigt wird. Das bedeutet, dass der Speicherplatz nun frei zur Wiederverwendung ist.</p>
+      </section>
+
+      <section class="article-step">
+        <span class="article-step__label">Schritt 4</span>
+        <h2>Deine Windows-Partition erweitern</h2>
+        <p>Um den Festplattenspeicher tatsächlich zurückzugewinnen, klicke mit der rechten Maustaste auf dein Windows-<strong>C:</strong>-Laufwerk und wähle <strong>Volume erweitern</strong>.</p>
+        <p>Behalte die Standardwerte im Assistenten bei, klicke auf <strong>Weiter</strong> und dann auf <strong>Fertig stellen</strong>. Dein Windows-Laufwerk zeigt nun den zusätzlichen Speicherplatz an.</p>
+      </section>
+
+      <section class="article-step">
+        <span class="article-step__label">Schritt 5</span>
+        <h2>Den alten Boot-Menü-Eintrag entfernen</h2>
+        <p>Wenn dein PC beim Start noch eine Linux-Boot-Option anzeigt, öffne die <strong>Systemkonfiguration</strong>, indem du nach <strong>msconfig</strong> suchst.</p>
+        <p>Gehe zur Registerkarte <strong>Start</strong>, wähle den übrig gebliebenen Linux-Eintrag aus, falls er erscheint, und klicke auf <strong>Löschen</strong>, dann auf <strong>Übernehmen</strong>.</p>
+      </section>
+
+      <section class="article-step">
+        <span class="article-step__label">Schnelle Hilfe</span>
+        <h2>Häufige Fehler und wie man sie behebt</h2>
+        <table>
+          <thead>
+            <tr><th>Fehler</th><th>Schnelle Lösung</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Volume erweitern ist ausgegraut</td><td>Stelle sicher, dass der nicht zugewiesene Speicherplatz direkt rechts von deinem C:-Laufwerk liegt.</td></tr>
+            <tr><td>Partition lässt sich nicht löschen</td><td>Bestätige, dass du <strong>Volume löschen</strong> und nicht <strong>Volume verkleinern</strong> ausgewählt hast.</td></tr>
+            <tr><td>Altes Linux-Boot-Menü erscheint noch</td><td>Entferne den übrig gebliebenen Eintrag in der <strong>Systemkonfiguration (msconfig)</strong> unter der Registerkarte <strong>Start</strong>.</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="article-conclusion">
+        <h2>Du bist fertig</h2>
+        <p>Herzlichen Glückwunsch – du hast die Linux-Partition erfolgreich aus Windows 11 entfernt und den Festplattenspeicher zurückgewonnen, ohne zusätzliche Tools zu installieren.</p>
+        <p>Wenn du neugierig bist, Linux später erneut zu erkunden, schau dir unseren verwandten Artikel <a href="linux_command_for_beginner.html" target="_blank" rel="noopener">Anfängerfreundliche Linux-Befehle</a> an, um die Grundlagen zu lernen.</p>
+      </section>
+
+      <section class="comment-section" id="article-comments" aria-labelledby="comments-title">
+        <div class="comment-section__header">
+          <h2 class="comment-section__title" id="comments-title">Feedback zur Anleitung</h2>
+          <p class="comment-section__subtitle">Teile deine Erfahrung oder stelle eine Frage.</p>
+        </div>
+        <form class="comment-form">
+          <div class="comment-form__row">
+            <div class="comment-field">
+              <label for="comment-name">Name</label>
+              <input id="comment-name" name="comment-name" type="text" autocomplete="name" placeholder="Dein Name">
+            </div>
+            <div class="comment-field">
+              <label for="comment-message">Nachricht</label>
+              <textarea id="comment-message" name="comment-message" placeholder="Dein Feedback oder deine Frage"></textarea>
+            </div>
+          </div>
+          <div class="comment-form__actions">
+            <button class="comment-submit" type="submit">Feedback senden</button>
+          </div>
+        </form>
+        <div class="comment-list" aria-live="polite"></div>
+      </section>
+    </div>
+  </main>
+
+  <footer role="contentinfo">
+    <div class="footer__inner">
+      <div class="footer__top">
+        <div class="footer__brand">
+          <p class="footer__brand-name"><img class="site-logo" src="assets/images/dualboot-logo.svg" alt="Dual-Boot-Logo" aria-hidden="true" /></p>
+          <p class="footer__tagline">Deine anfängerfreundliche Anlaufstelle für Linux und Windows 11 im Dual-Boot.</p>
+        </div>
+        <nav class="footer__links-col" aria-label="Footer-Navigation">
+          <h4>Navigation</h4>
+          <a href="index.html" target="_blank" rel="noopener">Home</a>
+          <a href="about.html" target="_blank" rel="noopener">About</a>
+          <a href="contact.html" target="_blank" rel="noopener">Contact</a>
+          <a href="terms.html" target="_blank" rel="noopener">Terms</a>
+        </nav>
+      </div>
+      <div class="footer__bottom"><p class="footer__copy">© 2025 Dual Boot &amp; Linux. All rights reserved.</p></div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

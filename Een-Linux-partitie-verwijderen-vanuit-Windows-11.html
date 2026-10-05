@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="nl" data-theme="light">
+<head>
+  <link rel="canonical" href="https://dualbootwindows.me/Een-Linux-partitie-verwijderen-vanuit-Windows-11.html" />
+  <meta name="msvalidate.01" content="EFA4977DE77020B34218969623A1AE63" />
+  <link rel="icon" type="image/x-icon" href="favicon/favicon.ico">
+  <link rel="icon" type="image/png" sizes="96x96" href="favicon/favicon-96x96.png">
+  <link rel="icon" type="image/svg+xml" href="favicon/favicon.svg">
+  <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
+  <link rel="manifest" href="favicon/site.webmanifest">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Een Linux-partitie verwijderen vanuit Windows 11</title>
+  <meta name="description" content="Een veilige stap-voor-stap handleiding om een Linux-partitie te verwijderen en schijfruimte terug te winnen vanuit Windows 11." />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .article-hero { background: var(--surface); border-bottom: 1px solid var(--border); padding: 64px 24px 40px; text-align: center; margin-bottom: 24px; }
+    .article-hero__tag { color: var(--accent); display: inline-flex; font: 0.75rem/1 var(--mono); letter-spacing: 0.14em; margin-bottom: 18px; text-transform: uppercase; }
+    .article-hero h1 { color: var(--text); font: 700 clamp(2.35rem, 5vw, 3.6rem)/1.08 var(--serif); margin: 0 auto 20px; max-width: 780px; }
+    .article-hero__summary { color: var(--text-muted); font-size: 1.05rem; line-height: 1.8; margin: 0 auto 18px; max-width: 700px; }
+    .article-hero__meta { color: var(--text-muted); font-size: 0.95rem; }
+    .article-image { margin: 0 auto 30px; max-width: 960px; padding: 0 18px; text-align: center; }
+    .article-image img { border: 1px solid var(--border); border-radius: 20px; box-shadow: var(--shadow); display: inline-block; width: 100%; }
+    .article-content { margin: 0 auto; max-width: var(--max-w); padding: 0 24px 60px; }
+    .article-intro, .article-step, .article-conclusion { margin: 28px 0; }
+    .article-intro { border-left: 4px solid var(--accent); padding: 4px 0 4px 24px; }
+    .article-intro p, .article-step p, .article-step li, .article-conclusion p { color: var(--text); font-size: 1rem; line-height: 1.85; }
+    .article-intro p, .article-conclusion p { margin-bottom: 16px; }
+    .article-step { border-top: 1px solid var(--border); padding-top: 30px; }
+    .article-step__label { color: var(--accent); display: inline-block; font: 0.75rem/1.4 var(--mono); letter-spacing: 0.12em; margin-bottom: 12px; text-transform: uppercase; }
+    .article-step h2, .article-conclusion h2 { color: var(--text); font-family: var(--serif); line-height: 1.2; margin-bottom: 18px; }
+    .article-step h2 { font-size: 1.8rem; }
+    .article-conclusion { border-top: 1px solid var(--border); margin-top: 46px; padding-top: 34px; text-align: center; }
+    .article-conclusion h2 { font-size: 2rem; }
+    ul { margin: 16px 0 18px; padding-left: 1.4rem; }
+    li { margin-bottom: 12px; }
+    .article-callout { background: #fdf0f0; border: 1px solid #f4c1c1; border-radius: 12px; color: #8b1c1c; font: 0.95rem/1.7 var(--mono); margin: 26px 0; padding: 18px 22px; }
+    [data-theme="dark"] .article-callout { background: #351d1d; border-color: #713535; color: #f1b7b7; }
+    table { border-collapse: collapse; margin: 28px 0; min-width: 320px; width: 100%; }
+    th, td { border: 1px solid var(--border); color: var(--text); line-height: 1.65; padding: 14px 16px; text-align: left; vertical-align: top; }
+    th { background: var(--surface); }
+    @media (max-width: 760px) {
+      .article-hero { padding: 48px 18px 32px; }
+      .article-hero h1 { font-size: 2.35rem; }
+      .article-content { padding: 0 18px 56px; }
+      .article-intro { padding-left: 18px; }
+      table { font-size: 0.9rem; }
+      th, td { padding: 11px 10px; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar" role="navigation" aria-label="Hoofdnavigatie">
+    <div class="navbar__inner">
+      <button class="navbar__toggle" type="button" aria-label="Navigatiemenu openen" aria-expanded="false"><span class="navbar__toggle-lines" aria-hidden="true"><span></span></span></button>
+      <a href="index.html" class="navbar__logo" aria-label="Dual Boot en Linux home"><img class="site-logo" src="assets/images/dualboot-logo.svg" alt="dual boot logo" aria-hidden="true" /></a>
+      <div class="navbar__nav">
+        <a href="index.html">Home</a>
+        <a href="disk_partition_size_calculator_for_dual_boot.html">Calculator</a>
+        <a href="linux_command_for_beginner.html">Commands</a>
+        <a href="about.html" class="navbar__mobile-only">About</a>
+        <a href="contact.html" class="navbar__mobile-only">Contact</a>
+        <a href="terms.html" class="navbar__mobile-only">Terms</a>
+      </div>
+      <div class="navbar__controls"><button id="darkToggle" class="toggle-dark" aria-label="Donkere modus inschakelen" title="Donkere modus inschakelen"><span class="toggle-dark__label" aria-hidden="true">🌙</span></button></div>
+      <div class="navbar__overlay" aria-hidden="true"></div>
+    </div>
+  </nav>
+
+  <main>
+    <header class="article-hero" aria-labelledby="article-title">
+      <span class="article-hero__tag">Windows 11 · Schijfruimte terugwinnen</span>
+      <h1 id="article-title">Een Linux-partitie verwijderen vanuit Windows 11</h1>
+      <p class="article-hero__summary">Een veilige stap-voor-stap handleiding om je oude Linux-partitie te verwijderen en schijfruimte terug te winnen vanuit Windows 11.</p>
+      <div class="article-hero__meta">Beginnersvriendelijke handleiding · Leestijd: 5 minuten</div>
+    </header>
+
+    <div class="article-image"><img src="assets/images/hard_drive_partition_for_dual_boot.png" alt="Schijfpartities in Windows 11" loading="lazy"></div>
+
+    <div class="article-content">
+      <section class="article-intro" aria-label="Inleiding">
+        <p>Als de gedachte aan het aanraken van je schijfpartities je handen laat zweten, ben je niet de enige. Veel beginners maken zich zorgen dat ze per ongeluk Windows kapotmaken bij het verwijderen van een Linux-partitie.</p>
+        <p>Deze handleiding leidt je stap voor stap door het hele proces – met alleen de ingebouwde hulpmiddelen van Windows 11 – zodat je je schijfruimte met vertrouwen kunt terugwinnen.</p>
+      </section>
+
+      <section class="article-step">
+        <span class="article-step__label">Voordat je begint</span>
+        <h2>Vereisten</h2>
+        <p>Voordat je in de stappen duikt, zorg ervoor dat je het volgende klaar hebt. Dit maakt het hele proces soepeler en veiliger.</p>
+        <ul>
+          <li><strong>Een back-up van je belangrijke bestanden</strong> – Hoewel deze handleiding is ontworpen om alleen de Linux-partitie aan te raken, is het altijd verstandig om eerst alles wat belangrijk is op je Windows-schijf te back-uppen.</li>
+          <li><strong>Beheerderstoegang tot je Windows 11-pc</strong> – Je hebt een beheerdersaccount nodig om Schijfbeheer te openen en partities te wijzigen.</li>
+          <li><strong>Een beetje tijd (15–20 minuten)</strong> – Haast maken met schijfwijzigingen is hoe fouten ontstaan, dus plan een rustig tijdsblok in.</li>
+          <li><strong>Je laptop aangesloten op stroom</strong> – Een laptop die midden in het proces uitschakelt, kan problemen veroorzaken, dus sluit je oplader aan voordat je begint.</li>
+          <li><strong>Een idee van welke partitie Linux is</strong> – Weten wat de grootte of het label van de Linux-partitie is, helpt je om niet de verkeerde te verwijderen.</li>
+        </ul>
+      </section>
+
+      <section class="article-step">
+        <span class="article-step__label">Stap 1</span>
+        <h2>Schijfbeheer openen</h2>
+        <p>Het eerste hulpmiddel dat je gaat gebruiken is <strong>Schijfbeheer</strong>. Het is ingebouwd in Windows 11 en toont elke partitie op je computer.</p>
+        <p>Klik met de rechtermuisknop op de <strong>Start-knop</strong> en selecteer <strong>Schijfbeheer</strong>. Je kunt ook “Schijven maken en formatteren” typen in de Windows-zoekbalk.</p>
+      </section>
+
+      <section class="article-step">
+        <span class="article-step__label">Stap 2</span>
+        <h2>De Linux-partitie identificeren</h2>
+        <p>Nu komt het belangrijkste deel: correct identificeren welke partitie bij Linux hoort.</p>
+        <p>Linux-partities verschijnen meestal als <strong>Onbekend</strong> of niet-geformatteerd, omdat Windows Linux-bestandssystemen zoals ext4 niet kan lezen. Ze verschijnen vaak als een zwarte balk zonder stationsletter.</p>
+        <p>Klik op elke partitie en vergelijk de grootte en het label dat in Schijfbeheer wordt weergegeven met wat je al weet over je opstelling.</p>
+        <div class="article-callout"><strong>Waarschuwing:</strong> Controleer alles dubbel voordat je verwijdert. Bevestig dat je niet de Windows <strong>C:</strong>-schijf selecteert. Het verwijderen van de verkeerde partitie kan permanent gegevensverlies veroorzaken.</div>
+      </section>
+
+      <section class="article-step">
+        <span class="article-step__label">Stap 3</span>
+        <h2>De Linux-partitie verwijderen</h2>
+        <p>Zodra je zeker weet dat je de juiste partitie hebt geselecteerd, klik je er met de rechtermuisknop op en kies je <strong>Volume verwijderen</strong>.</p>
+        <p>Windows zal waarschuwen dat alle gegevens op deze partitie worden gewist – dat is te verwachten, want dit is de oude Linux-partitie die je verwijdert.</p>
+        <p>Na het verwijderen wordt de partitie <strong>Niet-toegewezen ruimte</strong>, weergegeven als een zwarte balk zonder label. Dit betekent dat de ruimte nu vrij is voor hergebruik.</p>
+      </section>
+
+      <section class="article-step">
+        <span class="article-step__label">Stap 4</span>
+        <h2>Je Windows-partitie uitbreiden</h2>
+        <p>Om de schijfruimte daadwerkelijk terug te winnen, klik je met de rechtermuisknop op je Windows <strong>C:</strong>-schijf en selecteer je <strong>Volume uitbreiden</strong>.</p>
+        <p>Behoud de standaardwaarden in de wizard, klik op <strong>Volgende</strong> en dan op <strong>Voltooien</strong>. Je Windows-schijf toont nu de extra opslagruimte.</p>
+      </section>
+
+      <section class="article-step">
+        <span class="article-step__label">Stap 5</span>
+        <h2>De oude bootmenu-optie verwijderen</h2>
+        <p>Als je pc bij het opstarten nog steeds een Linux-opstartoptie toont, open dan <strong>Systeemconfiguratie</strong> door te zoeken naar <strong>msconfig</strong>.</p>
+        <p>Ga naar het tabblad <strong>Opstarten</strong>, selecteer het overgebleven Linux-item als het verschijnt, en klik op <strong>Verwijderen</strong> en daarna op <strong>Toepassen</strong>.</p>
+      </section>
+
+      <section class="article-step">
+        <span class="article-step__label">Snelle oplossing</span>
+        <h2>Veelvoorkomende fouten en hoe je ze oplost</h2>
+        <table>
+          <thead><tr><th>Fout</th><th>Snelle oplossing</th></tr></thead>
+          <tbody>
+            <tr><td>Volume uitbreiden is grijs</td><td>Zorg ervoor dat de niet-toegewezen ruimte direct rechts van je C:-schijf ligt.</td></tr>
+            <tr><td>Partitie laat zich niet verwijderen</td><td>Bevestig dat je <strong>Volume verwijderen</strong> hebt geselecteerd, niet <strong>Volume verkleinen</strong>.</td></tr>
+            <tr><td>Oud Linux-opstartmenu verschijnt nog</td><td>Verwijder het overgebleven item in <strong>Systeemconfiguratie (msconfig)</strong> onder het tabblad <strong>Opstarten</strong>.</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="article-conclusion">
+        <h2>Je bent klaar</h2>
+        <p>Gefeliciteerd – je hebt met succes de Linux-partitie uit Windows 11 verwijderd en de schijfruimte teruggewonnen zonder extra hulpmiddelen te installeren.</p>
+        <p>Als je nieuwsgierig bent om Linux later opnieuw te verkennen, bekijk dan ons gerelateerde artikel <a href="linux_command_for_beginner.html" target="_blank" rel="noopener">Beginnersvriendelijke Linux-opdrachten</a> om de basis te leren.</p>
+      </section>
+
+      <section class="comment-section" id="article-comments" aria-labelledby="comments-title">
+        <div class="comment-section__header"><h2 class="comment-section__title" id="comments-title">Feedback over deze handleiding</h2><p class="comment-section__subtitle">Deel je ervaring of stel een vraag.</p></div>
+        <form class="comment-form">
+          <div class="comment-form__row">
+            <div class="comment-field"><label for="comment-name">Naam</label><input id="comment-name" name="comment-name" type="text" autocomplete="name" placeholder="Je naam"></div>
+            <div class="comment-field"><label for="comment-message">Bericht</label><textarea id="comment-message" name="comment-message" placeholder="Je feedback of vraag"></textarea></div>
+          </div>
+          <div class="comment-form__actions"><button class="comment-submit" type="submit">Feedback versturen</button></div>
+        </form>
+        <div class="comment-list" aria-live="polite"></div>
+      </section>
+    </div>
+  </main>
+
+  <footer role="contentinfo">
+    <div class="footer__inner"><div class="footer__top">
+      <div class="footer__brand"><p class="footer__brand-name"><img class="site-logo" src="assets/images/dualboot-logo.svg" alt="dual boot logo" aria-hidden="true" /></p><p class="footer__tagline">Jouw beginnersvriendelijke hub voor Linux en Windows 11 in dual boot.</p></div>
+      <nav class="footer__links-col" aria-label="Footer-navigatie"><h4>Navigatie</h4><a href="index.html" target="_blank" rel="noopener">Home</a><a href="about.html" target="_blank" rel="noopener">About</a><a href="contact.html" target="_blank" rel="noopener">Contact</a><a href="terms.html" target="_blank" rel="noopener">Terms</a></nav>
+    </div><div class="footer__bottom"><p class="footer__copy">© 2025 Dual Boot &amp; Linux. All rights reserved.</p></div></div>
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>
